@@ -1,0 +1,73 @@
+/* pages/register/register.wxss */
+view, button {
+  font-size: 32rpx;
+}
+.wellcome {
+  padding: 70rpx 60rpx 104rpx;
+  font-size: 60rpx;
+  color: #3f51b5;
+}
+.form {
+  padding: 20rpx 60rpx;
+}
+.form-wrapper {
+  padding: 30rpx 0;
+  position: relative;
+}
+.form-label, .form-control {
+  display: inline-block;
+  vertical-align: middle;
+}
+.form-label {
+  width: 160rpx;
+  font-size: 38rpx;
+}
+.form-control {
+  width: calc(100% - 160rpx);
+}
+.form-after {
+  position: absolute;
+  right: 0;
+  top: 24rpx;
+}
+.form-after button {
+  font-size: 28rpx;
+  color: #3f51b5;
+  background: none;
+}
+.form-after button {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.form-after button::after {
+  display: none;
+}
+.protocol {
+  padding-left: 60rpx;
+  margin-top: 100rpx;
+  font-size: 32rpx;
+  line-height: 1;
+}
+.my-btn {
+  position: absolute;
+  width: 100%;
+  padding: 0 25%;
+  box-sizing: border-box;
+  bottom: 20%;
+}
+.my-btn button {
+  background-color: #3f51b5;
+  color: #fff;
+  border-radius: 20rpx;
+}
+checkbox {
+  margin-right: 20rpx;
+  height: 48rpx;
+  width: 48rpx;
+}
+.checkbox {
+  font-size: 26rpx;
+  line-height: 48rpx;
+  height: 48rpx;
+  display: block;
+}

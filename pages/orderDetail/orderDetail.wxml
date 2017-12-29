@@ -1,0 +1,46 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class='company-info border-t'>
+  <view class='cell-title'>服务信息</view>
+  <view class='name'>深圳市世界你好有限公司</view>
+  <view class='phone'>
+    <text class='label'>姓名：</text><text style='margin-right: 60rpx'>谭某某</text>
+    <text class='label'>电话：</text><text>13666666666</text>
+  </view>
+  <view class='card'>
+    <view>相关证件</view>
+    <image src="{{url}}"></image>
+    <image src="{{url}}"></image>
+    <image src="{{url}}"></image>
+  </view>
+</view>
+<view class='service-wrapper'>
+  <view class='cell-title'>服务信息</view>
+  <view class='cell-item border-b'>
+    <view class='cell-label'>
+      <image src='{{url}}'></image>
+      <text>服务项目：</text>
+    </view>
+    <view class='cell-content'>
+      <view>企业资料变更</view>
+    </view>
+  </view>
+  <view class='cell-item'>
+    <view class='cell-label'>
+      <image src='{{url}}'></image>
+      <text>服务内容：</text>
+    </view>
+    <view class='cell-content'>
+      <view>企业资料变更、企业资料变更、企业资料变更</view>
+    </view>
+  </view>
+</view>
+<view class='order-info'>
+  <view class='cell-title'>订单信息</view>
+  <view class='cell-list'>
+    <view class='cell-item'><text class='cell-label'>金额：</text><text>￥1500.00</text></view>
+    <view class='cell-item'><text class='cell-label'>下单时间：</text><text>2017-12-12 14:00:00</text></view>
+    <view class='cell-item'><text class='cell-label'>开始时间：</text><text>2017-12-12 14:00:00</text></view>
+    <view class='cell-item'><text class='cell-label'>结束时间：</text><text>2017-12-12 14:00:00</text></view>
+    <view class='cell-item'><text class='cell-label'>订单编号：</text><text style='color:#B53F3F'>201735154521545545454</text></view>
+  </view>
+</view>

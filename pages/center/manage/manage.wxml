@@ -1,0 +1,22 @@
+<!--pages/center/manage/manage.wxml-->
+<view class='header'>
+  <view class='img'>
+    <image src="{{userinfo.photo || userinfo.avatarUrl}}"></image>
+  </view>
+  <view class='info'>
+    <text class='name'>{{userinfo.uname || userinfo.nickName}}</text>
+    <text class='identify'>VIP企业会员</text>
+    <view class='phone' wx:if="{{is_register == 1}}">
+      <image class='icon-phone' src="{{url + '18.png'}}"></image>
+      <text>{{userinfo.name}}</text>
+      <image src="{{url + '19.png'}}"></image>
+    </view>
+  </view>
+</view>
+<view class='cell-title'>名下公司</view>
+<view wx:for="{{company_list}}" wx:key="key" class="company {{index == company_list.length-1?'':'border-bottom'}}" >
+  <view>{{item.company_name}}</view>
+  <view class='charge'>法人代表：{{item.corporate_name}}</view>
+  <image src="{{url + '14.png'}}"></image>
+</view>
+<button class='add' data-routerName='add' bindtap='routeTo' >添加名下企业</button>

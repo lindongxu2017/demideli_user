@@ -1,0 +1,133 @@
+/* pages/pay/pay.wxss */
+page {
+  background-color: #f2f2f2;
+}
+.need-pay {
+  padding: 50rpx 30rpx;
+  color: #3d3f4c;
+  margin-bottom: 14rpx;
+}
+.need-pay .cell-title {
+  font-size: 26rpx;
+  color: #788397;
+  margin-bottom: 30rpx;
+}
+.need-pay .money {
+  font-size: 70rpx;
+}
+.service-wrapper {
+  margin-bottom: 14rpx;
+  padding: 0 30rpx;
+}
+.cell-label {
+  padding-top: 40rpx;
+}
+.cell-label image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 24rpx;
+  vertical-align: middle;
+}
+.cell-label text {
+  color: #3f51b5;
+  font-size: 34rpx;
+  vertical-align: middle;
+}
+.cell-content {
+  padding: 30rpx 0 42rpx 64rpx;
+}
+.cell-content view {
+  font-size: 36rpx;
+  color: #788397;
+}
+.pay-way {
+  padding: 50rpx 30rpx;
+}
+.pay-way .title {
+  font-size: 26rpx;
+  color: #788397;
+}
+.way-item {
+  position: relative;
+  margin-top: 60rpx;
+}
+.way-item image {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}
+.way-item text {
+  font-size: 36rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.way-item text.wx-pay {
+  color: #00ce12;
+}
+.way-item text.public-pay {
+  color: #11c2e8;
+}
+.radio-circle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 48rpx;
+  height: 48rpx;
+  border: 1px solid #788397;
+  border-radius: 50%;
+}
+.active .radio-circle {
+  border-color: #3f51b5;
+}
+.active .radio-circle::after {
+  content: '';
+  position: absolute;
+  left: 6rpx;
+  top: 6rpx;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  background: #3f51b5;
+}
+
+.pay-info {
+  padding: 0 30rpx 50rpx;
+  font-size: 32rpx;
+}
+.pay-info > view {
+  padding: 0 30rpx;
+  background-color: #f7f7f7;
+}
+.pay-info text {
+  display: block;
+}
+.pay-info text.label {
+  padding: 36rpx 0 20rpx;
+  font-size: 30rpx;
+  color: #788397;
+}
+.pay-info text.label + text {
+  padding-bottom: 20rpx;
+  font-size: 30rpx;
+  color: #3d3f4c;
+}
+.border-b::after {
+  background-color: #bababa;
+}
+.pay-info input {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 28rpx;
+  margin-bottom: 36rpx;
+}
+.btn {
+  box-sizing: border-box;
+  padding: 0 20%;
+  margin: 70rpx 0;
+  background: none;
+}
+.btn button {
+  border-radius: 20rpx;
+  background-color: #3f51b5;
+  color: #fff;
+}

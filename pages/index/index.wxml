@@ -1,0 +1,27 @@
+
+<view class='flex'>
+  <view class='left'>
+    <view class='up' data-id='{{showType[0].id}}' bindtap='typeSearch'>
+      <image src="{{showType[0].bz_1}}"></image>
+      <text>工商服务</text>
+    </view>
+    <view class='down' data-id='{{showType[1].id}}' bindtap='typeSearch'>
+      <image src="{{showType[1].bz_1}}"></image>
+      <text>工商服务</text>
+    </view>
+  </view>
+  <view class='right'>
+    <view class='top' data-id='{{showType[2].id}}' bindtap='typeSearch'>
+      <image src="{{showType[2].bz_1}}"></image>
+      <text>工商服务</text>
+    </view>
+    <view class='middle' data-id='{{showType[3].id}}' bindtap='typeSearch'>
+      <image src="{{showType[3].bz_1}}"></image>
+      <text>工商服务</text>
+    </view>
+    <view class='bottom' data-id='{{showType[4].id}}' bindtap='typeSearch'>
+      <image src="{{showType[4].bz_1}}"></image>
+      <text>工商服务</text>
+    </view>
+  </view>
+</view>

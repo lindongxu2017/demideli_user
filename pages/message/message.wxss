@@ -1,0 +1,55 @@
+/* pages/message/message.wxss */
+.list-wrapper {
+  font-size: 0;
+}
+.list-item {
+  width: 100%;
+  padding: 20rpx 0;
+  padding-left: 20rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.list-item::after {
+  content: '';
+  position: absolute;
+  left: calc(13% + 40rpx);
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #E6E6E6;
+}
+.list-item > view {
+  display: inline-block;
+  vertical-align: top;
+}
+.item-img {
+  width: 13%;
+  height: 13vw;
+}
+.item-img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.item-info {
+  width: 87%;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.item-info .title {
+  font-size: 30rpx;
+  margin: 10rpx 0;
+  color: #333333;
+}
+.item-info .msg {
+  font-size: 26rpx;
+  color: #666666;
+}
+.item-after {
+  position: absolute;
+  right: 20rpx;
+  top: 30rpx;
+  font-size: 24rpx;
+  color: #9C9C9C;
+}

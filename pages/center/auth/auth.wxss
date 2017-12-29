@@ -1,0 +1,148 @@
+/* pages/center/auth/auth.wxss */
+page {
+  font-size: 0;
+}
+.headerImg {
+  width: 100%;
+  height: 72.666666vw;
+}
+.is_register {
+  padding: 30rpx 30rpx 60rpx;
+  margin-bottom: 60rpx;
+  position: relative;
+}
+.is_register::after {
+  content: '';
+  position: absolute;
+  left: 30rpx;
+  width: calc(100% - 60rpx);
+  bottom: 0;
+  border-bottom: 1px dashed #a1b0cc;
+}
+.is_register .cell-title {
+  font-size: 30rpx;
+  color: #788397;
+  margin-bottom: 40rpx;
+}
+.is_register .select-list > view {
+  display: inline-block;
+  width: 180rpx;
+  height: 74rpx;
+  line-height: 74rpx;
+  text-align: center;
+  font-size: 26rpx;
+  border: 1px solid #788397;
+  margin-right: 60rpx;
+  border-radius: 10rpx;
+}
+.is_register .select-list > view.select {
+  border-color: #3f51b5;
+  color: #3f51b5;
+}
+.tip {
+  padding: 0 30rpx 60rpx;
+  font-size: 30rpx;
+  color: #788397;
+}
+.tip > text {
+  display: block;
+}
+.tip-content {
+  margin-top: 18rpx;
+  color: #404652;
+  font-size: 26rpx;
+  line-height: 42rpx;
+}
+.upload {
+  padding: 0 30rpx;
+  font-size: 0;
+}
+.upload > view {
+  box-sizing: border-box;
+  text-align: left;
+  margin-bottom: 60rpx;
+}
+.upload > view view {
+  display: inline-block;
+  width: 180rpx;
+  height: 180rpx;
+  line-height: 160rpx;
+  text-align: center;
+  color: #a1b0cc;
+  border: 1px dashed #a1b0cc;
+  border-radius: 10rpx;
+  font-size: 140rpx;
+  vertical-align: text-top;
+}
+.upload > view text.label {
+  display: block;
+  font-size: 30rpx;
+  color: #788397;
+  margin-bottom: 36rpx;
+}
+.upload .uploadIMG {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+.upload > view.idCard view {
+  display: inline-block;
+  font-size: 26rpx;
+  line-height: 180rpx;
+  margin-right: 50rpx;
+  vertical-align: middle;
+}
+.form {
+  padding: 0 30rpx;
+}
+.form-wrapper {
+  padding-bottom: 40rpx;
+  position: relative;
+}
+.form-label {
+  font-size: 30rpx;
+  color: #788397;
+  margin-bottom: 20rpx;
+}
+.form-control {
+  border: 1px solid #788397;
+  border-radius: 10rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  padding-left: 10rpx;
+}
+.submit {
+  padding: 60rpx 0;
+  background-color: #f2f2f2;
+}
+.submit view {
+  background-color: #f2f2f2;
+}
+.protocol {
+  text-align: center;
+  margin-bottom: 48rpx;
+  font-size: 28rpx;
+  line-height: 1;
+}
+.my-btn {
+  width: 100%;
+  padding: 0 18%;
+  box-sizing: border-box;
+}
+.my-btn button {
+  background-color: #3f51b5;
+  color: #fff;
+  border-radius: 20rpx;
+}
+checkbox .wx-checkbox-input {
+  width: 40rpx;
+  height: 40rpx;
+}
+checkbox .wx-checkbox-input {
+  background: none;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  font-size: 32rpx;
+}

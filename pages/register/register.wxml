@@ -1,0 +1,25 @@
+<!--pages/register/register.wxml-->
+<view class='wellcome'>
+  <text>注册</text>
+</view>
+<view class='form'>
+  <view class='form-wrapper border-b'>
+    <!--<view class='form-label'>手机号</view>-->
+    <input class='form-control' placeholder='手机号' type='number' value="{{phone}}" data-key='phone' bindinput='inputValue'></input>
+  </view>
+  <view class='form-wrapper'>
+    <!--<view class='form-label'>验证码</view>-->
+    <input class='form-control' placeholder='验证码' type='number' value="{{code}}" data-key='code' bindinput='inputValue'></input>
+    <view class='form-after'><button bindtap='getcode'>{{codeTitle}}</button></view>
+  </view>
+</view>
+<view class='protocol'>
+  <checkbox-group bindchange="checkboxChange">
+    <label class="checkbox" wx:for="{{items}}" wx:key="key">
+      <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+  </checkbox-group>
+</view>
+<view class='my-btn'>
+  <button bindtap='submit'>提交</button>
+</view>

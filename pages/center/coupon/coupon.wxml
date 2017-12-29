@@ -1,0 +1,2 @@
+<!--pages/center/coupon/coupon.wxml-->
+<image src="{{url}}"></image>

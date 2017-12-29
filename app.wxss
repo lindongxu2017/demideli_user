@@ -1,0 +1,58 @@
+/**app.wxss**/
+
+view {
+  background-color: #fff;
+  font-size: 32rpx;
+  font-family: 'Microsoft YaHei';
+  color: #3C4149;
+}
+
+.theme {
+  color: #788397;
+}
+.orange {
+  color: #F3A643;
+}
+
+.border-t,
+.border-b {
+  position: relative;
+}
+
+.border-t::after,
+.border-b::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #e5e8ee;
+  transform: rotateX(60deg);
+  -ms-transform: rotateX(60deg);
+  -moz-transform: rotateX(60deg);
+  -webkit-transform: rotateX(60deg);
+  -o-transform: rotateX(60deg);
+}
+.border-t::after {
+  top: 0;
+}
+.border-b::after {
+  bottom: 0;
+}
+swiper {
+  /*height: 100vw;*/
+  height: 360rpx;
+  position: relative;
+  z-index: 0;
+}
+swiper-item {
+  position: absolute;
+  overflow: auto;
+  font-size: 0;
+  z-index: 1;
+}
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,10 @@
+<view class='list-wrapper'>
+  <view class='list-item' wx:for="{{list}}" data-value="{{item}}" wx:key="item" bindtap='router'>
+    <view class='item-img'><image src='{{url}}'></image></view>
+    <view class='item-info'>
+      <view class='title'>冒尖好货</view>
+      <view class='msg'>有什么能帮到您的呢</view>
+    </view>
+    <view class='item-after'>2017/9/22</view>
+  </view>
+</view>

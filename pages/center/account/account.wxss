@@ -1,0 +1,57 @@
+/* pages/center/account/account.wxss */
+.title {
+  padding: 20rpx;
+  text-align: center;
+}
+
+.table {
+  display: flex;
+  font-size: 28rpx;
+  text-align: center;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #e5e8ee;
+}
+.table.lable {
+  font-size: 32rpx;
+  padding: 20rpx 0;
+}
+.table.lable > view {
+  color: #3d3f3c;
+}
+.table > view {
+  flex: 1;
+  align-self: center;
+  padding: 10rpx 0;
+  color: #788397;
+}
+.table > view.date {
+  padding-left: 30rpx;
+  text-align: left;
+}
+.table > view.date .time {
+  font-size: 26rpx;
+}
+.table > view.money {
+  font-size: 36rpx;
+  color: #3f51b5;
+}
+.info {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 26rpx;
+  border-top: 1px solid #e5e8ee;
+  color: #fff;
+  background-color: #3f51b5;
+}
+.info text {
+  margin: 0 20rpx;
+  font-size: 34rpx;
+}
+.no-more {
+  text-align: center;
+  color: #999;
+  margin-top: 30%;
+}

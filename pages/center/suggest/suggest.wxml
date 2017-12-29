@@ -1,0 +1,10 @@
+<!--pages/center/suggest/suggest.wxml-->
+<view class='suggest-wrapper'>
+  <view class='title'>投诉建议</view>
+  <view class="section">
+    <textarea bindinput="bindTextAreaBlur" auto-height placeholder="请输入您的建议" />
+  </view>
+</view>
+<view class='my-btn'>
+  <button bindtap='submit'>提交</button>
+</view>

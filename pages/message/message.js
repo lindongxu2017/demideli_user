@@ -1,4 +1,5 @@
 // pages/message/message.js
+const app = getApp()
 Page({
 
   /**
@@ -29,7 +30,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      app.scoket.send({
+          data: JSON.stringify({
+              type: 'get_single_user_list',
+              page: 1
+          })
+      })
+      app.scoket.onMessage(res=>{
+          console.log(res);
+      })
   },
 
   /**

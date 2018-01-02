@@ -42,6 +42,7 @@
   </view>
   <view wx:if="{{tabValue==2}}" class='tab-case'>{{success_case}}</view>
   <view wx:if="{{tabValue==3}}" class='tab-comment'>
+    <view wx:if="{{order_status == 50}}" class='add-comment'><icon type="clear" bindtap='comment'></icon></view>
     <view wx:if="{{comment_list.length==0}}" class='no-comment'>暂无评价</view>
     <view class='comment-item border-b' wx:for="{{detail.comment_list}}" wx:key="key">
       <view class='name'>{{item.uname}}</view>
@@ -66,19 +67,19 @@
     <view>￥{{detail.price_yh}}</view>
     <view class='after'>下单</view>
     <view class="section">
-      <picker bindchange="bindPickerChange" mode="selector" range-key="corporate_name" value="{{index}}" range="{{company_list}}">
+      <picker bindchange="bindPickerChange" mode="selector" range-key="company_name" value="{{index}}" range="{{company_list}}">
         <view class="picker"></view>
       </picker>
     </view>
   </view>
-  <view class='order' wx:if="{{order_type == 1}}">
+  <view class='order' wx:if="{{order_status == 10}}">
     <view class='total'>合计</view>
     <view>￥{{detail.price_yh}}</view>
-    <view class='after'>下单</view>
-    <view class="section">
-      <picker bindchange="bindPickerChange" mode="selector" range-key="corporate_name" value="{{index}}" range="{{company_list}}">
-        <view class="picker"></view>
-      </picker>
-    </view>
+    <view class='after'>支付</view>
+  </view>
+  <view class='order' wx:if="{{order_status > 10}}">
+    <view class='total'>合计</view>
+    <view>￥{{detail.price_yh}}</view>
+    <view class='after'>维权</view>
   </view>
 </view>

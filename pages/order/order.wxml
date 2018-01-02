@@ -1,43 +1,79 @@
 <!--pages/order/order.wxml-->
-<view class="search border-t">
+<!--<view class="search border-t">
   <icon type="search" size="15" class='search-icon' />
   <input type="text" value='{{searchData.order_sn}}' bindinput='keyup' placeholder='输入订单编号' placeholder-style='color:#788397' />
   <button class='search-btn' bindtap='order_search'>搜索</button>
   <button class='screen-btn' bindtap='open_screen'>筛选</button>
-</view>
+</view>-->
 <view class='tab-item'>
   <view data-tab="1" class='{{tabValue==1?"tab-select":""}}' bindtap='tabSwitch'>交易订单</view>
   <view data-tab="2" class='{{tabValue==2?"tab-select":""}}' bindtap='tabSwitch'>历史订单</view>
 </view>
 <view class='tab-content'>
   <view>
-    <view class='order-list' wx:for="{{list}}" wx:key="key" wx:for-item="itemName" data-right="{{itemName.back}}" data-status="{{itemName.status}}" data-id="{{itemName.pid}}" bindtap='godetail'>
+    <view class='order-list' wx:for="{{list}}" wx:key="key" wx:for-item="item" data-right="{{item.back}}" data-status="{{item.status}}" data-pid="{{item.pid}}" data-id="{{item.id}}" bindtap='godetail'>
       <view class='flex order border-b'>
         <view>订单号：
-          <text>{{itemName.order_sn}}</text>
+          <text>{{item.order_sn}}</text>
         </view>
         <view>状态：
-          <text wx:for="{{status_list}}" wx:key="objkey" wx:for-item="objName" wx:if="{{objName.status == itemName.status}}">{{objName.typeMsg}}</text>
+          <text wx:if="{{item.status == 0}}">已失效</text>
+          <text wx:if="{{item.status == 5}}">洽谈中</text>
+          <text wx:if="{{item.status == 10}}" style='color: #E02C2C'>待付款</text>
+          <text wx:if="{{item.status == 30}}">服务中</text>
+          <text wx:if="{{item.status == 50}}" style="color: #4CBFFA">已完成</text>
         </view>
       </view>
       <view class='content'>
         <view class='border-b'>
-          <view class='title'>服务项目</view>
-          <view class='desc'>{{itemName.name}}</view>
+          <view class='title'>服务项目：</view>
+          <view class='desc'>{{item.name}}</view>
         </view>
         <view>
-          <view class='title'>服务内容</view>
-          <view class='desc'>{{itemName.intro}}</view>
+          <view class='title'>服务内容：</view>
+          <view class='desc'>{{item.intro}}</view>
         </view>
       </view>
-      <view class='flex date'>
-        <view>服务价：￥{{itemName.price}}</view>
-        <view>下单时间：{{itemName.addtime}}</view>
+      <view class='flex date' wx:if="{{item.status == 5}}">
+        <view><text>服务价111：</text>￥{{item.price}}</view>
+        <view><text>下单时间：</text>{{item.addtime}}</view>
+      </view>
+      <view class='flex date' wx:if="{{item.status == 10}}">
+        <view>
+          <view><text>服务价：</text>￥{{item.price}}</view>
+          <view><text>下单时间：</text>￥{{item.addtime}}</view>
+        </view>
+        <view style='padding-top:30rpx'>
+          <view class='rihgt' style='color: #E02C2C'>付款 ></view>
+          <!--<view class='rihgt' style='color: #4CBFFA'>评价 ></view>-->
+        </view>
+      </view>
+      <view class='flex date' wx:if="{{item.status == 30}}">
+        <view>
+          <view><text>服务价：</text>￥{{item.price}}</view>
+          <view><text>下单时间：</text>{{item.addtime}}</view>
+          <view><text>结束时间：</text>{{item.addtime}}</view>
+        </view>
+        <view style='padding-top:30rpx'>
+          <view class='rihgt'>维权 ></view>
+          <!--<view class='rihgt' style='color: #4CBFFA'>评价 ></view>-->
+        </view>
+      </view>
+      <view class='flex date' wx:if="{{item.status == 50}}">
+        <view>
+          <view><text>服务价：</text>￥{{item.price}}</view>
+          <view><text>下单时间：</text>￥{{item.addtime}}</view>
+          <view><text>结束时间：</text>￥{{item.addtime}}</view>
+        </view>
+        <view style='padding-top:30rpx'>
+          <view class='left' style='margin-right: 60rpx;'>维权 ></view>
+          <view class='rihgt' style='color: #4CBFFA'>评价 ></view>
+        </view>
       </view>
     </view>
   </view>
 </view>
-<view class='mask' wx:if="{{popupValue}}">
+<!--<view class='mask' wx:if="{{popupValue}}">
   <view class='popup'>
     <view class='title'>筛选</view>
     <view class='cell-title'>选择日期</view>
@@ -70,4 +106,4 @@
   <view class='close'>
     <icon type="clear" size="25" color="#fff" bindtap='close' />
   </view>
-</view>
+</view>-->

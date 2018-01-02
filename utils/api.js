@@ -28,8 +28,7 @@ const api = {
     list: '/index.php/api/order/getOrderList',
     detail: '/index.php/api/order/getOrderDetail',
     comment: '/index.php/api/order/addComment',
-    creat: '/index.php/api/payment/makeOrder',
-    detail: '/index.php/api/order/getOrderDetail'
+    creat: '/index.php/api/payment/makeOrder'
   }
 }
 

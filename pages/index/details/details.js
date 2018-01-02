@@ -11,20 +11,16 @@ Page({
    */
   data: {
     url: 'http://service.qinhantangtop.com/Uploads/icon/icon_',
-    imgUrls: [
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513656878371&di=610b76e559cbdc5104b76a2e0f1cf14e&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F562c11dfa9ec8a1348a3970bfd03918fa1ecc0a4.jpg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513656878371&di=610b76e559cbdc5104b76a2e0f1cf14e&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F562c11dfa9ec8a1348a3970bfd03918fa1ecc0a4.jpg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513656878371&di=610b76e559cbdc5104b76a2e0f1cf14e&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F562c11dfa9ec8a1348a3970bfd03918fa1ecc0a4.jpg',
-    ],
     // service_list: [{ name: '代理记账', checked: false }, { name: '代理记账', checked: false }],
     select_value: 0,
     tabValue: 1,
     comment_list: [],
     detail: {},
     id: '',
-    show: true,
-    order_type: '',
-    company_list: []
+    show: false,
+    order_status: '',
+    company_list: [],
+    oid: ''
   },
   tabSwitch(options) {
     this.setData({ tabValue: options.target.dataset.tab });
@@ -39,7 +35,7 @@ Page({
   },
   order(id) {
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd'), pid: this.data.id, company_id: id }, api.order.creat, res => {
-      console.log('下单成功')
+      // console.log('下单成功')
       myFn.popup(false, '恭喜您下单成功！', (res) => {
         wx.switchTab({
           url: '../../order/order'
@@ -48,32 +44,49 @@ Page({
     })
   },
   getCompanyList() {
+    var arr = []
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.companyList, res => {
       if (res.data.length == 0) {
-        this.setData({ company_list: [{ id: 0, corporate_name: '请选择您需要服务的公司'}] })
+        this.setData({ company_list: [{ id: 0, corporate_name: '请先添加公司' }] })
         return false
       };
-      this.setData({ company_list: res.data })
+      for (var i = 0; i < res.data.length; i++) {
+        if (res.data[i].status == 2) {
+          arr.push(res.data[i])
+        }
+      }
+      this.setData({ company_list: arr })
     })
   },
   bindPickerChange(e) {
     var id = this.data.company_list[e.detail.value].id
     this.order(id)
   },
+  comment() {
+    wx.navigateTo({
+      url: './comment/comment?id=' + this.data.oid,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
     // e.id = 297
-    if (e.status == 0) { this.setData({ show: false }) }
+    if (e.status == -1) {
+      this.setData({ show: true })
+    } else {
+      // this.setData({ order_status: parseInt(e.status) })
+      this.setData({ order_status: 50 })
+    }
     this.setData({ id: e.id })
+    this.setData({ oid: e.oid })
     var data = {
       pid: e.id,
       session3rd: wx.getStorageSync('session3rd') || ''
     }
     // 获取详情
     myFn.ajax('get', data, api.home.itemDetail, res => {
-      console.log(res.data)
+      // console.log(res.data)
       WxParse.wxParse('article', 'html', res.data.content, this, 0);
       this.setData({ detail: res.data })
     })
@@ -84,54 +97,5 @@ Page({
     })
     // 获取公司列表
     this.getCompanyList()
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

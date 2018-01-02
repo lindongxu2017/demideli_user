@@ -98,15 +98,17 @@ Page({
   },
   // 详情
   godetail(e) {
-    console.log(e)
+    // console.log(e)
     var self = this;
     var id = e.currentTarget.dataset.id || e.target.dataset.id;
+    var pid = e.currentTarget.dataset.pid || e.target.dataset.pid;
     var status = e.currentTarget.dataset.status || e.target.dataset.status;
     var right = e.currentTarget.dataset.right || e.target.dataset.right;
+    // console.log(e.currentTarget.dataset)
     if (!self.data.bool) {
       self.setData({ bool: true })
       wx.navigateTo({
-        url: '../index/details/details?id=' + id + '&&status=status',
+        url: '../orderDetail/orderDetail?id=' + id + '&&status=' + status,
         success: function () {
           setTimeout(() => { self.setData({ bool: false }) }, 1000)
         }

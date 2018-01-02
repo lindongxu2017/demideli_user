@@ -15,7 +15,7 @@ Page({
     var id = e.target.dataset.id || e.currentTarget.dataset.id
     if (!self.data.bool) {
       wx.navigateTo({
-        url: '/pages/index/list/list?id=' + id,
+        url: '/pages/index/list/list?id=' + id + 'status=-1',
         success: function () {
           self.setData({ bool: true })
           setTimeout(() => {

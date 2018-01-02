@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/order/order",
+    "pages/index/index",
     "pages/index/details/details",
     "pages/orderDetail/orderDetail",
     "pages/center/center",
@@ -18,7 +18,8 @@
     "pages/center/suggest/suggest",
     "pages/center/card/card",
     "pages/center/relative/relative",
-    "pages/index/list/list"
+    "pages/index/list/list",
+    "pages/index/details/comment/comment"
   ],
   "window": {
     "backgroundTextStyle": "light",

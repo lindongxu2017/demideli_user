@@ -7,11 +7,12 @@ page {
   margin-bottom: 14rpx;
 }
 .company-info .name {
-  font-size: 40rpx;
+  font-size: 38rpx;
   padding: 20rpx 0;
 }
 .company-info .phone {
   margin-bottom: 20rpx;
+  font-size: 32rpx;
 }
 .company-info .phone .label {
   color: #788397;
@@ -20,7 +21,7 @@ page {
   font-size: 0;
 }
 .card > view {
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #788397;
   margin-bottom: 20rpx;
 }
@@ -36,11 +37,13 @@ page {
   padding: 30rpx 30rpx 0;
 }
 .cell-title {
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #93A1BA;
 }
 .cell-label {
   padding-top: 40rpx;
+  font-size: 28rpx;
+  color: #93A1BA;
 }
 .cell-label image {
   width: 40rpx;
@@ -50,14 +53,14 @@ page {
 }
 .cell-label text {
   color: #3f51b5;
-  font-size: 34rpx;
+  font-size: 32rpx;
   vertical-align: middle;
 }
 .cell-content {
-  padding: 30rpx 0 42rpx 64rpx;
+  padding: 20rpx 0 42rpx 54rpx;
 }
 .cell-content view {
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: #788397;
 }
 .order-info {
@@ -67,6 +70,13 @@ page {
   margin: 20rpx 0;
   padding: 0;
 }
+.order-info .cell-item text {
+  font-size: 28rpx;
+}
 .order-info .cell-label {
   color: #788397;
+  font-size: 28rpx;
+}
+.label {
+  font-size: 28rpx;
 }

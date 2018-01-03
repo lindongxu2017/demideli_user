@@ -10,9 +10,15 @@ page {
 .flex > view {
   flex: 1;
 }
-
+.tab-content {
+  padding: 20rpx;
+  background: #f2f2f2;
+}
 .order-list {
   margin-bottom: 20rpx;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
 }
 
 .order-list .order {

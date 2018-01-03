@@ -80,7 +80,7 @@ Page({
   },
   // 获取列表
   getlist() {
-    console.log(this.data.searchData)
+    // console.log(this.data.searchData)
     myFn.ajax('post', this.data.searchData, api.order.list, res => {
       this.setData({ list: res.data.data })
       // 清空搜索条件

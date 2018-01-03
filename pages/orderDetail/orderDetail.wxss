@@ -46,8 +46,8 @@ page {
   color: #93A1BA;
 }
 .cell-label image {
-  width: 40rpx;
-  height: 40rpx;
+  width: 36rpx;
+  height: 36rpx;
   margin-right: 24rpx;
   vertical-align: middle;
 }

@@ -1,60 +1,60 @@
 {
-    "pages": [
-        "pages/order/order",
-        "pages/order/todo/todo",
-        "pages/index/index",
-        "pages/index/details/details",
-        "pages/orderDetail/orderDetail",
-        "pages/center/center",
-        "pages/center/manage/manage",
-        "pages/pay/pay",
-        "pages/register/register",
-        "pages/message/message",
-        "pages/message/room/room",
-        "pages/center/auth/auth",
-        "pages/center/account/account",
-        "pages/center/manage/modify/modify",
-        "pages/center/service/service",
-        "pages/center/coupon/coupon",
-        "pages/center/suggest/suggest",
-        "pages/center/card/card",
-        "pages/center/relative/relative",
-        "pages/index/list/list",
-        "pages/index/details/comment/comment"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "企业服务",
-        "navigationBarTextStyle": "black",
-        "backgroundColor": "#788397"
-    },
-    "tabBar": {
-        "list": [
-            {
-                "pagePath": "pages/index/index",
-                "text": "企业服务",
-                "iconPath": "icon/home.png",
-                "selectedIconPath": "icon/home_checked.png"
-            },
-            {
-                "pagePath": "pages/order/order",
-                "text": "服务订单",
-                "iconPath": "icon/order.png",
-                "selectedIconPath": "icon/order_checked.png"
-            },
-            {
-                "pagePath": "pages/message/message",
-                "text": "消息管理",
-                "iconPath": "icon/message.png",
-                "selectedIconPath": "icon/message_checked.png"
-            },
-            {
-                "pagePath": "pages/center/center",
-                "text": "会员中心",
-                "iconPath": "icon/center.png",
-                "selectedIconPath": "icon/center_checked.png"
-            }
+  "pages": [
+    "pages/index/index",
+    "pages/center/center",
+    "pages/index/details/details",
+    "pages/index/list/list",
+    "pages/index/details/comment/comment",
+    "pages/order/order",
+    "pages/order/todo/todo",
+    "pages/orderDetail/orderDetail",
+    "pages/register/register",
+    "pages/pay/pay",
+    "pages/message/message",
+    "pages/message/room/room",
+    "pages/center/manage/manage",
+    "pages/center/auth/auth",
+    "pages/center/account/account",
+    "pages/center/manage/modify/modify",
+    "pages/center/service/service",
+    "pages/center/coupon/coupon",
+    "pages/center/suggest/suggest",
+    "pages/center/card/card",
+    "pages/center/relative/relative"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "企业服务",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#788397"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "企业服务",
+        "iconPath": "icon/home.png",
+        "selectedIconPath": "icon/home_checked.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "服务订单",
+        "iconPath": "icon/order.png",
+        "selectedIconPath": "icon/order_checked.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息管理",
+        "iconPath": "icon/message.png",
+        "selectedIconPath": "icon/message_checked.png"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "会员中心",
+        "iconPath": "icon/center.png",
+        "selectedIconPath": "icon/center_checked.png"
+      }
         ],
         "color": "#93A1BA",
         "selectedColor": "#3F51B5",

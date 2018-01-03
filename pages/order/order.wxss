@@ -112,13 +112,6 @@ page {
   background-color: #F2F2F2;
 }
 
-.order-list {
-  font-size: 32rpx;
-  position: relative;
-  border-radius: 10rpx;
-  overflow: hidden;
-}
-
 .flex {
   display: flex;
 }
@@ -128,6 +121,10 @@ page {
 }
 
 .order-list {
+  position: relative;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
   margin-bottom: 20rpx;
 }
 .order-list .order {

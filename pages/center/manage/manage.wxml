@@ -9,7 +9,7 @@
     <view class='phone' wx:if="{{is_register == 1}}">
       <image class='icon-phone' src="{{url + '18.png'}}"></image>
       <text>{{userinfo.name}}</text>
-      <image src="{{url + '19.png'}}"></image>
+      <image data-routerName='modify' catchtap='routeTo' src="{{url + '19.png'}}"></image>
     </view>
   </view>
 </view>

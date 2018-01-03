@@ -6,7 +6,7 @@
 <view class='service-wrapper'>
   <view class='cell-item border-b'>
     <view class='cell-label'>
-      <image src='{{url}}'></image>
+      <image src="{{url + '2.png'}}"></image>
       <text>服务项目：</text>
     </view>
     <view class='cell-content'>
@@ -15,7 +15,7 @@
   </view>
   <view class='cell-item'>
     <view class='cell-label'>
-      <image src='{{url}}'></image>
+      <image src="{{url + '3.png'}}"></image>
       <text>服务内容：</text>
     </view>
     <view class='cell-content'>
@@ -26,15 +26,19 @@
 <view class='pay-way'>
   <view class='title'>选择付款方式：</view>
   <view class='way-list'>
-    <view class='way-item {{default_way == 2 ? "active" : ""}}'>
+    <view class='way-item {{default_way == 2 ? "active" : ""}}' data-way='2'  bindtap="changeWay">
       <text class='wx-pay'>微信支付</text>
-      <image src="{{url}}"></image>
-      <view data-way='2' class='radio-circle' bindtap="changeWay"></view>
+      <image src="{{url + '32.png'}}"></image>
+      <view class='radio-circle'>
+        <icon type='success_no_circle' color="#fff" size="18"></icon>
+      </view>
     </view>
-    <view class='way-item {{default_way == 1 ? "active" : ""}}'>
+    <view class='way-item {{default_way == 1 ? "active" : ""}}'  data-way='1'  bindtap="changeWay">
       <text class='public-pay'>对公转账</text>
-      <image src="{{url}}"></image>
-      <view data-way='1' class='radio-circle' bindtap="changeWay"></view>
+      <image src="{{url + '35.png'}}"></image>
+      <view class='radio-circle'>
+        <icon type='success_no_circle' color="#fff" size="18"></icon>
+      </view>
     </view>
   </view>
 </view>

@@ -1,16 +1,18 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/center/center",
+    "pages/index/details/details",
+    "pages/index/list/list",
+    "pages/index/details/comment/comment",
     "pages/order/order",
     "pages/order/todo/todo",
-    "pages/index/index",
-    "pages/index/details/details",
     "pages/orderDetail/orderDetail",
-    "pages/center/center",
-    "pages/center/manage/manage",
-    "pages/pay/pay",
     "pages/register/register",
+    "pages/pay/pay",
     "pages/message/message",
     "pages/message/room/room",
+    "pages/center/manage/manage",
     "pages/center/auth/auth",
     "pages/center/account/account",
     "pages/center/manage/modify/modify",
@@ -18,9 +20,7 @@
     "pages/center/coupon/coupon",
     "pages/center/suggest/suggest",
     "pages/center/card/card",
-    "pages/center/relative/relative",
-    "pages/index/list/list",
-    "pages/index/details/comment/comment"
+    "pages/center/relative/relative"
   ],
   "window": {
     "backgroundTextStyle": "light",

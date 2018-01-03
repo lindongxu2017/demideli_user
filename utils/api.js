@@ -30,6 +30,10 @@ const api = {
     comment: '/index.php/api/order/addComment',
     right: '/index.php/api/order/backApply',
     creat: '/index.php/api/payment/makeOrder'
+  },
+  pay: {
+    wxPay: '/index.php/api/wxpay/wxpay',
+    offline: '/index.php/api/order/payByOther'
   }
 }
 

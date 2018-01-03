@@ -50,6 +50,15 @@ page {
 .way-item {
   position: relative;
   margin-top: 60rpx;
+  box-sizing: border-box;
+  border: 1px solid #3f51b5;
+  padding: 20rpx 30rpx;
+  border-radius: 100rpx;
+  color: #3f51b5;
+}
+.way-item.active {
+  background-color: #3f51b5;
+  color: #fff;
 }
 .way-item image {
   width: 40rpx;
@@ -62,24 +71,28 @@ page {
   vertical-align: middle;
 }
 .way-item text.wx-pay {
-  color: #00ce12;
+  /*color: #00ce12;*/
 }
 .way-item text.public-pay {
-  color: #11c2e8;
+  /*color: #11c2e8;*/
 }
 .radio-circle {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 30rpx;
+  top: 20rpx;
   width: 48rpx;
   height: 48rpx;
-  border: 1px solid #788397;
+  border: 1px solid #3f51b5;
   border-radius: 50%;
 }
-.active .radio-circle {
-  border-color: #3f51b5;
+.radio-circle icon {
+  margin: 6rpx 0 0 6rpx;
 }
-.active .radio-circle::after {
+.active .radio-circle {
+  border-color: #fff;
+  background-color: #3f51b5;
+}
+/*.active .radio-circle::after {
   content: '';
   position: absolute;
   left: 6rpx;
@@ -88,15 +101,15 @@ page {
   height: 36rpx;
   border-radius: 50%;
   background: #3f51b5;
-}
+}*/
 
 .pay-info {
-  padding: 0 30rpx 50rpx;
+  /*padding: 0 30rpx 50rpx;*/
   font-size: 32rpx;
 }
 .pay-info > view {
   padding: 0 30rpx;
-  background-color: #f7f7f7;
+  background-color: #F7F8FC;
 }
 .pay-info text {
   display: block;

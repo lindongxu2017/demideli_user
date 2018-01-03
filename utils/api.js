@@ -28,8 +28,8 @@ const api = {
     list: '/index.php/api/order/getOrderList',
     detail: '/index.php/api/order/getOrderDetail',
     comment: '/index.php/api/order/addComment',
-    creat: '/index.php/api/payment/makeOrder',
-    detail: '/index.php/api/order/getOrderDetail'
+    right: '/index.php/api/order/backApply',
+    creat: '/index.php/api/payment/makeOrder'
   }
 }
 

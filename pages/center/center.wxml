@@ -10,9 +10,9 @@
   </view>
 </view>
 <view class='type-wrapper'>
-  <view class='type-item' data-set="service" bindtap='routeTo'>
+  <view class='type-item' data-set="order-1" bindtap='routeTo'>
     <image src="{{url + '16.png'}}"></image>
-    <view>我的服务</view>
+    <view>洽谈中</view>
   </view>
   <view class='type-item' data-set="order-2" bindtap='routeTo'>
     <image src="{{url + '12.png'}}"></image>

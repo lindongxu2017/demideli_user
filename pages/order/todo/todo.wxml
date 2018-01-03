@@ -1,0 +1,30 @@
+<!--pages/order/todo/todo.wxml-->
+<view class='todo-wrapper'>
+  <view class='title'>
+    <text wx:if="{{type == 2}}">您的点评</text>
+    <text wx:if="{{type == 1}}">维权信息</text>
+  </view>
+  <view class='textarea-wrapper'>
+    <textarea placeholder='请填写{{type == 1?"维权信息":"您的点评"}}' maxlength="140" placeholder-style='color:#66686E' value="{{value}}" bindinput="bindTextArea"></textarea>
+    <view class='num'>
+      <text>{{value.length}}</text>/140</view>
+  </view>
+  <view class='my-btn'>
+    <button bindtap='submit'>提交</button>
+  </view>
+</view>
+<view class='order-type'>
+  <swiper autoplay circular interval="3000">
+    <block wx:for="{{detail.photo_string}}" wx:key="key">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='list'>
+    <view class='list-desc'>
+      <text class='title'>{{detail.name}}</text>
+      <text class='desc theme'>{{detail.intro}}</text>
+    </view>
+  </view>
+</view>

@@ -1,7 +1,7 @@
 <!--pages/pay/pay.wxml-->
 <view class='border-t need-pay'>
   <view class='cell-title'>合同金额</view>
-  <view class='money'>￥1500.00</view>
+  <view class='money'>￥{{detail.price}}</view>
 </view>
 <view class='service-wrapper'>
   <view class='cell-item border-b'>
@@ -10,7 +10,7 @@
       <text>服务项目：</text>
     </view>
     <view class='cell-content'>
-      <view>企业资料变更</view>
+      <view>{{detail.name}}</view>
     </view>
   </view>
   <view class='cell-item'>
@@ -19,7 +19,7 @@
       <text>服务内容：</text>
     </view>
     <view class='cell-content'>
-      <view>企业资料变更、企业资料变更、企业资料变更</view>
+      <view>{{detail.intro}}</view>
     </view>
   </view>
 </view>
@@ -41,7 +41,7 @@
 <view class='pay-info' wx:if="{{default_way == 1}}">
   <view>
     <text class='label'>账户名：</text>
-    <text class='border-b'>深圳你好财务有限管理公司</text>
+    <text class='border-b'>{{detail.company_name}}</text>
   </view>
   <view>
     <text class='label'>开户行及支行：</text>

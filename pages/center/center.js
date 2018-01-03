@@ -33,10 +33,6 @@ Page({
         url = path + '/' + path + '?type=1'
       }
     }
-    if (path == 'service') {
-      url = '/pages/order/order'
-      wx.switchTab({ url: url })
-    }
     if(path.split('-')[0] == 'order') {
       url = 'service/service?type=' + path.split('-')[1]
       console.log(url)

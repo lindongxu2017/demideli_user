@@ -144,7 +144,15 @@ page {
   min-height: 300rpx;
   padding-bottom: 180rpx;
 }
-
+.add-comment {
+  text-align: right;
+  padding-top: 30rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.add-comment icon {
+  transform: rotate(45deg)
+}
 .comment-item {
   padding: 30rpx 0 30rpx 20rpx;
 }

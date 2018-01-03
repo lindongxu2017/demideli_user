@@ -1,7 +1,8 @@
 {
     "pages": [
-        "pages/index/index",
         "pages/order/order",
+        "pages/order/todo/todo",
+        "pages/index/index",
         "pages/index/details/details",
         "pages/orderDetail/orderDetail",
         "pages/center/center",
@@ -18,7 +19,8 @@
         "pages/center/suggest/suggest",
         "pages/center/card/card",
         "pages/center/relative/relative",
-        "pages/index/list/list"
+        "pages/index/list/list",
+        "pages/index/details/comment/comment"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -36,16 +38,16 @@
                 "selectedIconPath": "icon/home_checked.png"
             },
             {
-                "pagePath": "pages/message/message",
-                "text": "消息管理",
-                "iconPath": "icon/message.png",
-                "selectedIconPath": "icon/message_checked.png"
-            },
-            {
                 "pagePath": "pages/order/order",
                 "text": "服务订单",
                 "iconPath": "icon/order.png",
                 "selectedIconPath": "icon/order_checked.png"
+            },
+            {
+                "pagePath": "pages/message/message",
+                "text": "消息管理",
+                "iconPath": "icon/message.png",
+                "selectedIconPath": "icon/message_checked.png"
             },
             {
                 "pagePath": "pages/center/center",

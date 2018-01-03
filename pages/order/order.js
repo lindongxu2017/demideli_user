@@ -10,25 +10,18 @@ Page({
    */
   data: {
     tabValue: 1,
-    list: ['', '', ''],
+    list: [],
     screen_list: [
       { type: 1, typeMsg: '洽谈中' },
       { type: 2, typeMsg: '待付款' },
       { type: 3, typeMsg: '服务中' },
       { type: 4, typeMsg: '待评价' }
     ],
-    status_list: [
-      { status: 0, typeMsg: '已失效' },
-      { status: 5, typeMsg: '洽谈中' },
-      { status: 10, typeMsg: '待付款' },
-      { status: 30, typeMsg: '服务中' },
-      { status: 50, typeMsg: '已完成' }
-    ],
     screen_select: 0,
     popupValue: false,
     searchData: {
       session3rd: wx.getStorageSync('session3rd'),
-      type: '',
+      type: 7,
       page: 1,
       order_sn: '',
       start_time: '',
@@ -87,37 +80,52 @@ Page({
   },
   // 获取列表
   getlist() {
+    console.log(this.data.searchData)
     myFn.ajax('post', this.data.searchData, api.order.list, res => {
       this.setData({ list: res.data.data })
       // 清空搜索条件
-      this.setData({ 'searchData.start_time': '' })
-      this.setData({ 'searchData.end_time': '' })
-      this.setData({ 'searchData.type': '' })
+      // this.setData({ 'searchData.start_time': '' })
+      // this.setData({ 'searchData.end_time': '' })
+      // this.setData({ 'searchData.type': '' })
       this.close()
     })
   },
   // 详情
   godetail(e) {
-    console.log(e)
+    // console.log(e)
     var self = this;
     var id = e.currentTarget.dataset.id || e.target.dataset.id;
+    var pid = e.currentTarget.dataset.pid || e.target.dataset.pid;
     var status = e.currentTarget.dataset.status || e.target.dataset.status;
     var right = e.currentTarget.dataset.right || e.target.dataset.right;
+    // console.log(e.currentTarget.dataset)
     if (!self.data.bool) {
       self.setData({ bool: true })
       wx.navigateTo({
-        url: '../index/details/details?id=' + id + '&&status=status',
+        url: '../orderDetail/orderDetail?id=' + id + '&status=' + status,
         success: function () {
           setTimeout(() => { self.setData({ bool: false }) }, 1000)
         }
       })
     }
   },
+  // goPay 支付
+  goPay(e) {
+    var id = e.target.dataset.id
+    wx.navigateTo({ url: '../pay/pay?id=' + id })
+  },
+  // goTodo 订单操作
+  goTodo(e) {
+    var id = e.target.dataset.id
+    var pid = e.target.dataset.pid
+    var type = e.target.dataset.type
+    wx.navigateTo({ url: './todo/todo?id=' + id + '&pid=' + pid + '&type=' + type})
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**

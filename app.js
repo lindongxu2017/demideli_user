@@ -4,6 +4,8 @@ var api = require('./utils/api.js');
 // console.log(util)
 App({
     scoket: '',
+    myFn: main.myFn,
+    api: api.api,
     onLaunch: function () {
         // 登录
         wx.login({
@@ -56,10 +58,8 @@ App({
     globalData: {
         userInfo: null
     },
-    myFn: main.myFn,
-    api: api.api,
     message_scoket () {
-
+        var self = this;
         this.scoket = wx.connectSocket({
             url: 'ws://haida.qinhantangtop.com:9503',
             data: {
@@ -70,18 +70,12 @@ App({
             },
             header: {
                 'content-type': 'application/json'
-            },
-            fail (res) {
-                console.log(res);
-            },
-            success (res) {
-                console.log(res);
             }
         })
-
+                
         wx.onSocketOpen(res => {
             console.log('WebSocket连接已打开！')
-            this.scoket.send({
+            wx.sendSocketMessage({
                 data: JSON.stringify({
                     type: 'auth',
                     user_id: 232,
@@ -92,6 +86,19 @@ App({
         
         wx.onSocketError(function (res) {
             console.log('WebSocket连接打开失败，请检查！')
+        })
+    },
+    success_scoket (fn) {
+        wx.onSocketMessage(res => {
+            var res = JSON.parse(res.data);
+            if (res.code == 200) {
+                fn(res)
+            }
+        })
+    },
+    send_scoket (data) {
+        wx.sendSocketMessage({
+            data: JSON.stringify(data)
         })
     }
 })

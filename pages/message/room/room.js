@@ -1,93 +1,121 @@
 // pages/message/room/room.js
+const app = getApp()
+const myFn = app.myFn
+const api = app.api
 Page({
+    data: {
+        userInfo: {},
+        url: '',
+        receive_headimgurl: '',
+        id: '',
+        serverid: '',
+        list: [],
+        // input内容
+        sendMsg: '',
+        scrollTop: 100,
+        // 订单详情
+        details: {}
+    },
+    change(options) {
+        this.setData({ sendMsg: options.detail.value })
+    },
+    send() {
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513656878371&di=610b76e559cbdc5104b76a2e0f1cf14e&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F562c11dfa9ec8a1348a3970bfd03918fa1ecc0a4.jpg',
-    id: '',
-    list: [
-      { type: 1, content: '断剑重铸之日，骑士归来之时', name: '放逐之刃' },
-      { type: 2, content: '没错，最强的武器就是补丁', name: '武器大师' },
-      { type: 1, content: '我应该早一点给我的剑买保险的', name: '放逐之刃' },
-    ],
-    sendMsg: '',
-    scrollTop: 100
-  },
-  change(options) {
-    this.setData({ sendMsg: options.detail.value })
-  },
-  send(options) {
-    console.log(options)
-    if (!this.data.sendMsg) return false;
-    // console.log(this.data.sendMsg)
-    var chatlist = this.data.list
-    chatlist.push({ type: 2, content: this.data.sendMsg, name: '武器大师' })
-    this.setData({ list: chatlist })
-    this.setData({ sendMsg: '' })
-    this.setData({ scrollTop: this.data.scrollTop + 80 })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    // console.log(options.id)
-    this.data.id = options.id;
-    wx.setNavigationBarTitle({
-      title: this.data.id || 'test',
-      success: function (res) {
-        // success
-      }
-    })
-  },
+        // 如果输入内容为空不发送
+        if (!this.data.sendMsg) return false;
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+        app.send_scoket({
+            type: 'send_single_message',
+            message: this.data.sendMsg,
+            user_id: this.data.uid
+        })
 
-  },
+    },
+    onLoad: function (options) {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+        this.setData({
+            uid: options.uid
+        })
 
-  },
+        var data = {
+            pid: options.id,
+            session3rd: wx.getStorageSync('session3rd') || ''
+        }
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+        if (options.serverid != undefined) {
+            this.setData({
+                serverid: options.serverid
+            })
 
-  },
+            myFn.ajax('get', data, api.home.itemDetail, res => {
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+                this.setData({
+                    details: res.data
+                })
 
-  },
+                wx.setNavigationBarTitle({
+                    title: this.data.details.name
+                })
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+                var chatlist = this.data.list
 
-  },
+            })
+        }
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+        // 获取已读消息列表
+        app.send_scoket({
+            type: 'get_isread_single_message',
+            user_id: this.data.uid
+        })
 
-  },
+        var chatlist = [];
+        app.success_scoket(res=>{
+            switch (res.type) {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+                case 'send_single_message':
 
-  }
+                    if (res.data.msg_type == 1) {
+                        chatlist.push({ type: 1, content: res.data.message, name: res.data.nickname })
+                    } else if (res.data.msg_type == 2) {
+                        chatlist.push({ type: 2, content: res.data.message, name: res.data.receive_nickname })
+                    }
+
+                    this.setData({
+                        list: chatlist,
+                        sendMsg: '',
+                        scrollTop: this.data.scrollTop + 80,
+                        url: res.data.headimgurl,
+                        receive_headimgurl: res.data.receive_headimgurl
+                    })
+                    break;
+
+                case 'get_isread_single_message':
+                    // 获取已读消息列表
+                    app.send_scoket({
+                        type: 'get_notread_single_message',
+                        user_id: this.data.uid
+                    })
+
+                case 'get_notread_single_message':
+
+                    for (var i = res.data.length-1; i >= 0; i--) {
+                        if (res.data[i].msg_type == 1) {
+                            chatlist.push({ type: 1, content: res.data[i].message, name: res.data[i].nickname })
+                        } else if (res.data[i].msg_type == 2) {
+                            chatlist.push({ type: 2, content: res.data[i].message, name: res.data[i].receive_nickname })
+                        }
+                    }
+                    if (res.data.length != 0) {
+                        this.setData({
+                            list: chatlist,
+                            url: res.data[0].headimgurl,
+                            receive_headimgurl: res.data[0].receive_headimgurl,
+                            // scrollTop: this.data.scrollTop + 80
+                        })
+                    }
+
+                    break;
+            }
+        })
+    }
 })

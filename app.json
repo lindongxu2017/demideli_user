@@ -55,9 +55,9 @@
         "iconPath": "icon/center.png",
         "selectedIconPath": "icon/center_checked.png"
       }
-    ],
-    "color": "#93A1BA",
-    "selectedColor": "#3F51B5",
-    "backgroundColor": "#fff"
-  }
+        ],
+        "color": "#93A1BA",
+        "selectedColor": "#3F51B5",
+        "backgroundColor": "#fff"
+    }
 }

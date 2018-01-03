@@ -26,6 +26,16 @@
 .item-img {
   width: 13%;
   height: 13vw;
+  position: relative;
+}
+.item-img .prompt {
+    position: absolute;
+    width:20rpx;
+    height: 20rpx;
+    background: red;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
 }
 .item-img image {
   width: 100%;

@@ -49,6 +49,7 @@ page,view {
 .content-wrapper .name {
   margin-bottom: 6rpx;
   font-size: 28rpx;
+  height: 35rpx;
 }
 .content-wrapper .content {
   background-color: #fff;

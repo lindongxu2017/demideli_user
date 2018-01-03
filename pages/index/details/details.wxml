@@ -52,7 +52,7 @@
   </view>
 </view>
 <view class='btn-group'>
-  <view class='collection'>
+  <view class='collection' bindtap="contact_server" data-uid="{{detail.customer_id}}" data-id="{{detail.id}}">
     <image src="{{url + '24.png'}}"></image>
     <text>客服</text>
   </view>

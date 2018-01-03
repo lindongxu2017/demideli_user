@@ -97,5 +97,12 @@ Page({
     })
     // 获取公司列表
     this.getCompanyList()
-  }
+  },
+    contact_server (e) {
+        var uid = e.currentTarget.dataset.uid;
+        var id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/message/room/room?id=' + id + '&uid=' + uid
+        })
+    }
 })

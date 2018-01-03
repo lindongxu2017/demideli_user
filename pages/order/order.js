@@ -80,6 +80,7 @@ Page({
   },
   // 获取列表
   getlist() {
+    this.searchData.session3rd = wx.getStorageSync('session3rd')
     // console.log(this.data.searchData)
     myFn.ajax('post', this.data.searchData, api.order.list, res => {
       this.setData({ list: res.data.data })

@@ -231,6 +231,12 @@ page {
   right: -30rpx;
   background: #788397;
 }
+view.left.is_comment {
+  margin-right: 0!important;
+}
+.order-list .date > view:last-child view.left.is_comment::after {
+  display: none;
+}
 .mask {
   position: fixed;
   width: 100%;

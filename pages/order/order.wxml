@@ -44,7 +44,7 @@
           <view><text>下单时间：</text>￥{{item.addtime}}</view>
         </view>
         <view style='padding-top:30rpx'>
-          <view class='rihgt' style='color: #E02C2C'>付款 ></view>
+          <view class='rihgt' style='color: #E02C2C' data-id="{{item.id}}" catchtap='goPay'>付款 ></view>
           <!--<view class='rihgt' style='color: #4CBFFA'>评价 ></view>-->
         </view>
       </view>
@@ -55,7 +55,7 @@
           <view><text>结束时间：</text>{{item.addtime}}</view>
         </view>
         <view style='padding-top:30rpx'>
-          <view class='rihgt'>维权 ></view>
+          <view wx:if="{{item.back < 1}}" class='rihgt' data-id="{{item.id}}" data-type="1" data-pid="{{item.pid}}" catchtap='goTodo'>维权 ></view>
           <!--<view class='rihgt' style='color: #4CBFFA'>评价 ></view>-->
         </view>
       </view>
@@ -66,8 +66,8 @@
           <view><text>结束时间：</text>￥{{item.addtime}}</view>
         </view>
         <view style='padding-top:30rpx'>
-          <view class='left' style='margin-right: 60rpx;'>维权 ></view>
-          <view class='rihgt' style='color: #4CBFFA'>评价 ></view>
+          <view wx:if="{{item.back < 1}}" class='left {{item.back < 1 && item.is_comment > 0 ? "is_comment":""}}' style='margin-right: 60rpx;' data-id="{{item.id}}" data-type="1" data-pid="{{item.pid}}" catchtap='goTodo'>维权 ></view>
+          <view wx:if="{{item.is_comment < 1}}" class='rihgt' style='color: #4CBFFA' data-id="{{item.id}}" data-type="2" data-pid="{{item.pid}}" catchtap='goTodo'>评价 ></view>
         </view>
       </view>
     </view>

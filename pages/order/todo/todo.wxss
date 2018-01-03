@@ -1,0 +1,81 @@
+/* pages/order/todo/todo.wxss */
+page, view {
+  background-color: #f2f2f2;
+}
+.todo-wrapper .title {
+  position: relative;
+  margin: 20rpx 0;
+  border-bottom: 1px solid #BBBFC8;
+}
+.title text {
+  position: absolute;
+  font-size: 32rpx;
+  top: -20rpx;
+  left: 50%;
+  margin-left: -104rpx;
+  padding: 0 40rpx;
+  background: #f2f2f2;
+  color: #ADB1BA;
+}
+.todo-wrapper {
+  padding: 30rpx 20rpx 20rpx;
+}
+.textarea-wrapper  {
+  padding: 20rpx;
+}
+.textarea-wrapper textarea {
+  background: #fff;
+  width: 100%;
+  border-radius: 10rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.num {
+  padding-top: 20rpx;
+  text-align: right;
+  color: #788397;
+}
+.my-btn {
+  width: 100%;
+  padding: 0 25%;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  margin-top: 62rpx;
+}
+.my-btn button {
+  background-color: #3f51b5;
+  border-radius: 20rpx;
+  color: #fff;
+}
+
+.order-type {
+  padding: 40rpx;
+  background-color: #fff;
+  margin-top: 100rpx;
+}
+.list-desc {
+  background: #fff;
+}
+.list {
+  font-size: 0;
+  margin-bottom: 14rpx;
+}
+
+.list-desc {
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+
+.list-desc text {
+  display: block;
+}
+
+.list-desc text.title {
+  font-size: 48rpx;
+  margin-bottom: 20rpx;
+}
+
+.list-desc text.desc {
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}

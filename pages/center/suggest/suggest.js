@@ -26,7 +26,7 @@ Page({
     }
     // console.log(api.admin.register)
     myFn.ajax('post', data, api.user.suggest, res => {
-      myFn.popup(false, '感谢您的反馈建议，我们将在24小时内将处理结果通知您！', (res) => {
+      myFn.popup(false, '感谢您的反馈建议，我们将在24小时内将处理结果告知您！', (res) => {
         wx.navigateBack()
       })
     })

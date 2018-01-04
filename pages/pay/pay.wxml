@@ -30,36 +30,36 @@
       <text class='wx-pay'>微信支付</text>
       <image src="{{url + '32.png'}}"></image>
       <view class='radio-circle'>
-        <icon type='success_no_circle' color="#fff" size="18"></icon>
+        <icon type='success_no_circle' color="#fff" size="18" data-way='2'  bindtap="changeWay"></icon>
       </view>
     </view>
     <view class='way-item {{default_way == 1 ? "active" : ""}}'  data-way='1'  bindtap="changeWay">
       <text class='public-pay'>对公转账</text>
       <image src="{{url + '35.png'}}"></image>
       <view class='radio-circle'>
-        <icon type='success_no_circle' color="#fff" size="18"></icon>
+        <icon type='success_no_circle' color="#fff" size="18" data-way='1'  bindtap="changeWay"></icon>
       </view>
     </view>
   </view>
 </view>
 <view class='pay-info' wx:if="{{default_way == 1}}">
   <view>
-    <text class='label'>账户名：</text>
-    <text class='border-b'>{{detail.company_name}}</text>
+    <text class='label'>银行名称：</text>
+    <text class='border-b'>{{detail.shang_name}}</text>
   </view>
   <view>
     <text class='label'>开户行及支行：</text>
-    <text class='border-b'>平安银行深圳坂田支行</text>
+    <text class='border-b'>{{detail.bank_name}}</text>
   </view>
   <view>
     <text class='label'>账户：</text>
-    <text class='border-b'>9999 8888 7777 6666</text>
+    <text class='border-b'>{{detail.bank_num}}</text>
   </view>
   <view>
     <text class='label'>流水号：</text>
-    <input placeholder-style='color:#999' placeholder='可复制粘贴'></input>
+    <input placeholder-style='color:#999' placeholder='可复制粘贴' value="{{value}}" bindinput='inputValue'></input>
   </view>
 </view>
-<view class='btn'>
+<view class='btn' bindtap='pay'>
   <button>确认支付</button>
 </view>

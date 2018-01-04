@@ -80,7 +80,7 @@ Page({
   },
   // 获取列表
   getlist() {
-    this.searchData.session3rd = wx.getStorageSync('session3rd')
+    this.setData({ 'searchData.session3rd': wx.getStorageSync('session3rd') })
     // console.log(this.data.searchData)
     myFn.ajax('post', this.data.searchData, api.order.list, res => {
       this.setData({ list: res.data.data })
@@ -120,7 +120,7 @@ Page({
     var id = e.target.dataset.id
     var pid = e.target.dataset.pid
     var type = e.target.dataset.type
-    wx.navigateTo({ url: './todo/todo?id=' + id + '&pid=' + pid + '&type=' + type})
+    wx.navigateTo({ url: './todo/todo?id=' + id + '&pid=' + pid + '&type=' + type })
   },
   /**
    * 生命周期函数--监听页面加载

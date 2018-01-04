@@ -1,7 +1,7 @@
 <!--pages/index/list/list.wxml-->
 <view class='serviceList'>
   <view class="serviceItem" wx:for="{{list}}" data-id='{{item.id}}' wx:key="key" bindtap='go_details'>
-    <image src="{{url}}"></image>
+    <image src="{{item.photo_x || url}}"></image>
     <view class='title'>{{item.name}}</view>
     <view class='desc'>注册新公司注册新公司注册新公司注册新公司注册新公司</view>
     <view class='flex'>

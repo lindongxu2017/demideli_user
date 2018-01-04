@@ -14,7 +14,7 @@ Page({
     status: ''
   },
   getDetail(id) {
-    myFn.ajax('', { order_id: id, session3rd: wx.getStorageSync('session3rd') }, api.order.detail, res => {
+    myFn.ajax('post', { order_id: id, session3rd: wx.getStorageSync('session3rd') }, api.order.detail, res => {
       this.setData({ detail: res.data })
     })
   },
@@ -22,6 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
+    console.log(e)
     this.setData({ status: e.status })
     this.getDetail(e.id)
   },

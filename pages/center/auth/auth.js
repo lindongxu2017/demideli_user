@@ -52,6 +52,7 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
+        console.log(res)
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         // var tempFilePaths = res.tempFilePaths
         if (type == 1) {
@@ -77,6 +78,7 @@ Page({
     } else {
       path = fliePaths[0]
     }
+    console.log('上传路径' + path)
     wx.uploadFile({
       url: 'http://service.qinhantangtop.com/index.php/api/upload/NormalUploadImg',
       name: 'flie',
@@ -107,7 +109,6 @@ Page({
     })
   },
   submit() {
-    // console.log(this.data.is_register)
     var data = {
       session3rd: wx.getStorageSync('session3rd'),
       company_name: this.data.company_name,
@@ -116,6 +117,7 @@ Page({
       license_img: this.data.type_1.join(','),
       corporate_identity_img: this.data.type_2 + ',' + this.data.type_3
     }
+    // console.log(data)
     // 表单验证
     if (!this.data.company_name) {
       myFn.popup(false, '公司名称不能为空', null)

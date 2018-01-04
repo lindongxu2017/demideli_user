@@ -21,7 +21,7 @@ Page({
     var self = this;
     if (!self.data.bool) {
       wx.navigateTo({
-        url: '/pages/index/details/details?id=' + id + '&&status=-1',
+        url: '/pages/index/details/details?id=' + id,
         success: function () {
           self.setData({ bool: true })
           setTimeout(() => {

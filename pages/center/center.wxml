@@ -44,8 +44,8 @@
     <view>投诉建议</view>
     <view class='icon'><image src="{{url + '14.png'}}"></image></view>
   </view>
-  <view class='link-wrapper' data-set="card" bindtap='routeTo'>
+  <!--<view class='link-wrapper' data-set="card" bindtap='routeTo'>
     <view>个人名片</view>
     <view class='icon'><image src="{{url + '14.png'}}"></image></view>
-</view>
+  </view>-->
 </view>

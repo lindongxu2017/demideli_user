@@ -80,7 +80,7 @@
   height: 100%;
 }
 .type-wrapper {
-  padding: 20rpx 30rpx 0;
+  padding: 50rpx 30rpx 20rpx;
   display: flex;
   min-height: 25vw;
 }

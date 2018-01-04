@@ -44,6 +44,7 @@ view {
   text-overflow: ellipsis;
   margin-bottom: 10rpx;
   padding-left: 10rpx;
+  min-height: 60rpx;
 }
 .header .info > text.identify {
   font-size: 26rpx;
@@ -64,12 +65,12 @@ view {
   font-size: 40rpx;
 }
 .header .info .phone image {
-  width: 28rpx;
-  height: 28rpx;
+  width: 34rpx;
+  height: 34rpx;
 }
 .header .info .phone image.icon-phone {
-  width: 20rpx;
-  height: 31rpx;
+  width: 25rpx;
+  height: 38rpx;
   margin-right: 10rpx;
 }
 .header .info .phone text {
@@ -110,14 +111,13 @@ view {
   color: #788397;
   margin-top: 20rpx;
 }
-.company image {
+.company .status {
   position: absolute;
-  right: 20rpx;
-  top: 50%;
-  margin-top: -20rpx;
-  width: 20rpx;
-  height: 32rpx;
+  right: 30rpx;
+  bottom: 30rpx;
+  font-size: 30rpx;
 }
+
 .add {
   background: #fff;
   height: 88rpx;

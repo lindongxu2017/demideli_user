@@ -36,9 +36,9 @@ Page({
         this.setData({
             uid: options.uid
         })
-
+        console.log(this.data.uid)
         var data = {
-            pid: options.id,
+            pid: options.uid,
             session3rd: wx.getStorageSync('session3rd') || ''
         }
 

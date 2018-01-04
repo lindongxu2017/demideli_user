@@ -61,7 +61,7 @@ App({
     message_scoket () {
         var self = this;
         this.scoket = wx.connectSocket({
-            url: 'ws://haida.qinhantangtop.com:9503',
+            url: 'ws://service.qinhantangtop.com:9503',
             data: {
                 rd_session: wx.getStorageSync('session3rd'),
                 type: 'auth', 
@@ -72,13 +72,12 @@ App({
                 'content-type': 'application/json'
             }
         })
-                
         wx.onSocketOpen(res => {
             console.log('WebSocket连接已打开！')
             wx.sendSocketMessage({
                 data: JSON.stringify({
                     type: 'auth',
-                    user_id: 232,
+                    user_id: wx.getStorageSync('appInfo').id,
                     user_type: 1
                 })
             })

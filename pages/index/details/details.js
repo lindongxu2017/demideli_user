@@ -17,7 +17,6 @@ Page({
     comment_list: [],
     detail: {},
     id: '',
-    show: false,
     order_status: '',
     company_list: [],
     oid: ''
@@ -53,9 +52,11 @@ Page({
       for (var i = 0; i < res.data.length; i++) {
         if (res.data[i].status == 2) {
           arr.push(res.data[i])
+          console.log('1111')
         }
       }
       this.setData({ company_list: arr })
+      console.log(this.data.company_list)
     })
   },
   bindPickerChange(e) {
@@ -67,17 +68,11 @@ Page({
       url: './comment/comment?id=' + this.data.oid,
     })
   },
+  warm() { myFn.popup(false, '请先添加公司', null) },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    // e.id = 297
-    if (e.status == -1) {
-      this.setData({ show: true })
-    } else {
-      // this.setData({ order_status: parseInt(e.status) })
-      this.setData({ order_status: 50 })
-    }
     this.setData({ id: e.id })
     this.setData({ oid: e.oid })
     var data = {
@@ -88,6 +83,7 @@ Page({
     myFn.ajax('get', data, api.home.itemDetail, res => {
       // console.log(res.data)
       WxParse.wxParse('article', 'html', res.data.content, this, 0);
+      WxParse.wxParse('case', 'html', res.data.success_case, this, 0);
       this.setData({ detail: res.data })
     })
     // 获取评价
@@ -98,11 +94,11 @@ Page({
     // 获取公司列表
     this.getCompanyList()
   },
-    contact_server (e) {
-        var uid = e.currentTarget.dataset.uid;
-        var id = e.currentTarget.dataset.id;
-        wx.navigateTo({
-            url: '/pages/message/room/room?id=' + id + '&uid=' + uid
-        })
-    }
+  contact_server(e) {
+    var uid = e.currentTarget.dataset.uid;
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/message/room/room?id=' + id + '&uid=' + uid
+    })
+  }
 })

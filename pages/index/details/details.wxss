@@ -140,7 +140,6 @@ page {
 
 .tab-content {
   padding: 30rpx;
-  padding-top: 0;
   min-height: 300rpx;
   padding-bottom: 180rpx;
 }

@@ -1,17 +1,48 @@
 <!--pages/message/room/room.wxml-->
-<scroll-view scroll-y scroll-top="{{scrollTop}}" class='chat-wrapper'>
-    <view wx:for="{{list}}" wx:key="key" class='list-item {{item.type == 1 ? "left" : "right"}}'>
-        <view class='headimg' wx:if="{{item.type == 1}}"><image src="{{url}}"></image></view>
-        <view class='content-wrapper'>
-            <view class='name'>{{item.name}}</view>
-            <view class='content'>{{item.content}}</view>
-        </view>
-        <!-- <view>{{item.type == 2}}</view> -->
-    <view class='headimg' wx:if="{{item.type == 2}}"><image src="{{receive_headimgurl}}"></image></view>
+<scroll-view scroll-y scroll-top="{{scrollTop}}" class="chat-wrapper {{serverid != '' && serverid != undefined && !is_close ? 'orderIn':''}}">
+  <view wx:for="{{list}}" wx:key="key" class='list-item {{item.type == 2 ? "left" : "right"}} {{item.type == 3 ? "pro-link":""}}'>
+    <view class='headimg' wx:if="{{item.type == 2 && item.show_type == 3 || item.type == 2 && item.show_type == 1}}">
+      <image src="{{item.headimgurl}}"></image>
     </view>
+    <!-- 普通消息模板 -->
+    <view class='content-wrapper' wx:if="{{(item.type == 1 || item.type == 2) && item.show_type == 1}}">
+      <view class='name'>{{item.name}}</view>
+      <view class='content'>{{item.content}}</view>
+    </view>
+    <!-- 图片消息模板 -->
+    <image mode="aspectFit" src="{{item.url}}" wx:if="{{item.show_type == 3}}"></image>
+    <!-- <view>{{item.type == 2}}</view> -->
+    <view class='headimg' wx:if="{{item.type == 1 && item.show_type == 3 || item.type == 1 && item.show_type == 1}}">
+      <image src="{{item.headimgurl}}"></image>
+    </view>
+    <!-- 商品链接模板 -->
+    <view class='product-wrapper pro-message' wx:if="{{item.show_type == 2}}" data-pid="{{item.pid}}" bindtap='goDetail'>
+      <view>
+        <view class='product-content'>
+          <image src="{{item.img}}"></image>
+          <view class='text'>
+            <view>{{item.name}}</view>
+            <view>￥{{item.price}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </scroll-view>
+<view class='product-wrapper' wx:if="{{serverid != '' && serverid != undefined && !is_close}}">
+  <view>
+    <view class='product-content' data-pid="{{item.pid}}" bindtap='goDetail'>
+      <image src="{{details.photo_x}}"></image>
+      <view class='text'>
+        <view>{{details.name}}</view>
+        <view>￥{{details.price}}</view>
+      </view>
+    </view>
+    <view class="link border-t" bindtap='send_link'>发送链接<text catchtap='close_link'>关闭</text></view>
+  </view>
+</view>
 <view class='footer-wrapper'>
   <input placeholder='请输入文字' placeholder-style='color:#bababa' value="{{sendMsg}}" bindinput='change' bindconfirm='send'></input>
   <button type='default' bindtap='send'>发送</button>
+  <!--<image catchtap='chooseIMG' src="http://service.qinhantangtop.com/Uploads/icon/camera.png"></image>-->
 </view>
-

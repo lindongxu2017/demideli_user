@@ -8,7 +8,8 @@ Page({
     value: '',
     type: '',
     id: '',
-    detail: {}
+    detail: {},
+    bool: false
   },
   bindTextArea(e) {
     this.setData({ value: e.detail.value })
@@ -29,9 +30,13 @@ Page({
       myFn.popup(false, '内容不能为空', null)
       return false
     }
-    myFn.ajax('post', data, url, res => {
-      myFn.popup(false, tips, () => { wx.navigateBack() })
-    })
+    if (!this.data.bool) {
+      this.setData({bool: true})
+      myFn.ajax('post', data, url, res => {
+        myFn.popup(false, tips, () => { wx.navigateBack() })
+        setTimeout(() => { this.setData({ bool: false })}, 500)
+      })
+    }
   },
   onLoad: function (options) {
     var title = '';

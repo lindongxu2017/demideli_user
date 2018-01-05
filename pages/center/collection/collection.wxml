@@ -9,5 +9,5 @@
       <view>成交 {{item.shiyong}}单</view>
     </view>
 </view>
-<view wx:if="{{list.length == 0}}" class='no-more'>暂无服务 ...</view>
+<view wx:if="{{list.length == 0}}" class='no-more'>暂无收藏 ...</view>
 </view>

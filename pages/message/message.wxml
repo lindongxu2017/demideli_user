@@ -1,5 +1,5 @@
 <view class='list-wrapper'>
-    <view class='list-item' wx:for="{{list}}" wx:key="item" bindtap='router' data-uid="{{item.receive_uid}}">
+    <view class='list-item' wx:for="{{list}}" wx:key="item" bindtap='router' data-uid="{{item.other_uid}}">
         <view class='item-img'>
             <image src='{{item.headimgurl}}'></image>
             <view class="prompt" hidden="{{item.not_read_num == 0}}"></view>

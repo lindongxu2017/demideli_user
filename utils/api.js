@@ -11,7 +11,8 @@ const api = {
     QRcode: '/index.php/api/user/wxGetAcode',
     setDown: '/index.php/api/user/setUserDown',
     suggest: '/index.php/api/user/sendSuggest',
-    accountLog: '/index.php/api/user/userCostLogList'
+    accountLog: '/index.php/api/user/userCostLogList',
+    collection: '/index.php/api/user/collectList'
   },
   common: {
     getMobileCode: '/index.php/api/login/GetMobileCode',
@@ -29,6 +30,7 @@ const api = {
     detail: '/index.php/api/order/getOrderDetail',
     comment: '/index.php/api/order/addComment',
     right: '/index.php/api/order/backApply',
+    cancleRight: '/index.php/api/order/cancelBack',
     creat: '/index.php/api/payment/makeOrder'
   },
   pay: {

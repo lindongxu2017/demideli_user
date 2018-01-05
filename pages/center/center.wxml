@@ -32,12 +32,16 @@
     <view>企业管理</view>
     <view class='icon'><image src="{{url + '14.png'}}"></image></view>
   </view>
-  <view class='link-wrapper border-b' data-set="coupon" bindtap='routeTo'>
+  <!--<view class='link-wrapper border-b' data-set="coupon" bindtap='routeTo'>
     <view>优惠券</view>
     <view class='icon'><image src="{{url + '14.png'}}"></image></view>
-  </view>
+  </view>-->
   <view class='link-wrapper border-b' data-set="account" bindtap='routeTo'>
     <view>企业对账</view>
+    <view class='icon'><image src="{{url + '14.png'}}"></image></view>
+  </view>
+  <view class='link-wrapper border-b' data-set="collection" bindtap='routeTo'>
+    <view>我的收藏</view>
     <view class='icon'><image src="{{url + '14.png'}}"></image></view>
   </view>
   <view class='link-wrapper border-b' data-set="suggest" bindtap='routeTo'>

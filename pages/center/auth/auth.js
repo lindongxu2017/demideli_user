@@ -26,7 +26,8 @@ Page({
     // upload 返回图片路径
     type_1: [],
     type_2: '',
-    type_3: ''
+    type_3: '',
+    bool: false
   },
   chooseType(e) {
     var type = e.target.dataset.register || e.currentTarget.dataset.register
@@ -141,10 +142,14 @@ Page({
       myFn.popup(false, '请确认服务协议', null)
       return false
     }
-    myFn.ajax('post', data, api.admin.auth, res => {
-      // console.log(res)
-      wx.navigateBack()
-    })
+    if (!this.data.bool) {
+      this.setData({ bool: true })
+      myFn.ajax('post', data, api.admin.auth, res => {
+        // console.log(res)
+        setTimeout(() => { this.setData({ bool: false }) }, 500)
+        wx.navigateBack()
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

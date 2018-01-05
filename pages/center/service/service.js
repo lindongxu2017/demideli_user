@@ -48,11 +48,22 @@ Page({
     var type = e.target.dataset.type
     wx.navigateTo({ url: '../../order/todo/todo?id=' + id + '&pid=' + pid + '&type=' + type })
   },
+  cancel(e) {
+    var id = e.target.dataset.id
+    var index = e.target.dataset.index
+    myFn.popup(true, '是否取消维权？（取消之后无法再次维权！）', res => {
+      myFn.ajax('post', { order_id: id, session3rd: wx.getStorageSync('session3rd') }, api.order.cancleRight, res => {
+        this.data.list.splice(index, 1)
+        this.setData({ list: this.data.list })
+      })
+    })
+    // console.log(index)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getlist(options.type)
   },
-  onShow: function () {}
+  onShow: function () { }
 })

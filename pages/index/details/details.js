@@ -19,7 +19,8 @@ Page({
     id: '',
     order_status: '',
     company_list: [],
-    oid: ''
+    oid: '',
+    cover: false
   },
   tabSwitch(options) {
     this.setData({ tabValue: options.target.dataset.tab });
@@ -52,11 +53,10 @@ Page({
       for (var i = 0; i < res.data.length; i++) {
         if (res.data[i].status == 2) {
           arr.push(res.data[i])
-          console.log('1111')
         }
       }
       this.setData({ company_list: arr })
-      console.log(this.data.company_list)
+      // console.log(this.data.company_list)
     })
   },
   bindPickerChange(e) {
@@ -75,6 +75,7 @@ Page({
   onLoad: function (e) {
     this.setData({ id: e.id })
     this.setData({ oid: e.oid })
+    if (e.type == 2) { this.setData({ cover: true }) }
     var data = {
       pid: e.id,
       session3rd: wx.getStorageSync('session3rd') || ''

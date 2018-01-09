@@ -1,41 +1,41 @@
 const api = {
   admin: {
-    login: '/index.php/api/login/wxxcxlogin',
-    register: '/index.php/api/login/userRegister',
-    auth: '/index.php/api/login/userCompanyAuth'
+    login: '/api/login/wxxcxlogin',
+    register: '/api/login/userRegister',
+    auth: '/api/login/userCompanyAuth'
   },
   user: {
-    info: '/index.php/api/user/getUserInfo',
-    companyList: '/index.php/api/user/userCompanyList',
-    modify: '/index.php/api/user/modifyMobile',
-    QRcode: '/index.php/api/user/wxGetAcode',
-    setDown: '/index.php/api/user/setUserDown',
-    suggest: '/index.php/api/user/sendSuggest',
-    accountLog: '/index.php/api/user/userCostLogList',
-    collection: '/index.php/api/user/collectList'
+    info: '/api/user/getUserInfo',
+    companyList: '/api/user/userCompanyList',
+    modify: '/api/user/modifyMobile',
+    QRcode: '/api/user/wxGetAcode',
+    setDown: '/api/user/setUserDown',
+    suggest: '/api/user/sendSuggest',
+    accountLog: '/api/user/userCostLogList',
+    collection: '/api/user/collectList'
   },
   common: {
-    getMobileCode: '/index.php/api/login/GetMobileCode',
-    uploadIMG: '/index.php/api/upload/NormalUploadImg'
+    getMobileCode: '/api/login/GetMobileCode',
+    uploadIMG: '/api/upload/NormalUploadImg'
   },
   home: {
-    typeList: '/index.php/api/product/getCategory',
-    itemList: '/index.php/api/product/getProductList',
-    itemDetail: '/index.php/api/product/productInfo',
-    comment: '/index.php/api/product/getProductDp',
-    collect: '/index.php/api/product/collect'
+    typeList: '/api/product/getCategory',
+    itemList: '/api/product/getProductList',
+    itemDetail: '/api/product/productInfo',
+    comment: '/api/product/getProductDp',
+    collect: '/api/product/collect'
   },
   order: {
-    list: '/index.php/api/order/getOrderList',
-    detail: '/index.php/api/order/getOrderDetail',
-    comment: '/index.php/api/order/addComment',
-    right: '/index.php/api/order/backApply',
-    cancleRight: '/index.php/api/order/cancelBack',
-    creat: '/index.php/api/payment/makeOrder'
+    list: '/api/order/getOrderList',
+    detail: '/api/order/getOrderDetail',
+    comment: '/api/order/addComment',
+    right: '/api/order/backApply',
+    cancleRight: '/api/order/cancelBack',
+    creat: '/api/payment/makeOrder'
   },
   pay: {
-    wxPay: '/index.php/api/wxpay/wxpay',
-    offline: '/index.php/api/order/payByOther'
+    wxPay: '/api/wxpay/wxpay',
+    offline: '/api/order/payByOther'
   }
 }
 

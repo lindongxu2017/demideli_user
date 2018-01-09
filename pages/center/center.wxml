@@ -6,7 +6,7 @@
   <view class='info'>
     <text class='name {{is_auth == 1? "auth" : ""}}'>{{userinfo.uname || userinfo.nickName}}</text>
     <text class='identify'>身份：普通用户</text>
-    <button data-set="auth" bindtap='routeTo' wx:if="{{is_auth==0}}">认证vip</button>
+    <button data-set="auth" bindtap='routeTo' wx:if="{{is_auth==0}}">企业认证</button>
   </view>
 </view>
 <view class='type-wrapper'>

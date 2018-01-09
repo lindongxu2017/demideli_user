@@ -20,11 +20,11 @@ const statusCode = (res, sucFn) => {
     case 99997:
       console.log(res.data.data.session3rd)
       wx.setStorageSync('session3rd', res.data.data.session3rd)
-      myFn.popup(false, '用户未注册', (res) => {
-        wx.navigateTo({
+    //   myFn.popup(false, '用户未注册', (res) => {
+      wx.redirectTo({
           url: '/pages/register/register'
         })
-      })
+    //   })
       wx.setStorageSync('is_register', 0)
       wx.setStorageSync('appInfo', wx.getStorageSync('userinfo'))
       break;

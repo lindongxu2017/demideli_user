@@ -46,10 +46,6 @@ Page({
   getCompanyList() {
     var arr = []
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.companyList, res => {
-      if (res.data.length == 0) {
-        this.setData({ company_list: [{ id: 0, corporate_name: '请先添加公司' }] })
-        return false
-      };
       for (var i = 0; i < res.data.length; i++) {
         if (res.data[i].status == 2) {
           arr.push(res.data[i])
@@ -68,7 +64,13 @@ Page({
       url: './comment/comment?id=' + this.data.oid,
     })
   },
-  warm() { myFn.popup(false, '请先添加公司', null) },
+  warm() {
+    myFn.popup(true, '请先添加公司', res => {
+      wx.navigateTo({
+        url: '../../center/auth/auth',
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -89,8 +91,13 @@ Page({
     })
     // 获取评价
     myFn.ajax('get', { pid: e.id, page: '1' }, api.home.comment, res => {
-      // console.log(res)
-      this.setData({ comment_list: res.data.data })
+      console.log(res, res.data.data.length)
+      if(res.data.data.length > 0) {
+        this.setData({ comment_list: res.data.data })
+      } else {
+        this.setData({ comment_list: [] })
+      }
+      console.log(this.data.comment_list.length)
     })
     // 获取公司列表
     this.getCompanyList()

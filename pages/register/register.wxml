@@ -1,4 +1,5 @@
 <!--pages/register/register.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
 <view class='wellcome'>
   <text>注册</text>
 </view>
@@ -14,11 +15,18 @@
   </view>
 </view>
 <view class='protocol'>
-  <checkbox-group bindchange="checkboxChange">
-    <label class="checkbox" wx:for="{{items}}" wx:key="key">
-      <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
-    </label>
-  </checkbox-group>
+  <view class='checkbox' bindtap='agree'>
+    <icon wx:if="{{protocol}}" type='success_no_circle' color="#0ABA07" size="16"></icon>
+  </view>
+  <view class='protocol-text'><text bindtap='agree'>同意平台</text><text catchtap='read'>《服务协议》</text></view>
+</view>
+<view class='protocol-content' wx:if="{{is_read}}">
+  <view>
+    <view class='content-wrapper'>
+      <template is="wxParse" data="{{wxParseData: article.nodes}}" />
+    </view>
+    <view class='border-t close' catchtap='close_agree'>关闭</view>
+  </view>
 </view>
 <view class='my-btn'>
   <button bindtap='submit'>提交</button>

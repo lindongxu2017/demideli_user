@@ -64,7 +64,7 @@
     <text wx:if='{{detail.is_collect==0}}'>收藏</text>
     <text wx:if='{{detail.is_collect==1}}'>取消收藏</text>
   </view>
-  <view class='order' wx:if="{{company_list.length > 0}}">
+  <view class='order' wx:if="{{company_list.length >= 1}}">
     <view class='total'>合计</view>
     <view>￥{{detail.price}}</view>
     <view class='after'>下单</view>

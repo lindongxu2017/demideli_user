@@ -2,6 +2,7 @@
 const app = getApp()
 const myFn = app.myFn
 const api = app.api
+const WxParse = require('../../wxParse/wxParse.js');
 // console.log(myFn)
 Page({
 
@@ -9,20 +10,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    items: [
-      { name: '1', value: '请确认同意本平台服务协议', checked: true }
-    ],
     phone: '',
     code: '',
-    protocol: '1',
-    codeTitle: '获取验证码'
+    protocol: false,
+    codeTitle: '获取验证码',
+    is_read: false
   },
   /**
    * 自定义函数
    */
-  checkboxChange: function (e) {
-    e.detail.value[0] ? this.setData({ protocol: e.detail.value[0] }) : this.setData({ protocol: '' })
-    // console.log(e.detail.value[0])
+  agree: function (e) {
+    this.setData({ protocol: !this.data.protocol })
+  },
+  close_agree () {
+    this.setData({ is_read: false})
+  },
+  read: function (e) {
+    this.setData({ is_read: !this.data.is_read })
   },
   inputValue(e) {
     var key = e.target.dataset.key || e.currentTarget.dataset.key
@@ -50,6 +54,11 @@ Page({
         this.set_codeTime();
       }
     }, 1000);
+  },
+  getProtocol() {
+    myFn.ajax('post', {}, api.system.info, (res) => {
+      WxParse.wxParse('article', 'html', res.data.agreement, this, 0);
+    })
   },
   submit() {
     if (!this.data.phone) {
@@ -79,7 +88,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getProtocol()
   },
 
   /**

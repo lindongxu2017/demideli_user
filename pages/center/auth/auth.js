@@ -2,6 +2,7 @@
 const app = getApp()
 const myFn = app.myFn
 const api = app.api
+const WxParse = require('../../../wxParse/wxParse.js');
 // console.log(myFn)
 Page({
 
@@ -27,6 +28,8 @@ Page({
     type_1: [],
     type_2: '',
     type_3: '',
+    protocol: false,
+    is_read: false,
     bool: false
   },
   chooseType(e) {
@@ -34,9 +37,19 @@ Page({
     this.setData({ is_register: type })
     // console.log(this.data.is_register)
   },
-  checkboxChange(e) {
-    e.detail.value[0] ? this.setData({ protocol: e.detail.value[0] }) : this.setData({ protocol: '' })
-    // console.log(this.data.protocol)
+  agree: function (e) {
+    this.setData({ protocol: !this.data.protocol })
+  },
+  close_agree() {
+    this.setData({ is_read: false })
+  },
+  read: function (e) {
+    this.setData({ is_read: !this.data.is_read })
+  },
+  getProtocol() {
+    myFn.ajax('post', {}, api.system.info, (res) => {
+      WxParse.wxParse('article', 'html', res.data.agreement, this, 0);
+    })
   },
   inputValue(e) {
     var key = e.target.dataset.key || e.currentTarget.dataset.key
@@ -160,6 +173,7 @@ Page({
     this.setData({ type: options.type })
     options.type == 1 ? title = '会员认证' : title = '添加名下企业'
     wx.setNavigationBarTitle({ title: title || '会员认证' })
+    this.getProtocol()
   },
 
   /**

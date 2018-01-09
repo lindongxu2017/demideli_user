@@ -36,6 +36,9 @@ const api = {
   pay: {
     wxPay: '/api/wxpay/wxpay',
     offline: '/api/order/payByOther'
+  },
+  system: {
+    info: '/api/index/getProgram'
   }
 }
 

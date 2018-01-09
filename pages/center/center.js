@@ -14,13 +14,8 @@ Page({
     bool: false,
     is_register: '',
     is_auth: '',
-    userinfo: {}
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+    userinfo: {},
+    company_list: []
   },
   routeTo(e) {
     var self = this
@@ -48,6 +43,17 @@ Page({
         }
       })
     }
+  },
+  get_company_list () {
+    myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.companyList, res => {
+      this.setData({ company_list: res.data.data })
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

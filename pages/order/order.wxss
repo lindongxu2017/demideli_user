@@ -24,6 +24,8 @@ page {
 .search input {
   height: 60rpx;
   min-width: calc(100% - 230rpx);
+  min-width: -moz-calc(100% - 230rpx);
+  min-width: -webkit-calc(100% - 230rpx);
   background-color: #f7f8fa;
   display: inline-block;
   border: 1px solid #d5dbe6;
@@ -102,6 +104,8 @@ page {
   top: 162rpx;
   width: 100%;
   height: calc(100% - 162rpx);
+  height: -moz-calc(100% - 162rpx);
+  height: -webkit-calc(100% - 162rpx);
   background: none;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
@@ -166,6 +170,8 @@ page {
 .order-list .content > view .desc {
   display: inline-block;
   width: calc(100% - 90px);
+  width: -moz-calc(100% - 90px);
+  width: -webkit-calc(100% - 90px);
   margin-left: 15rpx;
 }
 .order-list .date {
@@ -238,6 +244,8 @@ view.left.is_comment {
   position: fixed;
   width: 100%;
   height: calc(100% - 100rpx);
+  height: -moz-calc(100% - 100rpx);
+  height: -webkit-calc(100% - 100rpx);
   top: 100rpx;
   z-index: 3;
   background-color: rgba(0,0,0,0.5);
@@ -280,6 +288,8 @@ view.left.is_comment {
 }
 .picker > text:last-child {
   width: calc(100% - 140rpx);
+  width: -moz-calc(100% - 140rpx);
+  width: -webkit-calc(100% - 140rpx);
   text-align: right;
 }
 .picker > text.has-dete {

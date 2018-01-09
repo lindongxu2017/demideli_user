@@ -19,6 +19,8 @@ page {
 }
 .form-control {
   width: calc(100% - 160rpx);
+  width: -moz-calc(100% - 160rpx);
+  width: -webkit-calc(100% - 160rpx);
 }
 .form-after {
   position: absolute;

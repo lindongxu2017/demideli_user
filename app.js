@@ -31,6 +31,7 @@ App({
   getInfoAndLogin() {
     wx.getUserInfo({
       success: res => {
+        console.log(res)
         // 可以将 res 发送给后台解码出 unionId
         this.globalData.userInfo = res.userInfo
         wx.setStorageSync('userinfo', res.userInfo)
@@ -42,6 +43,7 @@ App({
           iv: res.iv
         }
         this.myFn.ajax('post', data, this.api.admin.login, res => {
+          console.log(res)
           wx.setStorageSync('session3rd', res.data.session3rd)
           this.myFn.ajax('post', { 'session3rd': res.data.session3rd }, this.api.user.info, res => {
             wx.setStorageSync('appInfo', res.data)
@@ -83,11 +85,11 @@ App({
       })
     })
     wx.onSocketClose(function (res) {
-      self.message_scoket()
+      // self.message_scoket()
       console.log('WebSocket 已关闭！')
     })
     wx.onSocketError(function (res) {
-      self.message_scoket()
+      // self.message_scoket()
       console.log('WebSocket连接打开失败，请检查！')
     })
   },

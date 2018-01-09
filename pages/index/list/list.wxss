@@ -12,6 +12,8 @@
 .serviceList .serviceItem {
   padding: 30rpx 30rpx 40rpx;
   padding-left: calc(20% + 60rpx);
+  padding-left: -moz-calc(20% + 60rpx);
+  padding-left: -webkit-calc(20% + 60rpx);
   margin-bottom: 14rpx;
 }
 
@@ -39,6 +41,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  min-height: 36rpx;
 }
 
 .flex {

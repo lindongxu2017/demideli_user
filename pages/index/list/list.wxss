@@ -10,21 +10,22 @@
 }
 
 .serviceList .serviceItem {
-  padding: 30rpx 30rpx 40rpx;
+  padding: 30rpx 30rpx 0rpx;
+  height: 180rpx;
   padding-left: calc(20% + 60rpx);
   margin-bottom: 14rpx;
 }
 
 .serviceList image {
-  width: 20%;
-  height: 20vw;
+  width: 150rpx;
+  height: 150rpx;
   position: absolute;
   left: 30rpx;
 }
 
 .title {
   font-size: 38rpx;
-  margin-bottom: 6rpx;
+  margin-bottom: 20rpx;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -33,7 +34,7 @@
 .desc {
   font-size: 24rpx;
   color: #9099a9;
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

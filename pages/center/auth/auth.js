@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    url: 'http://service.qinhantangtop.com/Uploads/icon/icon_',
+    url: 'https://service.qinhantangtop.com/Uploads/icon/icon_',
     // 判断认证、添加
     type: '',
     items: [
@@ -81,7 +81,7 @@ Page({
     }
     console.log('上传路径' + path)
     wx.uploadFile({
-      url: 'http://service.qinhantangtop.com/index.php/api/upload/NormalUploadImg',
+      url: 'https://service.qinhantangtop.com/api/upload/NormalUploadImg',
       name: 'flie',
       filePath: path,
       header: { "content-type": 'multipart/form-data' },

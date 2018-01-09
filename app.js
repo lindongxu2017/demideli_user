@@ -63,7 +63,7 @@ App({
   message_scoket() {
     var self = this;
     this.scoket = wx.connectSocket({
-        url: 'https://service.qinhantangtop.com/wss',
+        url: 'wss://service.qinhantangtop.com/wss',
       data: {
         rd_session: wx.getStorageSync('session3rd'),
         type: 'auth',
@@ -85,11 +85,11 @@ App({
       })
     })
     wx.onSocketClose(function (res) {
-      // self.message_scoket()
+      self.message_scoket()
       console.log('WebSocket 已关闭！')
     })
     wx.onSocketError(function (res) {
-      // self.message_scoket()
+      self.message_scoket()
       console.log('WebSocket连接打开失败，请检查！')
     })
   },

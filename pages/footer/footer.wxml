@@ -1,19 +1,23 @@
 <!--pages/footer/footer.wxml-->
 <view class='footer'>
-  <view>
-    <image src='../../icon/home.png'></image>
-    <view>企业服务</view>
+  <view data-path='1' bindtap='route'>
+    <image wx:if="{{route_type != 1}}" src='../../icon/home.png'></image>
+    <image wx:if="{{route_type == 1}}" src='../../icon/home_checked.png'></image>
+    <view class="{{route_type == 1?'active':''}}">企业服务</view>
   </view>
-  <view>
-    <image src='../../icon/order.png'></image>
-    <view>服务订单</view>
+  <view data-path='2' bindtap='route'>
+    <image wx:if="{{route_type != 2}}" src='../../icon/order.png'></image>
+    <image wx:if="{{route_type == 2}}" src='../../icon/order_checked.png'></image>
+    <view class="{{route_type == 2?'active':''}}">服务订单</view>
   </view>
-  <view>
-    <image src='../../icon/message.png'></image>
-    <view>消息管理</view>
+  <view data-path='3' bindtap='route'>
+    <image wx:if="{{route_type != 3}}" src='../../icon/message.png'></image>
+    <image wx:if="{{route_type == 3}}" src='../../icon/message_checked.png'></image>
+    <view class="{{route_type == 3?'active':''}}">消息管理</view>
   </view>
-  <view>
-    <image src='../../icon/center.png'></image>
-    <view>会员中心</view>
+  <view data-path='4' bindtap='route'>
+    <image wx:if="{{route_type != 4}}" src='../../icon/center.png'></image>
+    <image wx:if="{{route_type == 4}}" src='../../icon/center_checked.png'></image>
+    <view class="{{route_type == 4?'active':''}}">会员中心</view>
   </view>
 </view>

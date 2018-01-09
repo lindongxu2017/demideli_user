@@ -1,0 +1,68 @@
+<!--pages/order/order.wxml-->
+<view class="search border-t">
+  <icon type="search" color="#788397" size="15" class='search-icon' />
+  <input type="text" class='{{cancel_btn?"focus":""}}' bindfocus="focus" value='{{searchData.order_sn}}' bindinput='keyup' placeholder='输入订单编号' placeholder-style='color:#788397' bindconfirm="search" />
+  <button class='search-btn' wx:if="{{cancel_btn}}" bindtap='order_search'>取消</button>
+</view>
+<view class='tab-item'>
+  <view data-tab="1" class='{{tabValue==1?"tab-select":""}}' bindtap='tabSwitch'>洽谈中</view>
+  <view data-tab="2" class='{{tabValue==2?"tab-select":""}}' bindtap='tabSwitch'>待付款</view>
+  <view data-tab="3" class='{{tabValue==3?"tab-select":""}}' bindtap='tabSwitch'>服务中</view>
+  <view data-tab="4" class='{{tabValue==4?"tab-select":""}}' bindtap='tabSwitch'>已完成</view>
+</view>
+<view class='tab-content'>
+  <view>
+    <view class='order-list' wx:for="{{list}}" wx:key="key" data-id="{{item.id}}" bindtap='godetail'>
+      <view class='order border-b'>
+        <view>{{item.company_name}}</view>
+      </view>
+      <view class='content'>
+        <view class='flex border-b'>
+          <view class='title  '>姓名：<text>{{item.receiver}}</text> </view>
+          <view class='title'>电话：<text>{{item.tel}}</text> </view>
+        </view>
+        <!--<view class='operation'>
+          <view class='modify'>改价</view>
+          <view class='cooperation'>确认合作</view>
+        </view>-->
+      </view>
+      <view class='flex date'>
+        <view>服务价：￥{{item.amount}}</view>
+        <view>下单时间：{{item.addtime}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='mask border-t' wx:if="{{cancel_btn}}">
+  <view class='serach-log' wx:if="{{is_search}}">
+    <view class='log-list border-b' wx:for="{{search_log1}}" wx:key="key" data-index="{{index}}" bindtap='log_search'>
+      <icon type="clear" size="20" data-index="{{index}}" catchtap='del_log'></icon>
+      <text>{{item.content}}</text>
+    </view>
+  </view>
+  <view class='clear-btn' wx:if="{{is_search}}">
+    <text>清空搜索记录</text>
+  </view>
+  <view class='search_result' wx:if="{{!is_search}}">
+    <view class='order-list' wx:for="{{search_result}}" wx:key="key" data-id="{{item.id}}" bindtap='godetail'>
+      <view class='order border-b'>
+        <view>{{item.company_name}}</view>
+      </view>
+      <view class='content'>
+        <view class='flex border-b'>
+          <view class='title  '>姓名：<text>{{item.receiver}}</text> </view>
+          <view class='title'>电话：<text>{{item.tel}}</text> </view>
+        </view>
+        <!--<view class='operation'>
+          <view class='modify'>改价</view>
+          <view class='cooperation'>确认合作</view>
+        </view>-->
+      </view>
+      <view class='flex date'>
+        <view>服务价：￥{{item.amount}}</view>
+        <view>下单时间：{{item.addtime}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<footer></footer>

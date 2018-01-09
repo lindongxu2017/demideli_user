@@ -73,6 +73,7 @@
     </view>
   </view>
 </view>
+<footer></footer>
 <!--<view class='mask' wx:if="{{popupValue}}">
   <view class='popup'>
     <view class='title'>筛选</view>

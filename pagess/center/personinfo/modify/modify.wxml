@@ -1,0 +1,3 @@
+<!--pages/center/personinfo/modify/modify.wxml-->
+<input value='{{value}}'></input>
+<button type='primary'>保存</button>

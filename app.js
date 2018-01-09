@@ -1,34 +1,64 @@
 //app.js
-var main = require('./utils/main.js');
-var api = require('./utils/api.js');
+
 // console.log(util)
 App({
   scoket: '',
-  myFn: main.myFn,
-  api: api.api,
-  onLaunch: function () {
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        wx.setStorageSync('mini_code', res.code)
-      }
-    })
-
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          this.getInfoAndLogin()
-        } else {
-          this.getInfoAndLogin()
+  myFn: '',
+  api: '',
+  onLaunch: function (e) {
+    console.log(e.path)
+    if (e.path.split('/')[0] == 'pagess') {
+      var main = require('./utilss/main.js');
+      var api = require('./utilss/api.js');
+      this.myFn = main.myFn
+      this.api = api.api
+      // console.log(main, api)
+      // 登录
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          wx.setStorageSync('mini_code', res.code)
         }
-        this.message_scoket()
-      }
-    })
+      })
+      // 获取用户信息
+      wx.getSetting({
+        success: res => {
+          if (res.authSetting['scope.userInfo']) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+            this.getInfoAndLogin2()
+          } else {
+            this.getInfoAndLogin2()
+          }
+        }
+      })
+    } else {
+      var main = require('./utils/main.js');
+      var api = require('./utils/api.js');
+      this.myFn = main.myFn
+      this.api = api.api
+      // console.log(main, api)
+      // 登录
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          wx.setStorageSync('mini_code', res.code)
+        }
+      })
+      // 获取用户信息
+      wx.getSetting({
+        success: res => {
+          if (res.authSetting['scope.userInfo']) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+            this.getInfoAndLogin1()
+          } else {
+            this.getInfoAndLogin1()
+          }
+          this.message_scoket()
+        }
+      })
+    }
   },
-  getInfoAndLogin() {
+  getInfoAndLogin1() {
     wx.getUserInfo({
       success: res => {
         console.log(res)
@@ -55,6 +85,37 @@ App({
           this.userInfoReadyCallback(res)
         }
       }
+    })
+  },
+  getInfoAndLogin2() {
+    wx.getUserInfo({
+      success: res => {
+        // 可以将 res 发送给后台解码出 unionId
+        this.globalData.userInfo = res.userInfo
+        wx.setStorageSync('userinfo', res.userInfo)
+        wx.setStorageSync('loginData', res)
+        if (this.userInfoReadyCallback) {
+          this.userInfoReadyCallback(res)
+        }
+        var data = {
+          code: wx.getStorageSync('mini_code'),
+          rawData: res.rawData,
+          signature: res.signature,
+          encryptedData: res.encryptedData,
+          iv: res.iv
+        }
+        this.myFn.ajax('post', data, this.api.admin.login, res => {
+          wx.setStorageSync('session3rd', res.data.session3rd)
+          console.log(res)
+          this.getInfo()
+        })
+      }
+    })
+  },
+  getInfo() {
+    this.myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, this.api.user.info, res => {
+      this.message_scoket(res.data.id)
+      wx.setStorageSync('userID', res.data.id)
     })
   },
   globalData: {

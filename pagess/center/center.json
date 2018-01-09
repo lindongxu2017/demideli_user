@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#3F51B5",
+  "navigationBarTitleText": "个人中心",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "footer": "/pagess/footer/footer"
+  }
+}

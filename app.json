@@ -20,7 +20,20 @@
     "pages/center/suggest/suggest",
     "pages/center/card/card",
     "pages/center/relative/relative",
-    "pages/center/collection/collection"
+    "pages/center/collection/collection",
+    "pagess/message/message",
+    "pagess/center/center",
+    "pagess/index/index",
+    "pagess/index/details/details",
+    "pagess/order/order",
+    "pagess/login/login",
+    "pagess/orderDetail/orderDetail",
+    "pagess/message/room/room",
+    "pagess/center/modifyName/modifyName",
+    "pagess/center/all/all",
+    "pagess/center/card/card",
+    "pagess/center/relative/relative",
+    "pagess/center/month/month"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,36 +41,5 @@
     "navigationBarTitleText": "得米得利",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#788397"
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "企业服务",
-        "iconPath": "icon/home.png",
-        "selectedIconPath": "icon/home_checked.png"
-      },
-      {
-        "pagePath": "pages/order/order",
-        "text": "服务订单",
-        "iconPath": "icon/order.png",
-        "selectedIconPath": "icon/order_checked.png"
-      },
-      {
-        "pagePath": "pages/message/message",
-        "text": "消息管理",
-        "iconPath": "icon/message.png",
-        "selectedIconPath": "icon/message_checked.png"
-      },
-      {
-        "pagePath": "pages/center/center",
-        "text": "会员中心",
-        "iconPath": "icon/center.png",
-        "selectedIconPath": "icon/center_checked.png"
-      }
-    ],
-    "color": "#93A1BA",
-    "selectedColor": "#3F51B5",
-    "backgroundColor": "#fff"
   }
 }

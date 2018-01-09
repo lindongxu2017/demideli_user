@@ -35,6 +35,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 14rpx;
+  min-height: 52rpx;
 }
 .header .info text.name.auth {
   margin-top: 30rpx;

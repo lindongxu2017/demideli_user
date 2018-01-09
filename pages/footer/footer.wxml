@@ -1,0 +1,19 @@
+<!--pages/footer/footer.wxml-->
+<view class='footer'>
+  <view>
+    <image src='../../icon/home.png'></image>
+    <view>企业服务</view>
+  </view>
+  <view>
+    <image src='../../icon/order.png'></image>
+    <view>服务订单</view>
+  </view>
+  <view>
+    <image src='../../icon/message.png'></image>
+    <view>消息管理</view>
+  </view>
+  <view>
+    <image src='../../icon/center.png'></image>
+    <view>会员中心</view>
+  </view>
+</view>

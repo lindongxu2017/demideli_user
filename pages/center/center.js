@@ -46,7 +46,10 @@ Page({
   },
   get_company_list () {
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.companyList, res => {
-      this.setData({ company_list: res.data.data })
+      if(res.data.length > 0) {
+        this.setData({ company_list: res.data.data })
+        console.log(res.data.length)
+      }
     })
   },
   /**
@@ -77,6 +80,7 @@ Page({
       this.setData({ userinfo: wx.getStorageSync('appInfo') })
     })
     this.setData({ userinfo: wx.getStorageSync('appInfo') })
+    this.get_company_list()
   },
 
   /**

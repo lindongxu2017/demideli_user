@@ -94,7 +94,7 @@ Page({
     }
     console.log('上传路径' + path)
     wx.uploadFile({
-      url: 'http://service.qinhantangtop.com/index.php/api/upload/NormalUploadImg',
+      url: 'http://service.qinhantangtop.com/api/upload/NormalUploadImg',
       name: 'flie',
       filePath: path,
       header: { "content-type": 'multipart/form-data' },
@@ -160,7 +160,9 @@ Page({
       myFn.ajax('post', data, api.admin.auth, res => {
         // console.log(res)
         setTimeout(() => { this.setData({ bool: false }) }, 500)
-        wx.navigateBack()
+        myFn.popup(false, '请等待后台审核', (res) => {
+          wx.navigateBack()
+        })
       })
     }
   },

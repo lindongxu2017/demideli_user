@@ -10,7 +10,7 @@ Page({
    */
   data: {
     url: 'http://service.qinhantangtop.com/Uploads/icon/icon_',
-    default_way: 2,
+    default_way: 1,
     detail: {},
     value: '',
     id: ''
@@ -34,7 +34,10 @@ Page({
         myFn.popup(false, '提交成功，请等待后台审核！', res => { wx.navigateBack() })
       })
     } else if (this.data.default_way == 2) {
-      myFn.popup(false, '开发中...', res => { wx.navigateBack() })
+      // myFn.popup(false, '开发中...', res => { wx.navigateBack() })
+      myFn.ajax('post', { order_id: this.data.id, session3rd: wx.getStorageSync('session3rd') }, api.pay.wxPay, res => {
+         console.log(res)
+      })
     }
   },
   /**

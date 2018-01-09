@@ -16,6 +16,8 @@ page {
   position: absolute;
   left: 30rpx;
   width: calc(100% - 60rpx);
+  width: -moz-calc(100% - 60rpx);
+  width: -webkit-calc(100% - 60rpx);
   bottom: 0;
   border-bottom: 1px dashed #a1b0cc;
 }

@@ -48,6 +48,8 @@ page,view {
   font-size: 32rpx;
   display: inline-block;
   max-width: calc(100% - 190rpx);
+  max-width: -moz-calc(100% - 190rpx);
+  max-width: -webkit-calc(100% - 190rpx);
   margin-left: 30rpx;
   vertical-align: text-top;
 }
@@ -162,6 +164,8 @@ page,view {
   display: inline-block;
   font-size: 32rpx;
   min-width: calc(100% - 170rpx);
+  min-width: -moz-calc(100% - 170rpx);
+  min-width: -webkit-calc(100% - 170rpx);
   vertical-align: middle;
   margin-right: 10rpx;
   box-sizing: border-box;
@@ -216,6 +220,8 @@ page,view {
 }
 .product-content > view {
   width: calc(100% - 160rpx);
+  width: -moz-calc(100% - 160rpx);
+  width: -webkit-calc(100% - 160rpx);
   margin-left: 20rpx;
 }
 .text > view {

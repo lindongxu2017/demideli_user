@@ -101,6 +101,8 @@ view {
   content: '';
   position: absolute;
   width: calc(100% - 60rpx);
+  width: -moz-calc(100% - 60rpx);
+  width: -webkit-calc(100% - 60rpx);
   height: 1px;
   left: 30rpx;
   background-color: #e5e5e5;

@@ -19,6 +19,8 @@
 }
 .header .info {
   width: calc(70% - 40rpx);
+  width: -moz-calc(70% - 40rpx);
+  width: -webkit-calc(70% - 40rpx);
   margin-left: 40rpx;
   height: 25vw;
   font-size: 32rpx;

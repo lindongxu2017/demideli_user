@@ -63,7 +63,7 @@ App({
   message_scoket() {
     var self = this;
     this.scoket = wx.connectSocket({
-      url: 'wss://service.qinhantangtop.com/wss', 
+      url: 'wss://service.qinhantangtop.com/wss',
       data: {
         rd_session: wx.getStorageSync('session3rd'),
         type: 'auth',

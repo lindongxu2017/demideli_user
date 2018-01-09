@@ -51,7 +51,7 @@
       },
       {
         "pagePath": "pages/center/center",
-        "text": "会员中心",
+        "text": "个人中心",
         "iconPath": "icon/center.png",
         "selectedIconPath": "icon/center_checked.png"
       }

@@ -13,6 +13,7 @@ Page({
     phone: '',
     code: '',
     protocol: false,
+    protocol_type: '',
     codeTitle: '获取验证码',
     is_read: false
   },
@@ -26,7 +27,9 @@ Page({
     this.setData({ is_read: false})
   },
   read: function (e) {
+    this.setData({ protocol_type: e.currentTarget.dataset.type })
     this.setData({ is_read: !this.data.is_read })
+    this.getProtocol()
   },
   inputValue(e) {
     var key = e.target.dataset.key || e.currentTarget.dataset.key
@@ -57,7 +60,9 @@ Page({
   },
   getProtocol() {
     myFn.ajax('post', {}, api.system.info, (res) => {
-      WxParse.wxParse('article', 'html', res.data.agreement, this, 0);
+      var protocol_content = '';
+      this.data.protocol_type == 1 ? protocol_content = res.data.agreement : protocol_content = res.data.legal
+      WxParse.wxParse('article', 'html', protocol_content, this, 0);
     })
   },
   submit() {
@@ -80,7 +85,7 @@ Page({
     }
     // console.log(api.admin.register)
     myFn.ajax('post', data, api.admin.register, res => {
-      wx.switchTab({ url: '/pages/center/center' })
+      wx.navigateTo({ url: '/pages/center/center' })
       wx.setStorageSync('is_register', 1)
     })
   },
@@ -88,7 +93,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getProtocol()
+    // this.getProtocol()
   },
 
   /**

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pagess/index/index",
     "pages/center/center",
     "pages/index/details/details",
     "pages/index/list/list",
@@ -23,7 +24,6 @@
     "pages/center/collection/collection",
     "pagess/message/message",
     "pagess/center/center",
-    "pagess/index/index",
     "pagess/index/details/details",
     "pagess/order/order",
     "pagess/login/login",

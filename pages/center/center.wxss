@@ -1,4 +1,13 @@
 /* pages/center/center.wxss */
+.center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 120rpx;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
 .header {
   padding: 20rpx 60rpx;
   position: relative;

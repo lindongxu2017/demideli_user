@@ -5,7 +5,7 @@
 <view class='form'>
   <view class='form-wrapper border-b'>
     <view class='form-label'>账号</view>
-    <input class='form-control' placeholder='请输入账号' type='number' value="{{username}}" data-key='username' bindinput='inputValue'></input>
+    <input class='form-control' placeholder='请输入账号' value="{{username}}" data-key='username' bindinput='inputValue'></input>
   </view>
   <view class='form-wrapper'>
     <view class='form-label'>密码</view>

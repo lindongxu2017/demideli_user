@@ -128,8 +128,9 @@ page {
   position: fixed;
   top: 210rpx;
   width: 100%;
-  height: calc(100% - 210rpx);
+  height: calc(100% - 330rpx);
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   background: none;
 }
 .tab-content > view {

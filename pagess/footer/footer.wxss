@@ -13,6 +13,7 @@
 .footer > view view {
   font-size: 24rpx;
   color: #788397;
+  margin-top: -8rpx;
 }
 .footer > view view.active {
   color: #3F51B5;
@@ -20,5 +21,6 @@
 .footer image {
   width: 70rpx;
   height: 70rpx;
+  margin-top: 6rpx;
   display: inline-block;
 }

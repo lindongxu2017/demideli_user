@@ -5,13 +5,16 @@ App({
   scoket: '',
   myFn: '',
   api: '',
-  onLaunch: function (e) {
+  socket_type: '',
+  onShow: function (e) {
+    wx.clearStorageSync()
     console.log(e.path)
     if (e.path.split('/')[0] == 'pagess') {
       var main = require('./utilss/main.js');
       var api = require('./utilss/api.js');
       this.myFn = main.myFn
       this.api = api.api
+      this.socket_type = 2
       // console.log(main, api)
       // 登录
       wx.login({
@@ -36,6 +39,7 @@ App({
       var api = require('./utils/api.js');
       this.myFn = main.myFn
       this.api = api.api
+      this.socket_type = 1
       // console.log(main, api)
       // 登录
       wx.login({
@@ -53,7 +57,7 @@ App({
           } else {
             this.getInfoAndLogin1()
           }
-          this.message_scoket()
+          // this.message_scoket()
         }
       })
     }
@@ -80,6 +84,7 @@ App({
             wx.setStorageSync('is_register', 1)
             wx.setStorageSync('is_auth', parseInt(res.data.is_auth))
           })
+          this.getInfo()
         })
         if (this.userInfoReadyCallback) {
           this.userInfoReadyCallback(res)
@@ -114,6 +119,7 @@ App({
   },
   getInfo() {
     this.myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, this.api.user.info, res => {
+      console.log('用户信息回调')
       this.message_scoket(res.data.id)
       wx.setStorageSync('userID', res.data.id)
     })
@@ -121,44 +127,50 @@ App({
   globalData: {
     userInfo: null
   },
-  message_scoket() {
+  message_scoket(id) {
+    var user_id = id || wx.getStorageSync('userID')
+    console.log('用户ID：' + user_id )
     var self = this;
     this.scoket = wx.connectSocket({
       url: 'wss://service.qinhantangtop.com/wss',
-      data: {
-        rd_session: wx.getStorageSync('session3rd'),
-        type: 'auth',
-        user_id: 1,
-        data: '123'
-      },
+      // data: {
+        // rd_session: wx.getStorageSync('session3rd'),
+        // type: 'auth',
+        // user_id: id,
+        // user_type: self.socket_type
+      // },
       header: {
         'content-type': 'application/json'
+      },
+      complete: function (res) {
+        console.log(res)
       }
     })
     wx.onSocketOpen(res => {
       console.log('WebSocket连接已打开！')
-      wx.sendSocketMessage({
-        data: JSON.stringify({
-          type: 'auth',
-          user_id: wx.getStorageSync('appInfo').id,
-          user_type: 1
-        })
+      self.send_scoket({
+        type: 'auth',
+        user_id: user_id,
+        user_type: self.socket_type
       })
     })
     wx.onSocketClose(function (res) {
-      // self.message_scoket()
-      console.log('WebSocket 已关闭！')
+      self.message_scoket()
+      console.log('WebSocket 已关闭！', new Date())
     })
     wx.onSocketError(function (res) {
       // self.message_scoket()
       console.log('WebSocket连接打开失败，请检查！')
     })
+    self.success_scoket(null)
   },
   success_scoket(fn) {
     wx.onSocketMessage(res => {
       var res = JSON.parse(res.data);
       if (res.code == 200) {
-        fn(res)
+        if(fn != null) {
+          fn(res)
+        }
       }
     })
   },

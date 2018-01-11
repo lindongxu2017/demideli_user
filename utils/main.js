@@ -28,6 +28,9 @@ const statusCode = (res, sucFn) => {
       wx.setStorageSync('is_register', 0)
       wx.setStorageSync('appInfo', wx.getStorageSync('userinfo'))
       break;
+    case 99999:
+      console.log(res.data)
+      break;
     case 10000:
       myFn.popup(false, res.data.msg)
       break;

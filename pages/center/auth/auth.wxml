@@ -1,7 +1,7 @@
 <!--pages/center/auth/auth.wxml-->
 <import src="../../../wxParse/wxParse.wxml" />
 <view class='{{is_read?"is_popup":""}}'>
-  <image src="{{url + '9.png'}}" class='headerImg'></image>
+  <!--<image src="{{url + '9.png'}}" class='headerImg'></image>-->
   <view class='is_register'>
     <view class='cell-title'>选择类型</view>
     <view class='select-list'>
@@ -53,7 +53,8 @@
       </view>
       <view class='protocol-text'>
         <text bindtap='agree'>同意平台</text>
-        <text catchtap='read'>《服务协议》</text>
+        <text data-type="1" catchtap='read'>《服务协议》</text>
+        <text data-type="2" catchtap='read'>《法律条款》</text>
       </view>
     </view>
     <view class='protocol-content' wx:if="{{is_read}}">

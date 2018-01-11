@@ -122,7 +122,7 @@ Page({
 
     var chatlist = [];
     app.success_scoket(res => {
-      console.log('回调：' + JSON.stringify(res))
+      // console.log('回调：' + JSON.stringify(res))
       switch (res.type) {
         case 'send_single_message':
           if (res.data.uid == this.data.uid) {

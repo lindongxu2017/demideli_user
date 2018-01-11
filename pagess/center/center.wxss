@@ -16,7 +16,7 @@ page {
   background-color: #3f51b5;
   border-bottom-left-radius: 30% ;
   border-bottom-right-radius: 30%;
-  position: relative
+  position: relative;
 }
 
 .top_box {

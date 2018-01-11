@@ -17,7 +17,7 @@ Page({
     ],
     searchData: {
       session3rd: wx.getStorageSync('session3rd'),
-      orderSta: '10',
+      orderSta: '5',
       order_sn: ''
     },
     search_log1: [],
@@ -105,6 +105,8 @@ Page({
   },
   // 获取列表
   getlist() {
+    this.data.searchData.session3rd = wx.getStorageSync('session3rd')
+    // console.log()
     myFn.ajax('post', this.data.searchData, api.order.list, res => {
       this.setData({
         list: res.data,
@@ -122,7 +124,7 @@ Page({
     if (!self.data.bool) {
       self.setData({ bool: true })
       wx.navigateTo({
-        url: '/pages/orderDetail/orderDetail?id=' + id,
+        url: '/pagess/orderDetail/orderDetail?id=' + id,
         success: function () {
           setTimeout(() => { self.setData({ bool: false }) }, 1000)
         }
@@ -133,7 +135,7 @@ Page({
       cancel_btn: false
     })
   },
-  onShow: function () {
+  onLoad: function () {
     this.getlist()
     this.setData({
       search_log1: wx.getStorageSync('search_log1') || [],

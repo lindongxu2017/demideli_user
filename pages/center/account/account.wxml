@@ -11,5 +11,5 @@
 </view>
 <view wx:if="{{list.length == 0}}" class='no-more'>暂无记录 ...</view>
 <view class='info'>
-  累计支出 <text>0.00</text>
+  累计支出 <text>{{list[0].surplus_money || '0.00'}}</text>
 </view>  

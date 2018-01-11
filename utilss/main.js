@@ -18,11 +18,14 @@ const statusCode = (res, sucFn) => {
       break;
     case 99986:
       wx.setStorageSync('session3rd', res.data.data.session3rd)
-    //   myFn.popup(false, '未认证客户专员', (res) => {
-        wx.navigateTo({
-          url: '/pages/login/login'
-        })
-    //   })
+      //   myFn.popup(false, '未认证客户专员', (res) => {
+      wx.redirectTo({
+        url: '/pagess/login/login'
+      })
+      //   })
+      break;
+    case 99999:
+      console.log(res.data.msg)
       break;
     case 10000:
       myFn.popup(false, res.data.msg)

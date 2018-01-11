@@ -7,9 +7,9 @@ Page({
     bool: false,
     mess_user_list: []
   },
-  onLoad: function (options) {
-    // var userId = wx.getStorageSync('appInfo').id
-  },
+  // onLoad: function (options) {
+  //   // var userId = wx.getStorageSync('appInfo').id
+  // },
   onShow() {
     app.success_scoket(res => {
       switch (res.type) {

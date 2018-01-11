@@ -47,8 +47,8 @@ Page({
   get_company_list () {
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.companyList, res => {
       if(res.data.length > 0) {
-        this.setData({ company_list: res.data.data })
-        console.log(res.data.length)
+        this.setData({ company_list: res.data })
+        // console.log(res.data)
       }
     })
   },
@@ -56,19 +56,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+    wx.setStorageSync('tab_path', 4)
     myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, api.user.info, res => {
       // 存缓存信息
       wx.setStorageSync('appInfo', res.data)
@@ -81,6 +69,19 @@ Page({
     })
     this.setData({ userinfo: wx.getStorageSync('appInfo') })
     this.get_company_list()
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    
   },
 
   /**

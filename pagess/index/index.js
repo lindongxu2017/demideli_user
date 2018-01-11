@@ -21,7 +21,8 @@ Page({
     index: '',
     cancel_btn: false,
     is_search: false,
-    search_log2: []
+    search_log2: [],
+    IO: false
   },
   // 搜索框聚焦事件
   focus() {
@@ -68,6 +69,7 @@ Page({
   },
   // 获取列表
   getlist() {
+    this.data.searchData.session3rd = wx.getStorageSync('session3rd')
     myFn.ajax('post', this.data.searchData, api.order.list, res => {
       this.setData({
         list: res.data,
@@ -106,8 +108,7 @@ Page({
           myFn.ajax('post', { oid: e.target.dataset.id, session3rd: wx.getStorageSync('session3rd') },
             api.order.cooperation, res => {
               myFn.popup(false, '合作成功！', (res) => {
-                var arr = self.data.list.splice(e.target.dataset.index, 1)
-                self.setData({ list: arr })
+                self.getlist()
               })
             })
         } else if (res.cancel) {
@@ -124,18 +125,24 @@ Page({
     if (!self.data.bool) {
       self.setData({ bool: true })
       wx.navigateTo({
-        url: '/pages/orderDetail/orderDetail?id=' + id,
+        url: '/pagess/orderDetail/orderDetail?id=' + id,
         success: function () {
           setTimeout(() => { self.setData({ bool: false }) }, 1000)
         }
       })
     }
   },
-  onShow: function () {
-    this.getlist()
-    this.setData({
-      search_log2: wx.getStorageSync('search_log2') || [],
-      cancel_btn: false
-    })
+  onLoad () {
+    var timer = setInterval(res => {
+      if (!this.data.IO && wx.getStorageSync('session3rd')) {
+        this.getlist()
+        this.setData({
+          search_log2: wx.getStorageSync('search_log2') || [],
+          cancel_btn: false
+        })
+        this.data.IO = true
+        clearInterval(timer)
+      }
+    }, 100)
   }
 })

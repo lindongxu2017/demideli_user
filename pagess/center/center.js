@@ -14,20 +14,29 @@ Page({
     bool: false,
     userinfo: {},
     current: '',
-    total: ''
+    total: '',
+    IO: false
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var timer = setInterval(res => {
+      if (!this.data.IO && wx.getStorageSync('session3rd')) {
+        this.getInfo()
+        this.getCurrent()
+        this.getTotal()
+        this.data.IO = true
+        clearInterval(timer)
+      }
+    }, 100)
   },
   routeTo(e) {
     var self = this
     var path = e.target.dataset.set || e.currentTarget.dataset.set
     var index = e.target.dataset.index || e.currentTarget.dataset.index
     var url = path + '/' + path
-    if(path == 'all' || path == 'month') {
+    if (path == 'all' || path == 'month') {
       url = './all/all?index=' + index
     }
     if (!self.data.bool) {
@@ -45,9 +54,7 @@ Page({
 
   onReady: function () { },
   onShow: function () {
-    this.getInfo()
-    this.getCurrent()
-    this.getTotal()
+
   },
   getInfo() {
     myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, api.user.info, res => {

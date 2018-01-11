@@ -36,7 +36,7 @@ Page({
     }
     // console.log(api.admin.register)
     myFn.ajax('post', data, api.admin.auth, res => {
-      wx.switchTab({ url: '/pages/message/message' })
+      wx.redirectTo({ url: '/pagess/center/center' })
     })
   },
   /**

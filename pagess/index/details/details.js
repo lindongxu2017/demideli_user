@@ -99,7 +99,7 @@ Page({
     var uid = e.currentTarget.dataset.uid;
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/message/room/room?id=' + id + '&uid=' + uid
+      url: '/pagess/message/room/room?id=' + id + '&uid=' + uid
     })
   }
 })

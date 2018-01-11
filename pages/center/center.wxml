@@ -1,56 +1,66 @@
 <!--pages/center/center.wxml-->
-<view class='header'>
-  <view class='img'>
-    <image src="{{userinfo.photo || userinfo.avatarUrl}}"></image>
+<view class='center'>
+  <view class='header'>
+    <view class='img'>
+      <image src="{{userinfo.photo || userinfo.avatarUrl}}"></image>
+    </view>
+    <view class='info'>
+      <text class='name {{company_list.length > 0? "auth" : ""}}'>{{userinfo.uname || userinfo.nickName}}</text>
+      <text class='identify'>身份：普通用户</text>
+      <button data-set="auth" bindtap='routeTo' wx:if="{{company_list.length == 0}}">企业认证</button>
+    </view>
   </view>
-  <view class='info'>
-    <text class='name {{company_list.length > 0? "auth" : ""}}'>{{userinfo.uname || userinfo.nickName}}</text>
-    <text class='identify'>身份：普通用户</text>
-    <button data-set="auth" bindtap='routeTo' wx:if="{{company_list.length == 0}}">企业认证</button>
+  <view class='type-wrapper'>
+    <view class='type-item' data-set="order-1" bindtap='routeTo'>
+      <image src="{{url + '16.png'}}"></image>
+      <view>洽谈中</view>
+    </view>
+    <view class='type-item' data-set="order-2" bindtap='routeTo'>
+      <image src="{{url + '12.png'}}"></image>
+      <view>待付款</view>
+    </view>
+    <view class='type-item' data-set="order-4" bindtap='routeTo'>
+      <image src="{{url + '13.png'}}"></image>
+      <view>待评价</view>
+    </view>
+    <view class='type-item' data-set="order-6" bindtap='routeTo'>
+      <image src="{{url + '15.png'}}"></image>
+      <view>维权中</view>
+    </view>
   </view>
-</view>
-<view class='type-wrapper'>
-  <view class='type-item' data-set="order-1" bindtap='routeTo'>
-    <image src="{{url + '16.png'}}"></image>
-    <view>洽谈中</view>
-  </view>
-  <view class='type-item' data-set="order-2" bindtap='routeTo'>
-    <image src="{{url + '12.png'}}"></image>
-    <view>待付款</view>
-  </view>
-  <view class='type-item' data-set="order-4" bindtap='routeTo'>
-    <image src="{{url + '13.png'}}"></image>
-    <view>待评价</view>
-  </view>
-  <view class='type-item' data-set="order-6" bindtap='routeTo'>
-    <image src="{{url + '15.png'}}"></image>
-    <view>维权中</view>
-  </view>
-</view>
-<view class='link-list border-t'>
-  <view class='link-wrapper border-b' data-set="manage" bindtap='routeTo'>
-    <view>企业管理</view>
-    <view class='icon'><image src="{{url + '14.png'}}"></image></view>
-  </view>
-  <!--<view class='link-wrapper border-b' data-set="coupon" bindtap='routeTo'>
+  <view class='link-list border-t'>
+    <view class='link-wrapper border-b' data-set="manage" bindtap='routeTo'>
+      <view>企业管理</view>
+      <view class='icon'>
+        <image src="{{url + '14.png'}}"></image>
+      </view>
+    </view>
+    <!--<view class='link-wrapper border-b' data-set="coupon" bindtap='routeTo'>
     <view>优惠券</view>
     <view class='icon'><image src="{{url + '14.png'}}"></image></view>
   </view>-->
-  <view class='link-wrapper border-b' data-set="account" bindtap='routeTo'>
-    <view>企业对账</view>
-    <view class='icon'><image src="{{url + '14.png'}}"></image></view>
-  </view>
-  <view class='link-wrapper border-b' data-set="collection" bindtap='routeTo'>
-    <view>我的收藏</view>
-    <view class='icon'><image src="{{url + '14.png'}}"></image></view>
-  </view>
-  <view class='link-wrapper border-b' data-set="suggest" bindtap='routeTo'>
-    <view>投诉建议</view>
-    <view class='icon'><image src="{{url + '14.png'}}"></image></view>
-  </view>
-  <!--<view class='link-wrapper' data-set="card" bindtap='routeTo'>
+    <view class='link-wrapper border-b' data-set="account" bindtap='routeTo'>
+      <view>企业对账</view>
+      <view class='icon'>
+        <image src="{{url + '14.png'}}"></image>
+      </view>
+    </view>
+    <view class='link-wrapper border-b' data-set="collection" bindtap='routeTo'>
+      <view>我的收藏</view>
+      <view class='icon'>
+        <image src="{{url + '14.png'}}"></image>
+      </view>
+    </view>
+    <view class='link-wrapper border-b' data-set="suggest" bindtap='routeTo'>
+      <view>投诉建议</view>
+      <view class='icon'>
+        <image src="{{url + '14.png'}}"></image>
+      </view>
+    </view>
+    <!--<view class='link-wrapper' data-set="card" bindtap='routeTo'>
     <view>个人名片</view>
     <view class='icon'><image src="{{url + '14.png'}}"></image></view>
   </view>-->
+  </view>
 </view>
 <footer></footer>

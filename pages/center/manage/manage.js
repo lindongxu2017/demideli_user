@@ -23,6 +23,7 @@ Page({
     } else {
       this.setData({ userinfo: wx.getStorageSync('appInfo') })
     }
+    this.getCompanyList()
   },
   getCompanyList() {
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.companyList, res => {
@@ -64,7 +65,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getCompanyList()
+    
   },
 
   /**

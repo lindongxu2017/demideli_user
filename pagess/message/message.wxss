@@ -1,6 +1,14 @@
 /* pages/message/message.wxss */
 .list-wrapper {
   font-size: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 120rpx;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .list-item {
   width: 100%;
@@ -22,6 +30,7 @@
 .list-item > view {
   display: inline-block;
   vertical-align: top;
+  box-sizing: border-box;
 }
 .item-img {
   width: 13%;

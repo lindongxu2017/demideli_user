@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    url: 'http://service.qinhantangtop.com/Uploads/icon/icon_',
+    url: 'https://service.qinhantangtop.com/Uploads/icon/icon_',
     // 判断认证、添加
     type: '',
     items: [
@@ -30,6 +30,7 @@ Page({
     type_3: '',
     protocol: false,
     is_read: false,
+    protocol_type: '',
     bool: false
   },
   chooseType(e) {
@@ -44,11 +45,16 @@ Page({
     this.setData({ is_read: false })
   },
   read: function (e) {
+    this.setData({ protocol_type: e.currentTarget.dataset.type })
     this.setData({ is_read: !this.data.is_read })
+    this.getProtocol()
   },
   getProtocol() {
     myFn.ajax('post', {}, api.system.info, (res) => {
-      WxParse.wxParse('article', 'html', res.data.agreement, this, 0);
+      var protocol_content = '';
+      console.log(this.data.protocol_type)
+      this.data.protocol_type == 1 ? protocol_content = res.data.agreement : protocol_content = res.data.legal
+      WxParse.wxParse('article', 'html', protocol_content, this, 0);
     })
   },
   inputValue(e) {
@@ -94,7 +100,7 @@ Page({
     }
     console.log('上传路径' + path)
     wx.uploadFile({
-      url: 'http://service.qinhantangtop.com/api/upload/NormalUploadImg',
+      url: 'https://service.qinhantangtop.com/api/upload/NormalUploadImg',
       name: 'flie',
       filePath: path,
       header: { "content-type": 'multipart/form-data' },
@@ -175,7 +181,6 @@ Page({
     this.setData({ type: options.type })
     options.type == 1 ? title = '会员认证' : title = '添加名下企业'
     wx.setNavigationBarTitle({ title: title || '会员认证' })
-    this.getProtocol()
   },
 
   /**

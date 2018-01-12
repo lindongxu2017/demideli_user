@@ -1,0 +1,243 @@
+/* pages/order/order.wxss */
+page {
+  background-color: #F2F2F2;
+}
+.search {
+  padding: 20rpx 30rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  font-size: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.search-icon {
+  position: absolute;
+  z-index: 2;
+  top: 35rpx;
+  left: 40rpx;
+}
+
+.search input {
+  height: 60rpx;
+  min-width: 100%;
+  background-color: #EDF0F5;
+  display: inline-block;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  padding-left: 45rpx;
+  color: #788397;
+  box-sizing: border-box;
+}
+.search input.focus {
+  min-width: calc(100% - 120rpx);
+}
+.search button {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #788397;
+  font-size: 32rpx;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  z-index: 1;
+}
+
+.search button::after {
+  display: none;
+}
+
+.mask {
+  position: fixed;
+  top: 100rpx;
+  width: 100%;
+  height: calc(100% - 100rpx);
+  z-index: 3;
+  box-sizing: border-box;
+}
+.search_result {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.serach-log {
+  padding: 0 30rpx;
+  max-height: 516rpx;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.log-list {
+  padding: 20rpx 0;
+}
+.log-list icon,
+.log-list text {
+  vertical-align: middle;
+}
+.log-list icon {
+  margin-right: 30rpx;
+}
+.log-list text {
+  font-size: 30rpx;
+  color: #788397;
+}
+.clear-btn {
+  text-align: center;
+  color: #788397;
+  margin-top: 60rpx;
+}
+
+.tab-item {
+  display: flex;
+  position: fixed;
+  top: 113rpx;
+  width: 100%;
+  padding: 14rpx 0;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.tab-item > view {
+  flex: 1;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  color: #788397;
+}
+.tab-item > view.tab-select {
+  color: #3F51B5;
+}
+.tab-item > view:first-child {
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+.tab-item > view:last-child {
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+
+.tab-content {
+  position: fixed;
+  top: 210rpx;
+  width: 100%;
+  height: calc(100% - 330rpx);
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  background: none;
+}
+.tab-content > view {
+  background: none;
+}
+
+.order-list {
+  font-size: 32rpx;
+  position: relative;
+}
+
+.order-list:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #d4d4d4;
+  transform: rotateX(60deg);
+  -ms-transform: rotateX(60deg);
+  -moz-transform: rotateX(60deg);
+  -webkit-transform: rotateX(60deg);
+  -o-transform: rotateX(60deg);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex > view {
+  flex: 1;
+}
+
+.order-list {
+  border-top: 1px solid #3F51B5;
+}
+.order-list .order {
+  padding: 20rpx 30rpx;
+  color: #3F414E;
+}
+.order-list .content {
+  padding: 0 30rpx;
+}
+.order-list .content > view {
+  padding: 20rpx 0;
+}
+.order-list .content > view .title {
+  margin-bottom: 14rpx;
+  font-size: 28rpx;
+  color: #7B8699;
+}
+.order-list .content > view .title:last-child {
+  text-align: right;
+}
+.order-list .content > view .title text {
+  font-size: 32rpx;
+  color: #3F414E;
+}
+.order-list .date {
+  background-color: #3F51B5;
+  padding: 20rpx 30rpx;
+  margin: 0 0 20rpx;
+  position: relative;
+}
+.order-list .date > view:first-child {
+  flex: 2;
+}
+.order-list .date > view:last-child {
+  flex: 3;
+  text-align: right;
+}
+.order-list .date::before {
+  content: '';
+  position: absolute;
+  top: -22rpx;
+  left: 30rpx;
+  height: 0;
+  width: 0;
+  border: 12rpx solid;
+  border-color: #3F51B5 transparent transparent;
+  transform: rotateZ(180deg);
+  -ms-transform: rotateZ(180deg); /* IE 9 */
+  -moz-transform: rotateZ(180deg); /* Firefox */
+  -webkit-transform: rotateZ(180deg); /* Safari 和 Chrome */
+  -o-transform: rotateZ(180deg); /* Opera */
+}
+.order-list .date > view {
+  background: none;
+  color: #fff;
+  font-size: 28rpx;
+}
+.order-list .date > view:last-child {
+  font-size: 24rpx;
+  color: #BEC4ED;
+}
+.order-list .content > view.operation {
+  text-align: right;
+  padding: 40rpx 0;
+}
+.operation > view {
+  display: inline-block;
+  margin: 0 15rpx;
+}
+.operation > view.modify {
+  color: #C56B6B;
+}
+.operation > view.cooperation {
+  color: #3F51B5;
+}

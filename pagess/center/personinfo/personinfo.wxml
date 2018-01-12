@@ -1,0 +1,8 @@
+<!--pages/center/personinfo/personinfo.wxml-->
+<view class='cell'>
+  <view>工号：10058</view>
+</view>
+<view class='cell' data-name='modify' bindtap='routeTo'>
+  <view>姓名：林某某</view>
+  <view class='cell-after'> 》</view>
+</view>

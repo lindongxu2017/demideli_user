@@ -37,7 +37,7 @@ Page({
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd'), pid: this.data.id, company_id: id }, api.order.creat, res => {
       // console.log('下单成功')
       myFn.popup(false, '恭喜您下单成功！', (res) => {
-        wx.switchTab({
+        wx.reLaunch({
           url: '../../order/order'
         })
       })
@@ -46,12 +46,14 @@ Page({
   getCompanyList() {
     var arr = []
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.companyList, res => {
-      for (var i = 0; i < res.data.length; i++) {
-        if (res.data[i].status == 2) {
-          arr.push(res.data[i])
+      if(res.data.length) {
+        for (var i = 0; i < res.data.length; i++) {
+          if (res.data[i].status == 2) {
+            arr.push(res.data[i])
+          }
         }
+        this.setData({ company_list: arr })
       }
-      this.setData({ company_list: arr })
       // console.log(this.data.company_list)
     })
   },
@@ -97,7 +99,7 @@ Page({
       } else {
         this.setData({ comment_list: [] })
       }
-      console.log(this.data.comment_list.length)
+      // console.log(this.data.comment_list.length)
     })
     // 获取公司列表
     this.getCompanyList()

@@ -1,4 +1,3 @@
-
 <view class='flex'>
   <view class='left'>
      <view class='up' data-id='{{showType[0].id}}' bindtap='typeSearch'>
@@ -26,3 +25,4 @@
     </view>
   </view>
 </view>
+<footer></footer>

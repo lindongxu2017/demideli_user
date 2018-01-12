@@ -1,0 +1,23 @@
+<!--pages/footer/footer.wxml-->
+<view class='footer'>
+  <view data-path='1' bindtap='route'>
+    <image wx:if="{{route_type != 1}}" src='../../icons/baojia.png'></image>
+    <image wx:if="{{route_type == 1}}" src='../../icons/baojia_check.png'></image>
+    <view class="{{route_type == 1?'active':''}}">服务报价</view>
+  </view>
+  <view data-path='2' bindtap='route'>
+    <image wx:if="{{route_type != 2}}" src='../../icons/genjin.png'></image>
+    <image wx:if="{{route_type == 2}}" src='../../icons/genjin_check.png'></image>
+    <view class="{{route_type == 2?'active':''}}">服务跟进</view>
+  </view>
+  <view data-path='3' bindtap='route'>
+    <image wx:if="{{route_type != 3}}" src='../../icons/message.png'></image>
+    <image wx:if="{{route_type == 3}}" src='../../icons/message_check.png'></image>
+    <view class="{{route_type == 3?'active':''}}">消息管理</view>
+  </view>
+  <view data-path='4' bindtap='route'>
+    <image wx:if="{{route_type != 4}}" src='../../icons/center.png'></image>
+    <image wx:if="{{route_type == 4}}" src='../../icons/center_check.png'></image>
+    <view class="{{route_type == 4?'active':''}}">个人中心</view>
+  </view>
+</view>

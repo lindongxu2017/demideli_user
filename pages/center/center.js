@@ -46,14 +46,29 @@ Page({
   },
   get_company_list () {
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.companyList, res => {
-      this.setData({ company_list: res.data.data })
+      if(res.data.length > 0) {
+        this.setData({ company_list: res.data })
+        // console.log(res.data)
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setStorageSync('tab_path', 4)
+    myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, api.user.info, res => {
+      // 存缓存信息
+      wx.setStorageSync('appInfo', res.data)
+      wx.setStorageSync('is_register', 1)
+      wx.setStorageSync('is_auth', parseInt(res.data.is_auth))
+      // 根据缓存设置场景值
+      this.setData({ is_register: wx.getStorageSync('is_register') })
+      this.setData({ is_auth: wx.getStorageSync('is_auth') })
+      this.setData({ userinfo: wx.getStorageSync('appInfo') })
+    })
+    this.setData({ userinfo: wx.getStorageSync('appInfo') })
+    this.get_company_list()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -66,17 +81,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, api.user.info, res => {
-      // 存缓存信息
-      wx.setStorageSync('appInfo', res.data)
-      wx.setStorageSync('is_register', 1)
-      wx.setStorageSync('is_auth', parseInt(res.data.is_auth))
-      // 根据缓存设置场景值
-      this.setData({ is_register: wx.getStorageSync('is_register') })
-      this.setData({ is_auth: wx.getStorageSync('is_auth') })
-      this.setData({ userinfo: wx.getStorageSync('appInfo') })
-    })
-    this.setData({ userinfo: wx.getStorageSync('appInfo') })
+    
   },
 
   /**

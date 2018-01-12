@@ -1,0 +1,28 @@
+<view class="center">
+    <view class="top_box">
+        <image class="center_head" src="{{userinfo.imgurl}}"></image>
+        <view class="name1">
+          <text>{{userinfo.nickname}}</text>
+          <image data-set="modifyName" bindtap='routeTo' src="{{url + '19.png'}}"></image>
+        </view>
+        <view class="name2">工号：{{userinfo.number}}</view>
+    </view>
+    <view class="top_box_radius"></view>
+    <view class="menu_list">
+        <view data-set="all" data-index="0" bindtap='routeTo'>
+          累计业绩:
+          <view>{{total}}</view>
+          <view class='single'></view>
+        </view>
+        <view data-set="month" data-index="1" bindtap='routeTo'>
+          本月业绩:
+          <view>{{current}}</view>
+          <view class='single'></view>
+        </view>
+    </view>
+    <!--<view class="menu_list2">
+        <view class="nav1" data-set="card" bindtap='routeTo'>我的名片</view>
+        <view class="nav2">我的关系</view>
+    </view>-->
+</view>
+<footer></footer>

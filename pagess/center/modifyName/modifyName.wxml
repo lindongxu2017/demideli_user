@@ -1,0 +1,10 @@
+<!--pages/center/suggest/suggest.wxml-->
+<view class='suggest-wrapper'>
+  <view class='title'>修改昵称</view>
+  <view class="section">
+    <input bindinput="bindTextAreaBlur" auto-height placeholder="请输入昵称" />
+  </view>
+</view>
+<view class='my-btn'>
+  <button bindtap='submit'>提交</button>
+</view>

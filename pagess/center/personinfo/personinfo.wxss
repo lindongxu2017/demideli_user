@@ -1,0 +1,12 @@
+/* pages/center/personinfo/personinfo.wxss */
+.cell {
+  border-bottom: 1px solid #d4d4d4;
+  padding: 20rpx;
+  font-size: 32rpx;
+  position: relative
+}
+.cell-after {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}

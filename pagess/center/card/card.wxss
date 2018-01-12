@@ -1,0 +1,31 @@
+/* pages/center/card/card.wxss */
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+image.headimg {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+}
+.name {
+  font-size: 36rpx;
+  color: #788397;
+  margin-top: 34rpx;
+}
+image.QRcode {
+  width: 556rpx;
+  height: 556rpx;
+  margin-top: 60rpx;
+}
+.tip {
+  font-size: 30rpx;
+  color: #585b67;
+  margin-top: 84rpx;
+}

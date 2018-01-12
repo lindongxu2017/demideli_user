@@ -26,11 +26,11 @@ Page({
     }
   },
   onLoad: function () {
-
-  },
-  onShow() {
     myFn.ajax('get', {}, api.home.typeList, res => {
       this.setData({ showType: res.data })
     })
+  },
+  onShow() {
+    
   }
 })

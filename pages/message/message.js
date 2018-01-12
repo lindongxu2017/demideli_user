@@ -7,9 +7,6 @@ Page({
     bool: false,
     mess_user_list: []
   },
-  onLoad: function (options) {
-    
-  },
   onShow() {
     app.success_scoket(res => {
       switch (res.type) {

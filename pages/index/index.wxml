@@ -1,5 +1,9 @@
-<view class='flex'>
-  <view class='left'>
+<view class='index'>
+  <view wx:for="{{showType}}" wx:key="{{key}}" data-id='{{item.id}}' bindtap='typeSearch'>
+    <image mode="aspectFit" src="{{item.bz_1}}"></image>
+    <text>{{item.name}}</text>
+  </view>
+  <!-- <view class='left'>
      <view class='up' data-id='{{showType[0].id}}' bindtap='typeSearch'>
       <image mode="widthFix" src="{{showType[0].bz_1}}"></image>
       <text>{{showType[0].name}}</text>
@@ -23,6 +27,6 @@
       <image mode="widthFix" src="{{showType[4].bz_1}}"></image>
       <text>{{showType[4].name}}</text>
     </view>
-  </view>
+  </view> -->
 </view>
 <footer></footer>

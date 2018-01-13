@@ -1,73 +1,47 @@
-/**index.wxss**/
 page {
+  height: 100%;
+}
+.index {
+  width: 100%;
+  height: calc(100% - 120rpx);
+  height: -moz-calc(100% - 120rpx);
+  height: -webkit-calc(100% - 120rpx);
+  box-sizing: border-box;
+  padding: 20rpx;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0;
   background-color: #f2f2f2;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
 }
-.flex {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: calc(100% - 100rpx);
-  background: #fff;
-  padding: 20rpx 30rpx;
-  box-sizing: border-box;
-}
-.flex > view {
-  flex: 1;
-}
-.flex image {
-  width: 100%;
-  height: 100%;
-}
-.flex > view.left {
-  margin-right: 20rpx;
-}
-.flex > view.left view {
-  width: 100%;
-  height: calc(50% - 10rpx);
-  height: -moz-calc(50% - 10rpx);
-  height:  -webkit-calc(50% - 10rpx);
-  position: relative;
-}
-.flex > view.left view.up {
+.index > view {
+  display: inline-block;
+  width: calc(50% - 10rpx);
   margin-bottom: 20rpx;
-}
-.flex > view.right view {
-  width: 100%;
-  height: calc(calc(100% / 3) - calc(40rpx / 3));
-  height: -moz-calc(-moz-calc(100% / 3) - -moz-calc(40rpx / 3));
-  height: -webkit-calc(-webkit-calc(100% / 3) - -webkit-calc(40rpx / 3));
+  box-sizing: border-box;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  vertical-align: text-top;
+  border-radius: 6rpx;
+  overflow: hidden;
   position: relative;
+  font-size: 0;
 }
-.flex > view.right view.middle {
-  margin: 20rpx 0;
+.index > view:nth-child(odd) {
+  margin-right: 18rpx;
 }
-.flex > view text {
+.index > view image {
+  width: 100%;
+}
+.index > view text {
   position: absolute;
-  width: 36rpx;
-  color: #3F51B5;
-  font-size: 30rpx;
-  /*text-shadow: 0 0 1px #333;*/
-}
-.left .up text {
-  right: 10rpx;
-  top: 20rpx;
-}
-.left .down text {
-  right: 10rpx;
-  top: 50rpx;
-}
-.right .top text {
-  top: 20rpx;
-  right: 0rpx;
-}
-.right .middle text {
-  top: 50rpx;
-  right: 0rpx;
-}
-.right .bottom text {
-  top: 20rpx;
-  right: 0rpx;
+  width: 100%;
+  left: 0;
+  right: 15rpx;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  line-height: 65rpx;
+  font-size: 32rpx;
+  text-align: center;
+  border-bottom-right-radius: 6rpx;
+  border-bottom-left-radius: 6rpx;
 }

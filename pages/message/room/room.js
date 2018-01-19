@@ -132,7 +132,7 @@ Page({
               user_id: this.data.uid
             })
           }
-          if (res.data.uid == this.data.uid || res.data.uid == wx.getStorageSync('appInfo').id) {
+          if (res.data.uid == this.data.uid || res.data.uid == wx.getStorageSync('userID')) {
             chatlist.push({
               show_type: res.data.show_type,
               type: res.data.msg_type,
@@ -242,6 +242,8 @@ Page({
           this.scroll_bottom()
           break;
       }
+      // 回调
+      console.log(res)
     })
   }
 })

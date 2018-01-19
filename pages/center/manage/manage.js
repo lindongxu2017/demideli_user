@@ -17,12 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ is_register: wx.getStorageSync('is_register') })
-    if (wx.getStorageSync('is_register') == 0) {
-      this.setData({ userinfo: wx.getStorageSync('userinfo') })
-    } else {
-      this.setData({ userinfo: wx.getStorageSync('appInfo') })
-    }
+    this.setData({ userinfo: wx.getStorageSync('appInfo') })
     this.getCompanyList()
   },
   getCompanyList() {
@@ -35,7 +30,7 @@ Page({
     var path = e.target.dataset.routername || e.currentTarget.dataset.routername
     var url = path + '/' + path
     if (path == 'add') {
-      if (wx.getStorageSync('is_register') == 0) {
+      if (this.data.userinfo.is_auth == 0) {
         url = '/pages/register/register'
       } else {
         url = '/pages/center/auth/auth?type=2'

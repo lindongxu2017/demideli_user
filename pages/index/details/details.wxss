@@ -183,6 +183,7 @@ page {
 .tab-case {
   padding-top: 30rpx;
 }
+.tab-case image,
 .tab-content .tab-service image {
   width: 100%!important;
 }

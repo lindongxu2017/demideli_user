@@ -1,7 +1,7 @@
 <!--pages/center/card/card.wxml-->
 <view class='card'>
-  <image class='headimg' src='{{headImg}}'></image>
-  <view class='name'>Abbyabbie</view>
+  <image class='headimg' src='{{userInfo.imgurl}}'></image>
+  <view class='name'>{{userInfo.nickname}}</view>
   <image class='QRcode' src='{{headImg}}'></image>
-  <view class='tip'>扫描二维码加我为好友</view>
+  <view class='tip'>扫描二维码进入小程序</view>
 </view>

@@ -1,1 +1,4 @@
-test
+<view wx:if="{{relative.length > 0}}"></view>
+<view class='noMore' wx:if="{{relative.length == 0}}">
+  暂无客户
+</view>

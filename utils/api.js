@@ -12,7 +12,10 @@ const api = {
     setDown: '/api/user/setUserDown',
     suggest: '/api/user/sendSuggest',
     accountLog: '/api/user/userCostLogList',
-    collection: '/api/user/collectList'
+    collection: '/api/user/collectList',
+    wxQRcode: '/api/user/wxGetAcode',
+    setDown: '/api/user/setUserDown',
+    dowmlist: '/api/user/getDownList'
   },
   common: {
     getMobileCode: '/api/login/GetMobileCode',

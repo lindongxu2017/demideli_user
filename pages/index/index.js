@@ -25,10 +25,23 @@ Page({
       })
     }
   },
-  onLoad: function () {
+  onLoad: function (options) {
     myFn.ajax('get', {}, api.home.typeList, res => {
       this.setData({ showType: res.data })
     })
+    var timer = setInterval(res => {
+      if (!wx.getStorageSync('session3rd')) return false;
+        if (options.scene) {
+          var scene = decodeURIComponent(options.scene)
+          myFn.ajax('post', {
+            session3rd: wx.getStorageSync('session3rd'),
+            uid: scene.split(',')[0], type: scene.split(',')[1]
+          }, api.user.setDown, res => {
+            // todo
+          })
+        }
+        clearInterval(timer)
+    }, 200)
   },
   onShow() {
     

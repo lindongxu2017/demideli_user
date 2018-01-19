@@ -68,7 +68,7 @@ page {
 .menu_list > view {
   position: relative;
   display: inline-block;
-  font-size: 32rpx;
+  font-size: 28rpx;
   width: 50%;
   height: 100%;
   background: none;
@@ -111,10 +111,11 @@ page {
   position: absolute;
   text-align: left;
   width: calc(83.3333333% - 60rpx);
-  bottom: -220rpx;
+  bottom: -300rpx;
   margin: auto;
   background: #fff;
   border-radius: 16rpx;
+  overflow: hidden;
   box-shadow: 0rpx 8rpx 35rpx 2rpx #ccc;
   
 }
@@ -156,6 +157,12 @@ page {
   margin-top: 32rpx;
   margin-bottom: 78rpx;
   background: none;
+}
+.menu_list2 image {
+  width: 16rpx;
+  height: 28rpx;
+  float: right;
+  margin-top: 40rpx;
 }
 /* 
 .btn_sh {

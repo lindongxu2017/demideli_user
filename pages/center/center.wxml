@@ -7,7 +7,7 @@
     <view class='info'>
       <text class='name {{company_list.length > 0? "auth" : ""}}'>{{userinfo.uname || userinfo.nickName}}</text>
       <text class='identify'>身份：普通用户</text>
-      <button data-set="auth" bindtap='routeTo' wx:if="{{company_list.length == 0}}">企业认证</button>
+      <button data-set="auth" bindtap='routeTo' wx:if="{{userinfo.is_auth != 1}}">企业认证</button>
     </view>
   </view>
   <view class='type-wrapper'>
@@ -57,10 +57,18 @@
         <image src="{{url + '14.png'}}"></image>
       </view>
     </view>
-    <!--<view class='link-wrapper' data-set="card" bindtap='routeTo'>
-    <view>个人名片</view>
-    <view class='icon'><image src="{{url + '14.png'}}"></image></view>
-  </view>-->
+    <view class='link-wrapper border-b' data-set="card" bindtap='routeTo'>
+      <view>个人名片</view>
+      <view class='icon'>
+        <image src="{{url + '14.png'}}"></image>
+      </view>
+    </view>
+    <view class='link-wrapper' data-set="relative" bindtap='routeTo'>
+      <view>我的客户</view>
+      <view class='icon'>
+        <image src="{{url + '14.png'}}"></image>
+      </view>
+    </view>
   </view>
 </view>
 <footer></footer>

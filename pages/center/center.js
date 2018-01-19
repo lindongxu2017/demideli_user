@@ -4,10 +4,6 @@ const myFn = app.myFn
 const api = app.api
 // console.log(myFn)
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     url: 'http://service.qinhantangtop.com/Uploads/icon/icon_',
     routerName: '',
@@ -52,70 +48,13 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     wx.setStorageSync('tab_path', 4)
-    myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, api.user.info, res => {
-      // 存缓存信息
-      wx.setStorageSync('appInfo', res.data)
-      wx.setStorageSync('is_register', 1)
-      wx.setStorageSync('is_auth', parseInt(res.data.is_auth))
-      // 根据缓存设置场景值
-      this.setData({ is_register: wx.getStorageSync('is_register') })
-      this.setData({ is_auth: wx.getStorageSync('is_auth') })
+    var timer = setInterval( res => {
+      if (!wx.getStorageSync('appInfo')) return false;
       this.setData({ userinfo: wx.getStorageSync('appInfo') })
-    })
-    this.setData({ userinfo: wx.getStorageSync('appInfo') })
-    this.get_company_list()
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+      this.get_company_list()
+      clearInterval(timer)
+    }, 200)
   }
 })

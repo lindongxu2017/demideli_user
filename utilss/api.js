@@ -7,7 +7,9 @@ const api = {
     info: '/customerapi/customer/index',
     monthYj: '/customerapi/customer/monthJx',
     totalYj: '/customerapi/customer/totalJx',
-    modify: '/customerapi/customer/updateName'
+    modify: '/customerapi/customer/updateName',
+    wxQRcode: '/customerapi/customer/wxGetAcode',
+    dowmlist: '/customerapi/customer/getCustomerDownList'
   },
   common: {
     getMobileCode: '/api/login/GetMobileCode',

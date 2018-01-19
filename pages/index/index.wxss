@@ -1,6 +1,10 @@
 page {
   height: 100%;
 }
+.exchange {
+  font-size: 32rpx;
+  height: 100rpx;
+}
 .index {
   width: 100%;
   height: calc(100% - 120rpx);

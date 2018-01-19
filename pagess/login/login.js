@@ -20,7 +20,6 @@ Page({
     // console.log(this.data)
   },
   submit() {
-    var storage = wx.getStorageSync('loginData')
     if (!this.data.username) {
       myFn.popup(false, '账号不能为空', null)
       return false

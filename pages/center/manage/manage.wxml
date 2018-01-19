@@ -6,7 +6,7 @@
   <view class='info'>
     <text class='name'>{{userinfo.uname || userinfo.nickName}}</text>
     <text class='identify'>VIP企业会员</text>
-    <view class='phone' wx:if="{{is_register == 1}}">
+    <view class='phone'>
       <image class='icon-phone' src="{{url + '18.png'}}"></image>
       <text>{{userinfo.name}}</text>
       <image data-routerName='modify' catchtap='routeTo' src="{{url + '19.png'}}"></image>

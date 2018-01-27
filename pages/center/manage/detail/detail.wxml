@@ -1,0 +1,21 @@
+<!--pages/center/manage/detail/detail.wxml-->
+<view class='flex'>
+  <view class='name'>深圳市勤瀚堂电子商务有限公司</view>
+  <view class='status'>审核中</view>
+</view>
+<view class='cell'>
+  <view>
+    <view class="label">法人代表:</view>
+    <view class="value">QHT</view>
+  </view>
+</view>
+<view class='cell'>
+  <view>
+    <view class="label">类型:</view>
+    <view class="value">已注册</view>
+  </view>
+</view>
+<view class='licence'>
+  <view class='title'>相关凭证：</view>
+  <view class='list'></view>
+</view>

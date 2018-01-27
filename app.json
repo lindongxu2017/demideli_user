@@ -15,6 +15,7 @@
     "pages/center/auth/auth",
     "pages/center/account/account",
     "pages/center/manage/modify/modify",
+    "pages/center/manage/detail/detail",
     "pages/center/service/service",
     "pages/center/coupon/coupon",
     "pages/center/suggest/suggest",

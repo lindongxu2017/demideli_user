@@ -4,12 +4,12 @@
   <view>项目名称</view>
   <view>金额/元</view>
 </view>
-<view class='table' wx:for="{{list}}" wx:key="key">
+<view class='table' wx:for="{{apiData.costList}}" wx:key="key">
   <view class='date'><text class='time'>{{item.create_time}}</text></view>
   <view>{{item.remark}}</view>
   <view class='money'>{{item.money}}</view>
 </view>
 <view wx:if="{{list.length == 0}}" class='no-more'>暂无记录 ...</view>
 <view class='info'>
-  累计支出 <text>{{list[0].surplus_money || '0.00'}}</text>
+  累计支出 <text>{{apiData.costsum || '0.00'}}</text>
 </view>  

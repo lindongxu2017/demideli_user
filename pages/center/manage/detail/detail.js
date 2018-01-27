@@ -1,24 +1,18 @@
-// pages/center/account/account.js
-const app = getApp()
-const myFn = app.myFn
-const api = app.api
+// pages/center/manage/detail/detail.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    apiData: {}
+  
   },
-  getlist() {
-    myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd'), page: 1 }, api.user.accountLog, res => {
-      this.setData({ apiData: res.data.data })
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getlist();
+  
   },
 
   /**
@@ -32,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+  
   },
 
   /**

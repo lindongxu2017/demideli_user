@@ -91,8 +91,23 @@ view {
 }
 .company {
   position: relative;
-  padding: 30rpx;
   background: #fff;
+  padding: 30rpx 0 0;
+  margin-bottom: 20rpx;
+}
+.name,
+.charge {
+  padding: 0 30rpx;
+}
+.charge {
+  padding-bottom: 30rpx;
+}
+.company .check {
+  padding: 20rpx 0;
+  text-align: center;
+  color: #3F51B5;
+  background-color: #F5F7FA;
+  font-size: 28rpx;
 }
 .border-bottom {
   position: relative;
@@ -109,14 +124,14 @@ view {
   bottom: 0;
 }
 .company .charge {
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #788397;
-  margin-top: 20rpx;
+  margin-top: 10rpx;
 }
 .company .status {
   position: absolute;
   right: 30rpx;
-  bottom: 30rpx;
+  top: 60rpx;
   font-size: 30rpx;
 }
 
@@ -131,4 +146,15 @@ view {
 }
 .add::after {
   display: none;
+}
+
+.my-btn {
+  width: 100%;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+}
+.my-btn button {
+  background-color: #3f51b5;
+  color: #fff;
+  border-radius: 20rpx;
 }

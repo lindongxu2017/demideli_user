@@ -4,3 +4,68 @@
   color: #999;
   margin-top: 30%;
 }
+.list {
+  border-top: 10rpx solid #F1F1F1;
+  padding: 0 30rpx;
+}
+.list-item {
+  padding: 30rpx 0;
+}
+.list-item > view {
+  display: inline-block;
+  vertical-align: middle;
+}
+.avatar {
+  width: 110rpx;
+  height: 110rpx;
+}
+.avatar image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.auth {
+  width: 110rpx;
+  font-size: 28rpx;
+  color: #E1CD2B;
+}
+.auth.already {
+  color: #4150B3;
+}
+.info {
+  width: calc(100% - 220rpx);
+  width: -moz-calc(100% - 220rpx);
+  width: -webkit-calc(100% - 220rpx);
+  box-sizing: border-box;
+  padding-left: 40rpx;
+}
+.info > view:first-child {
+  margin-bottom: 10rpx;
+}
+.info > view:last-child {
+  font-size: 28rpx;
+  color: #9BA4AF;
+}
+.boy, .girl {
+  position: relative;
+}
+.boy::after, .girl::after {
+  position: absolute;
+  right: 0rpx;
+  bottom: 0rpx;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 36rpx;
+}
+.boy::after {
+  content: '♂';
+  background-color: #0B9EE8;
+}
+.girl::after {
+  content: '♀';
+  background-color: #D50A7A;
+}

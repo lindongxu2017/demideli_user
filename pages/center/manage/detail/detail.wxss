@@ -1,0 +1,40 @@
+/* pages/center/manage/detail/detail.wxss */
+.flex {
+  box-sizing: border-box;
+  padding: 52rpx 0 38rpx 50rpx;
+  display: flex;
+}
+.flex .name {
+  flex: 3;
+  font-size: 50rpx;
+  color: #3d3f4c;
+}
+.flex .status {
+  flex: 1;
+  text-align: center;
+  color: #D6067C;
+  padding-top: 30rpx;
+}
+.cell {
+  padding: 38rpx 40rpx 0;
+}
+.cell > view {
+  padding-bottom: 34rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.cell .label {
+  color: #788397;
+  display: inline-block;
+  margin-right: 30rpx;
+}
+.cell .value {
+  color: #3F51B5;
+  display: inline-block;
+}
+.licence {
+  padding: 60rpx 40rpx;
+}
+.licence .title {
+  color: #788397;
+  margin-bottom: 36rpx;
+}

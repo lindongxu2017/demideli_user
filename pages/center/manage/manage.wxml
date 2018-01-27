@@ -14,12 +14,15 @@
   </view>
 </view>
 <!--<view class='cell-title'>名下公司</view>-->
-<view wx:for="{{company_list}}" wx:key="key" class="company {{index == company_list.length-1?'':'border-bottom'}}" >
-  <view>{{item.company_name}}</view>
+<view wx:for="{{company_list}}" wx:key="key" class="company">
+  <view class='name'>{{item.company_name}}</view>
   <view class='charge'>法人代表：{{item.corporate_name}}</view>
   <view wx:if="{{item.status == 1}}" class='status' style='color: #666'>审核中</view>
   <view wx:if="{{item.status == 2}}" class='status' style='color: #0ABA07'>已认证</view>
   <view wx:if="{{item.status == 3}}" class='status' style='color: #ccc'>审核未通过</view>
+  <view data-id="{{item.id}}" bindtap='details' class='check'>查看详情 ></view>
   <!--<image src="{{url + '14.png'}}"></image>-->
 </view>
-<button class='add' data-routerName='add' bindtap='routeTo' >添加名下企业</button>
+<view class='my-btn'>
+  <button data-routerName='add' bindtap='routeTo'>添加名下企业</button>
+</view>

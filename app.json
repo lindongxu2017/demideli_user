@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/center/center",
+    "pages/center/card/card",
     "pages/index/index",
     "pages/index/details/details",
     "pages/index/list/list",
@@ -19,7 +20,6 @@
     "pages/center/service/service",
     "pages/center/coupon/coupon",
     "pages/center/suggest/suggest",
-    "pages/center/card/card",
     "pages/center/relative/relative",
     "pages/center/collection/collection",
     "pagess/index/index",

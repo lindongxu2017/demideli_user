@@ -8,20 +8,26 @@
   padding: 20rpx;
   font-size: 32rpx;
   text-align: center;
-  background: green;
+  background-image: url('http://service.qinhantangtop.com/Uploads/icon/icon_45.png');
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 image.headimg {
   width: 160rpx;
   height: 160rpx;
-  border-radius: 10rpx;
   margin-top: 40rpx;
+}
+.header {
+  border-radius: 50%;
+  border: 6rpx solid #fff;
 }
 
 .name {
-  font-size: 36rpx;
+  font-size: 40rpx;
   color: #fff;
   margin-top: 20rpx;
   background: transparent;
+  font-weight: 600;
 }
 .tell {
     font-size: 34rpx;
@@ -29,6 +35,12 @@ image.headimg {
     color: #fff;
     margin-top: 10rpx;
     margin-bottom: 30rpx;
+    font-weight: 600;
+}
+.tell image {
+  display: inline-block;
+  width: 20rpx;
+  margin-right: 10rpx;
 }
 .content {
     width: 580rpx;
@@ -60,6 +72,7 @@ image.headimg {
     background: transparent;
     font-size: 28rpx;
     color: #2B90F0;
+    font-weight: 600;
 }
 .content>view {
     width: 50%;
@@ -112,6 +125,60 @@ image.headimg {
     color: #2B90F0;
     box-sizing: border-box;
     border-radius: 40rpx;
+    font-weight: 600;
+}
+.contact image {
+  display: inline-block;
+  width: 30rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.contact.wx image {
+  width: 36rpx;
+}
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3)
+}
+.mask > view.QRcode {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  border-radius: 10rpx;
+  padding-bottom: 40rpx;
+}
+.mask > view.QRcode text {
+  margin-top: 40rpx;
+  display: inline-block;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.mask > view.close {
+  position: absolute;
+  bottom: 15%;
+  background: none;
+  left: 50%;
+  margin-left: -40rpx;
+}
+.code {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50rpx;
+}
+.pointer {
+  width: 90rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40rpx
+}
+.mask > view.close image {
+  width: 60rpx;
 }
 /* .name {
   font-size: 36rpx;

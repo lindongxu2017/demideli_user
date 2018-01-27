@@ -1,7 +1,42 @@
 <!--pages/center/card/card.wxml-->
-<view class='card'>
-  <image class='headimg' src='{{userInfo.photo}}'></image>
+ <view class='card'>
+  <!-- <image class='headimg' src='{{userInfo.photo}}'></image>
   <view class='name'>{{userInfo.uname}}</view>
-  <image class='QRcode' src='{{headImg}}'></image>
-  <view class='tip'>扫描二维码进入小程序</view>
+   <image class='QRcode' src='{{headImg}}'></image> 
+  <view class='tip'>扫描二维码进入小程序</view>  -->
+
+    <image class='headimg' src='{{userInfo.photo}}'></image>
+     <view class='name'>{{userInfo.uname}}</view>
+    <view class='tell'>我我</view> 
+    <!-- <view class='name'>{{userInfo.uname}}</view>
+    <view class='name'>{{userInfo.uname}}</view> -->
+    <view class="content" animation="{{animationData}}">
+        <view class="center"></view>
+        <view class="gr">
+            <view class="rotate">
+                <image class='headimg' src='{{userInfo.photo}}'></image>
+                <view>个人信息</view>
+            </view>
+        </view>
+        <view class="jj">
+            <view class="rotate">
+                <image class='headimg' src='{{userInfo.photo}}'></image>
+                <view>公司简介</view>    
+            </view>
+        </view>
+        <view class="wd">
+            <view class="rotate">    
+                <image class='headimg' src='{{userInfo.photo}}'></image>
+                <view>我的小店</view>
+            </view>
+        </view>
+        <view class='fc'>
+            <view class="rotate">
+                <image class='headimg' src='{{userInfo.photo}}'></image>
+                <view>个人风采</view>
+            </view>
+        </view>
+     </view>
+     <view class="contact" bindtap="callPhone">一键拨号</view>
+    <view class="contact" >加我微信</view>  
 </view>

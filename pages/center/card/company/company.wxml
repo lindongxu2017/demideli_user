@@ -1,0 +1,12 @@
+<view class='cell'>
+  <view class='cell-title'>公司名称：</view>
+  <view class='cell-value'>xxx科技有限公司</view>
+</view>
+<view class='cell'>
+  <view class='cell-title'>公司简介：</view>
+  <view class='cell-value'>公司倾力打造的CISS跨网通（CISS—Cross-net cloud-computing Integrated Solutions and Services）产品，可谓千乡万才七年磨一剑的扛鼎之作。产品涵盖了网站建设、OA办公系统、CRM管理系统、进销存系统、财务管理系统、物流管理系统、会员管理系统、工作流表单系统等。让中小型企业以低投入、低技术、低维护的三低方式，享有跨国企业，耗资百万才能建立的信息化管理系统。企业经营管理网络化，能使企业通过网站主动发布信息及各种应用功能，不受制于地域、时间限制的将执行力、知讯力、洞察力、裁决力等，覆盖于所有员工、市场和客户。管理者只需利用电脑和手机就可以在“弹指之间”实现处处、时时管理，即时掌握企业营运的关键信息，明察巨细，运筹帷幄。倡导“软件适应企业，系统功能随需而变”的CISS跨网通旨在提供量身定制的中小企业管理软件，竭诚服务中国四千五百万中小企业。</view>
+</view>
+<view class='cell'>
+  <view class='cell-title'>公司地址：</view>
+  <view class='cell-value'>深圳市龙岗区坂田街道</view>
+</view>

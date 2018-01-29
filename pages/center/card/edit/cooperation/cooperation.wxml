@@ -1,0 +1,14 @@
+<!--pages/center/card/edit/info/info.wxml-->
+<view class='form'>
+    <view class='form-wrapper'>
+      <view class='form-label'>客户资料</view>
+      <view class='upload-box'>
+        <view class='uploadIMG' wx:for="{{imgArr}}" wx:key="key">
+          <image src="{{item}}" data-index="{{index}}" bindtap='chooseIMG'></image>
+          <view class='icon_del' data-index="{{index}}" bindtap='delIMG'></view>
+        </view>
+        <view class='upload-btn' bindtap='chooseIMG'>上传图片</view>
+      </view>
+    </view>
+    <button>提交</button>
+  </view>

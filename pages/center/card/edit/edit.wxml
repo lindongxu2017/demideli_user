@@ -1,0 +1,7 @@
+<!--pages/center/card/edit/edit.wxml-->
+<view class='type'>
+  <view class='cell-title' data-set="info" bindtap='routeTo'>个人信息<image mode="widthFix" src="{{url + '21.png'}}"></image></view>
+  <view class='cell-title' data-set="company" bindtap='routeTo'>公司简介<image mode="widthFix" src="{{url + '21.png'}}"></image></view>
+  <view class='cell-title' data-set="cooperation" bindtap='routeTo'>合作客户<image mode="widthFix" src="{{url + '21.png'}}"></image></view>
+  <view class='cell-title' data-set="recommend" bindtap='routeTo'>需要引荐<image mode="widthFix" src="{{url + '21.png'}}"></image></view>
+</view>

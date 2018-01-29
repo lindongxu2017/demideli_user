@@ -1,0 +1,20 @@
+<!--pages/center/card/info/info.wxml-->
+<view class='info'>
+  <view class='header'>
+    <view class='img'>
+      <image src="{{url + '8.png'}}"></image>
+    </view>
+    <view class='info'>
+      <text class='name'>杰克斯派洛</text>
+      <text class='identify'>电话：1808888888</text>
+    </view>
+  </view>
+  <view class='cell'>
+    <view class='cell-title'>所在行业：</view>
+    <view class='cell-value'>互联网</view>
+  </view>
+  <view class='cell'>
+    <view class='cell-title'>行业描述：</view>
+    <view class='cell-value'>互联网（英语：Internet），又称网际网络，或音译因特网(Internet)、英特网，互联网始于1969年美国的阿帕网。是网络与网络之间所串连成的庞大网络，这些网络以一组通用的协议相连，形成逻辑上的单一巨大国际网络。通常internet泛指互联网，而Internet则特指因特网。这种将计算机网络互相联接在一起的方法可称作“网络互联”，在这基础上发展出覆盖全世界的全球性互联网络称互联网，即是互相连接一起的网络结构。互联网并不等同万维网，万维网只是一建基于超文本相互链接而成的全球性系统，且是互联网所能提供的服务其中之一。</view>
+  </view>
+</view>

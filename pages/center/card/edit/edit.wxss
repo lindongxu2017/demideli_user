@@ -1,0 +1,23 @@
+/* pages/center/card/edit/edit.wxss */
+page {
+  background-image: url('http://service.qinhantangtop.com/Uploads/icon/icon_45.png');
+}
+.type {
+  padding: 0 60rpx;
+  margin-top: 10%;
+  background: none;
+}
+.cell-title {
+  line-height: 80rpx;
+  font-size: 28rpx;
+  border-radius: 80rpx;
+  margin-bottom: 30rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  color: #787878;
+}
+.cell-title > image {
+  width: 16rpx;
+  float: right;
+  margin-top: 26rpx;
+}

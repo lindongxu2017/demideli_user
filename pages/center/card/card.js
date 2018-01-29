@@ -8,6 +8,7 @@ Page({
       headImg: '',
       userInfo: '',
       animation: '',
+      bool: false,
       popupVisible: false
     },
     onLoad: function (options) {
@@ -28,6 +29,9 @@ Page({
         this.setData({
             animationData: animation.export()
         })
+
+        // 获取分享链接的参数
+        console.log(options)
     },
     popup () {
       this.setData({ popupVisible: !this.data.popupVisible})
@@ -44,6 +48,22 @@ Page({
         wx.makePhoneCall({
             phoneNumber: '12345678900'
         })  
+    },
+    routeTo(e) {
+      var self = this
+      var path = e.target.dataset.set || e.currentTarget.dataset.set
+      var url = path + '/' + path
+      if (!self.data.bool) {
+        wx.navigateTo({
+          url: url,
+          success: function () {
+            self.data.bool = true
+            setTimeout(() => {
+              self.data.bool = false
+            }, 1000)
+          }
+        })
+      }
     },
     // 分享
     onShareAppMessage () {

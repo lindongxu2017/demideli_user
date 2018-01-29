@@ -4,7 +4,7 @@
   <view class='name'>{{userInfo.uname}}</view>
    <image class='QRcode' src='{{headImg}}'></image> 
   <view class='tip'>扫描二维码进入小程序</view>  -->
-
+  <view class='edit' data-set="edit" bindtap='routeTo'>编辑名片</view>
     <image class='headimg header' src='{{userInfo.photo}}'></image>
      <view class='name'>{{userInfo.uname}}</view>
     <view class='tell'><image mode="widthFix" src="{{url + '47.png'}}"></image>{{userInfo.name}}</view> 
@@ -12,25 +12,25 @@
     <view class='name'>{{userInfo.uname}}</view> -->
     <view class="content" animation="{{animationData}}">
         <view class="center"></view>
-        <view class="gr">
+        <view class="gr" data-set='info' bindtap='routeTo'>
             <view class="rotate">
                 <image class='headimg' src="{{url + '40.png'}}"></image>
                 <view>个人信息</view>
             </view>
         </view>
-        <view class="jj">
+        <view class="jj" data-set='company' bindtap='routeTo'>
             <view class="rotate">
                 <image class='headimg' src="{{url + '43.png'}}"></image>
                 <view>公司简介</view>    
             </view>
         </view>
-        <view class="wd">
+        <view class="wd" data-set='recommend' bindtap='routeTo'>
             <view class="rotate">    
                 <image class='headimg' src="{{url + '41.png'}}"></image>
                 <view>需要引荐</view>
             </view>
         </view>
-        <view class='fc'>
+        <view class='fc' data-set='cooperation' bindtap='routeTo'>
             <view class="rotate">
                 <image class='headimg' src="{{url + '42.png'}}"></image>
                 <view>合作客户</view>

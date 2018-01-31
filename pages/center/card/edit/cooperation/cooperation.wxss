@@ -46,11 +46,11 @@
 }
 .icon_del {
   position: absolute;
-  top: -30rpx;
-  right: -30rpx;
+  top: -15px;
+  right: -15px;
   width: 0;
   height: 0;
-  border: 30rpx solid;
+  border: 15px solid;
   border-color: transparent transparent red;
   background: none;
   transform: rotate(45deg)
@@ -58,10 +58,10 @@
 .icon_del:before {
   content: '-';
   position: absolute;
-  top: -5rpx;
-  left: -15rpx;
-  width: 30rpx;
-  height: 30rpx;
+  top: 0;
+  left: -7px;
+  width: 15px;
+  height: 15px;
   color: #fff;
   transform: rotate(-45deg)
 }

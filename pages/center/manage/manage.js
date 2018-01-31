@@ -20,9 +20,6 @@ Page({
     this.setData({ userinfo: wx.getStorageSync('appInfo') })
     this.getCompanyList()
   },
-  details(e) {
-    console.log(e.currentTarget.dataset.id)
-  },
   getCompanyList() {
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.companyList, res => {
       this.setData({ company_list: res.data })
@@ -31,6 +28,7 @@ Page({
   routeTo(e) {
     var self = this
     var path = e.target.dataset.routername || e.currentTarget.dataset.routername
+    var id = e.target.dataset.id || e.currentTarget.dataset.id
     var url = path + '/' + path
     if (path == 'add') {
       if (this.data.userinfo.is_auth == 0) {
@@ -38,6 +36,9 @@ Page({
       } else {
         url = '/pages/center/auth/auth?type=2'
       }
+    }
+    if (path == 'detail') {
+      url = './detail/detail?id=' + id
     }
     if (!self.data.bool) {
       wx.navigateTo({

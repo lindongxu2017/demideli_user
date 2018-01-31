@@ -33,5 +33,5 @@
   </view>
 </view>
 <view class='my-btn'>
-  <button bindtap='submit'>提交</button>
+  <button bindtap='submit'>确认</button>
 </view>

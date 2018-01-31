@@ -35,7 +35,8 @@ Page({
           var scene = decodeURIComponent(options.scene)
           myFn.ajax('post', {
             session3rd: wx.getStorageSync('session3rd'),
-            uid: scene.split(',')[0], type: scene.split(',')[1]
+            uid: scene.split(',')[0],
+            type: scene.split(',')[1]
           }, api.user.setDown, res => {
             // todo
           })

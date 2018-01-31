@@ -13,7 +13,11 @@ view {
   font-size: 32rpx;
 }
 .cell-value {
-  padding: 0 30rpx 0 60rpx;
+  padding: 0 30rpx;
   font-size: 28rpx;
   line-height: 1.5;
 }/* pages/center/card/recommend/recommend.wxss */
+.cell-value image {
+  margin: 30rpx 0;
+  width: 100%;
+}

@@ -1,11 +1,20 @@
 // pages/center/card/edit/edit.js
+const app = getApp()
+const myFn = app.myFn
+const api = app.api
 Page({
   data: {
     url: 'http://service.qinhantangtop.com/Uploads/icon/icon_',
-    bool: false
+    bool: false,
+    id: ''
   },
   onLoad: function (options) {
-  
+    this.setData({ id: wx.getStorageSync('userID')})
+  },
+  onShow(options) {
+    myFn.ajax('post', { uid: this.data.id}, api.user.getCard, res => {
+      wx.setStorageSync('cardInfo', res.data)
+    })
   },
   routeTo(e) {
     var self = this

@@ -1,6 +1,4 @@
 <view class='cell'>
   <view class='cell-title'>需要的引荐：</view>
-  <view class='cell-value'>唐·李翱 《答韩侍郎书》：“自一千年来贤士屈厄，未见有如此者，尚汲汲孜孜，引荐贤俊，如朝饥求飱。”
-示例一：杨沫 《青春之歌》第一部第八章：“即使是大学毕业生或者专门人材，如果没有相当的‘引荐’，还经常处在失业的状态中。”
-示例二：记者在北京博士后研究人员引荐会上看到，卫生、交通等领域对高层人才需求迫切。</view>
+  <view class='cell-value'>{{cardInfo.recomme_intro}}</view>
 </view>

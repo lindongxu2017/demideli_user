@@ -20,9 +20,9 @@
           <view class='single'></view>
         </view>
     </view>
-    <view class="menu_list2">
+    <!-- <view class="menu_list2">
         <view class="nav1" data-set="card" bindtap='routeTo'>我的名片<image src="{{url + '14.png'}}"></image></view>
         <view class="nav2" data-set="relative" bindtap='routeTo'>我的客户<image src="{{url + '14.png'}}"></image></view>
-    </view>
+    </view> -->
 </view>
 <footer></footer>

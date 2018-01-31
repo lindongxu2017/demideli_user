@@ -36,7 +36,7 @@
 .desc {
   font-size: 24rpx;
   color: #9099a9;
-  margin-bottom: 20rpx;
+  margin-bottom: 50rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

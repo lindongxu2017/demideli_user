@@ -5,7 +5,7 @@
     <view class='title'>{{item.name}}</view>
     <view class='desc'>{{item.intro}}</view>
     <view class='flex'>
-      <view>￥{{item.price}}</view>
+      <view>￥{{item.price == '0.00' ? '价格面议' : item.price}}</view>
       <view>成交 {{item.shiyong}}单</view>
     </view>
 </view>

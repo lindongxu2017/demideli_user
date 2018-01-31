@@ -4,5 +4,5 @@
       <view class='form-label'>引荐内容</view>
       <textarea  maxlength="-1" class='form-control' value="{{desc}}" data-key="desc" bindinput='inputValue' placeholder='请输入行业简介'></textarea >
     </view>
-    <button>提交</button>
+    <button bindtap='submit'>提交</button>
   </view>

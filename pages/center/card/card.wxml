@@ -4,10 +4,10 @@
   <view class='name'>{{userInfo.uname}}</view>
    <image class='QRcode' src='{{headImg}}'></image> 
   <view class='tip'>扫描二维码进入小程序</view>  -->
-  <view class='edit' data-set="edit" bindtap='routeTo'>编辑名片</view>
-    <image class='headimg header' src='{{userInfo.photo}}'></image>
-     <view class='name'>{{userInfo.uname}}</view>
-    <view class='tell'><image mode="widthFix" src="{{url + '47.png'}}"></image>{{userInfo.name}}</view> 
+  <view class='edit' data-set="edit" bindtap='routeTo'>{{DIY ? '我也要制作' : '编辑名片'}}</view>
+    <image class='headimg header' src='{{cardInfo.headimgurl || userInfo.photo}}'></image>
+     <view class='name'>{{userInfo.uname || cardInfo.name}}</view>
+    <view class='tell'><image mode="widthFix" src="{{url + '47.png'}}"></image>{{userInfo.name || cardInfo.mobile}}</view> 
     <!-- <view class='name'>{{userInfo.uname}}</view>
     <view class='name'>{{userInfo.uname}}</view> -->
     <view class="content" animation="{{animationData}}">
@@ -41,9 +41,9 @@
     <view class="contact wx" bindtap="popup"><image mode='widthFix' src="{{url + '48.png'}}"></image>加我微信</view>
     <view class='mask' wx:if="{{popupVisible}}">
       <view class='QRcode'>
-        <image mode='widthFix' bindtap='previewImage' class='code' src='{{headImg}}'></image>
-        <image mode='widthFix' bindtap='previewImage' class='pointer' src="{{url + '44.png'}}"></image>
-        <text>长按识别三维码</text>
+        <image mode='widthFix' bindtap='previewImage' class='code' src='{{cardInfo.qrcode[0] || headImg}}'></image>
+        <!-- <image mode='widthFix' bindtap='previewImage' class='pointer' src="{{url + '44.png'}}"></image> -->
+        <text>长按识别二维码</text>
       </view>
       <view class='close' bindtap="popup"><image mode='widthFix' src="{{url + '46.png'}}"></image></view>
     </view>

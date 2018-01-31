@@ -1,11 +1,18 @@
-
+const app = getApp()
+const myFn = app.myFn
+const api = app.api
 Page({
   data: {
     imgArr: [],
-    pathArr: []
+    pathArr: [],
+    session3rd: ''
   },
   onLoad: function (options) {
-
+    this.setData({
+      session3rd: wx.getStorageSync('session3rd'),
+      imgArr: wx.getStorageSync('cardInfo').customer_file || [],
+      depathArrsc: wx.getStorageSync('cardInfo').customer_file || []
+    })
   },
   chooseIMG: function (e) {
     var self = this
@@ -64,5 +71,13 @@ Page({
     imgArr.splice(index, 1)
     pathArr.splice(index, 1)
     this.setData({ imgArr, pathArr })
+  },
+  submit() {
+    myFn.ajax('post', {
+      session3rd: this.data.session3rd,
+      customer_file: this.data.pathArr.join(','),
+    }, api.user.setCard, res => {
+      wx.navigateBack()
+    })
   }
 })

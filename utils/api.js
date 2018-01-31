@@ -15,7 +15,9 @@ const api = {
     collection: '/api/user/collectList',
     wxQRcode: '/api/user/wxGetAcode',
     setDown: '/api/user/setUserDown',
-    dowmlist: '/api/user/getDownList'
+    dowmlist: '/api/user/getDownList',
+    setCard: '/api/user/setUserCards',
+    getCard: '/api/user/getUserCards'
   },
   common: {
     getMobileCode: '/api/login/GetMobileCode',

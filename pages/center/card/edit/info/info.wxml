@@ -1,20 +1,40 @@
 <!--pages/center/card/edit/info/info.wxml-->
 <view class='form'>
-    <view class='form-wrapper'>
-      <view class='form-label'>姓名</view>
-      <input class='form-control' value="{{name}}" data-key="name" bindinput='inputValue' placeholder='请输入名称'></input>
-    </view>
-    <view class='form-wrapper'>
-      <view class='form-label'>电话</view>
-      <input class='form-control' value="{{phone}}" data-key="phone" bindinput='inputValue' placeholder='请输入电话'></input>
-    </view>
-    <view class='form-wrapper'>
-      <view class='form-label'>行业名称</view>
-      <input class='form-control' value="{{tname}}" data-key="tname" bindinput='inputValue' placeholder='请输入行业名称'></input>
-    </view>
-    <view class='form-wrapper'>
-      <view class='form-label'>行业简介</view>
-      <textarea  maxlength="-1" class='form-control' value="{{desc}}" data-key="desc" bindinput='inputValue' placeholder='请输入行业简介'></textarea >
-    </view>
-    <button>提交</button>
+  <view class='form-wrapper'>
+    <view class='form-label'>姓名</view>
+    <input class='form-control' value="{{name}}" data-key="name" bindinput='inputValue' placeholder='请输入名称'></input>
   </view>
+  <view class='form-wrapper'>
+    <view class='form-label'>电话</view>
+    <input class='form-control' value="{{phone}}" data-key="phone" bindinput='inputValue' placeholder='请输入电话'></input>
+  </view>
+  <view class='form-wrapper'>
+    <view class='form-label'>行业名称</view>
+    <input class='form-control' value="{{tname}}" data-key="tname" bindinput='inputValue' placeholder='请输入行业名称'></input>
+  </view>
+  <view class='form-wrapper'>
+    <view class='form-label'>行业简介</view>
+    <textarea maxlength="-1" class='form-control' value="{{desc}}" data-key="desc" bindinput='inputValue' placeholder='请输入行业简介'></textarea>
+  </view>
+  <view class='form-wrapper'>
+    <view class='form-label'>头像</view>
+    <view class='upload-box'>
+      <view class='uploadIMG' wx:for="{{headImgArr}}" wx:key="key">
+        <image src="{{item}}" data-type="1" data-index="{{index}}" bindtap='chooseIMG'></image>
+        <view class='icon_del' data-type="1" data-index="{{index}}" bindtap='delIMG'></view>
+      </view>
+      <view class='upload-btn' wx:if="{{headPathArr.length == 0 || headImgArr.length == 0}}" data-type="1" bindtap='chooseIMG'>上传图片</view>
+    </view>
+  </view>
+  <view class='form-wrapper'>
+    <view class='form-label'>个人二维码</view>
+    <view class='upload-box'>
+      <view class='uploadIMG' wx:for="{{imgArr}}" wx:key="key">
+        <image src="{{item}}" data-type="2" data-index="{{index}}" bindtap='chooseIMG'></image>
+        <view class='icon_del' data-type="2" data-index="{{index}}" bindtap='delIMG'></view>
+      </view>
+      <view class='upload-btn' wx:if="{{pathArr.length == 0 || imgArr.length == 0}}" data-type="2" bindtap='chooseIMG'>上传图片</view>
+    </view>
+  </view>
+  <button bindtap='submit'>提交</button>
+</view>

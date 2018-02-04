@@ -2,7 +2,7 @@
 page {
   background-image: url('http://service.qinhantangtop.com/Uploads/icon/icon_45.png');
 }
-.type {
+/* .type {
   padding: 0 60rpx;
   margin-top: 10%;
   background: none;
@@ -20,4 +20,91 @@ page {
   width: 16rpx;
   float: right;
   margin-top: 26rpx;
+} */
+/* pages/center/card/edit/info/info.wxss */
+.form {
+  padding: 30rpx;
+}
+.form-wrapper {
+  padding-bottom: 40rpx;
+  position: relative;
+}
+.form-label {
+  font-size: 30rpx;
+  color: #788397;
+  margin-bottom: 20rpx;
+}
+.form-control {
+  border: 1px solid #788397;
+  border-radius: 10rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  padding-left: 10rpx;
+}
+textarea.form-control {
+  width: 100%;
+  line-height: 1.5;
+  padding: 10rpx;
+  min-height: 200rpx;
+}
+.uploadIMG {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: text-top;
+  border: 1px dashed #a1b0cc;
+  overflow: hidden;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.uploadIMG image {
+  width: 100%;
+  height: 100%;
+}
+.upload-box {
+  margin-top: 40rpx;
+}
+.upload-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 180rpx;
+  height: 180rpx;
+  line-height: 180rpx;
+  text-align: center;
+  color: #a1b0cc;
+  border: 1px dashed #a1b0cc;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  vertical-align: text-top;
+}
+.icon_del {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 0;
+  height: 0;
+  border: 15px solid;
+  border-color: transparent transparent red;
+  background: none;
+  transform: rotate(45deg)
+}
+.icon_del:before {
+  content: '-';
+  position: absolute;
+  top: 0;
+  left: -7px;
+  width: 15px;
+  height: 15px;
+  color: #fff;
+  transform: rotate(-45deg)
+}
+button {
+  background-color: #3f51b5 ;
+  color: #fff;
+  margin-top: 10%;
 }

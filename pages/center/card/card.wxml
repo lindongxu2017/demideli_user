@@ -5,9 +5,11 @@
    <image class='QRcode' src='{{headImg}}'></image> 
   <view class='tip'>扫描二维码进入小程序</view>  -->
   <view class='edit' data-set="edit" bindtap='routeTo'>{{DIY ? '我也要制作' : '编辑名片'}}</view>
-    <image class='headimg header' src='{{cardInfo.headimgurl || userInfo.photo}}'></image>
-     <view class='name'>{{userInfo.uname || cardInfo.name}}</view>
-    <view class='tell'><image mode="widthFix" src="{{url + '47.png'}}"></image>{{userInfo.name || cardInfo.mobile}}</view> 
+    <view class='headImg-box'>
+      <image class='headimg header' src='{{cardInfo.headimgurl || userInfo.photo}}'></image>
+    </view>
+    <view class='name'>{{cardInfo.uname || userInfo.name}}</view>
+    <view class='tell'><image mode="widthFix" src="{{url + '47.png'}}"></image>{{cardInfo.name || userInfo.mobile}}</view> 
     <!-- <view class='name'>{{userInfo.uname}}</view>
     <view class='name'>{{userInfo.uname}}</view> -->
     <view class="content" animation="{{animationData}}">

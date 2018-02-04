@@ -1,6 +1,6 @@
 <view class='cell'>
   <view class='cell-title'>合作客户：</view>
   <view class='cell-value'>
-    <image wx:for="{{cardInfo.customer_file}}" wx:key="key" src="{{item}}"></image>
+    <image mode="widthFix" wx:for="{{cardInfo.customer_file}}" wx:key="key" src="{{item}}"></image>
   </view>
 </view>

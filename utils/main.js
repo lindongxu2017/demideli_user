@@ -23,7 +23,7 @@ const statusCode = (res, sucFn) => {
     //   myFn.popup(false, '用户未注册', (res) => {
       wx.redirectTo({
           url: '/pages/register/register'
-        })
+      })
     //   })
       wx.setStorageSync('is_register', 0)
       wx.setStorageSync('appInfo', wx.getStorageSync('userinfo'))

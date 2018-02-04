@@ -20,7 +20,7 @@
   <view wx:if="{{item.status == 1}}" class='status' style='color: #666'>审核中</view>
   <view wx:if="{{item.status == 2}}" class='status' style='color: #0ABA07'>已认证</view>
   <view wx:if="{{item.status == 3}}" class='status' style='color: #ccc'>审核未通过</view>
-  <view data-id="{{item.id}}" data-routerName='detail' bindtap='routeTo' class='check'>查看详情 ></view>
+  <!-- <view data-id="{{item.id}}" data-routerName='detail' bindtap='routeTo' class='check'>查看详情 ></view> -->
   <!--<image src="{{url + '14.png'}}"></image>-->
 </view>
 <view class='my-btn'>

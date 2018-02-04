@@ -36,13 +36,13 @@
 .desc {
   font-size: 24rpx;
   color: #9099a9;
-  margin-bottom: 50rpx;
+  margin-bottom: 18rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  min-height: 36rpx;
+  min-height: 72rpx;
 }
 
 .flex {

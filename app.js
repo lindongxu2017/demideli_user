@@ -6,9 +6,10 @@ App({
   myFn: '',
   api: '',
   socket_type: '',
-  onShow: function (e) {
-    wx.clearStorageSync()
-    console.log(e.path)
+  path: '',
+  onLaunch: function (e) {
+    this.path = e.path;
+    console.log(this.path)
     var main, api;
     if (e.path.split('/')[0] == 'pagess') {
       main = require('./utilss/main.js');
@@ -57,7 +58,9 @@ App({
         }
         this.myFn.ajax('post', data, this.api.admin.login, res => {
           wx.setStorageSync('session3rd', res.data.session3rd)
+          if (this.path == 'pages/center/card/card') return false;
           this.getInfo()
+          console.log(1111111111)
         })
         if (this.userInfoReadyCallback) {
           this.userInfoReadyCallback(res)
@@ -70,6 +73,22 @@ App({
       this.message_scoket(res.data.id)
       wx.setStorageSync('userID', res.data.id)
       wx.setStorageSync('appInfo', res.data)
+      // if (getCurrentPages()[1] || getCurrentPages()[0]) {
+      //   var path = getCurrentPages()[1].route
+      // }
+      var path = getCurrentPages()[0].route
+      console.log(path)
+      console.log(this.myFn)
+      if (path == 'pages/center/card/card') {
+        this.myFn.ajax('post', { uid: res.data.id }, this.api.user.getCard, res => {
+          // this.setData({ cardInfo: res.data })
+          wx.setStorageSync('cardInfo', res.data)
+          wx.reLaunch({ url: '/pages/center/card/card' })
+          // setTimeout(res => {
+          //   wx.reLaunch({ url: '/pages/center/card/card' })
+          // }, 500)
+        })
+      }
     })
   },
   globalData: {

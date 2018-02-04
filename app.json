@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/center/center",
-    "pages/center/card/card",
     "pages/index/index",
+    "pages/center/card/card",
+    "pages/center/center",
     "pages/index/details/details",
     "pages/index/list/list",
     "pages/order/order",
@@ -27,10 +27,6 @@
     "pages/center/card/cooperation/cooperation",
     "pages/center/card/info/info",
     "pages/center/card/recommend/recommend",
-    "pages/center/card/edit/info/info",
-    "pages/center/card/edit/company/company",
-    "pages/center/card/edit/recommend/recommend",
-    "pages/center/card/edit/cooperation/cooperation",
     "pagess/index/index",
     "pagess/center/center",
     "pagess/message/message",

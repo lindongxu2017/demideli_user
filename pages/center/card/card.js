@@ -23,11 +23,20 @@ Page({
       this.setData({ headImg: res.data.acode })
     })
     if (options.id) {
-      this.setData({
-        id: options.id,
-        DIY: true
+      this.setData({ id: options.id })
+      if (wx.getStorageSync('userID')) {
+        this.setData({ DIY: true })
+      }
+      myFn.ajax('post', { uid: options.id }, api.user.getCard, res => {
+        this.setData({ cardInfo: res.data })
+        wx.setStorageSync('cardInfo', res.data)
       })
     }
+    // var id = wx.getStorageSync('userID') || 3
+    // myFn.ajax('post', { uid: id }, api.user.getCard, res => {
+    //   this.setData({ cardInfo: res.data })
+    //   wx.setStorageSync('cardInfo', res.data)
+    // })
     var animation = wx.createAnimation({
       transformOrigin: "50% 50%",
       duration: 1000,
@@ -46,11 +55,11 @@ Page({
     console.log(options)
   },
   onShow() {
-    this.setData({ lock: false })
+    this.setData({ lock: false, cardInfo: wx.getStorageSync('cardInfo') })
     var timer = setInterval(res => {
       if (!this.data.lock) {
         if (!wx.getStorageSync('userID')) return false;
-        this.setData({ lock: true})
+        this.setData({ lock: true })
         clearInterval(timer)
         var id = this.data.id || wx.getStorageSync('userID')
         if (wx.getStorageSync('cardInfo')) {
@@ -63,6 +72,9 @@ Page({
         }
       }
     }, 200)
+    setTimeout(res => {
+      clearInterval(timer)
+    }, 5000)
   },
   popup() {
     this.setData({ popupVisible: !this.data.popupVisible })
@@ -84,8 +96,10 @@ Page({
     var self = this
     var path = e.target.dataset.set || e.currentTarget.dataset.set
     var url = path + '/' + path
-    if (path == 'edit' && this.data.DIY) {
-      url = '/pages/register/register'
+    console.log(wx.getStorageSync('userID'))
+    if (path == 'edit' && !wx.getStorageSync('userID')) {
+      app.getInfo()
+      return false;
     }
     if (!self.data.bool) {
       wx.navigateTo({

@@ -7,9 +7,21 @@ App({
   api: '',
   socket_type: '',
   path: '',
+  bool: false,
+  onShow: function (options) {
+    console.log(options.path)
+    if (options.path == 'pages/index/index' || options.path == 'pagess/index/index') {
+      this.bool = true
+      this.onLaunch(options)
+    }
+    // if (options.path == 'pages/index/index' || options.path == 'pagess/index/index') {
+    //   this.onLaunch()
+    // }
+  },
   onLaunch: function (e) {
+    if (this.bool) return false;
     this.path = e.path;
-    console.log(this.path)
+    console.log(e)
     var main, api;
     if (e.path.split('/')[0] == 'pagess') {
       main = require('./utilss/main.js');
@@ -34,7 +46,6 @@ App({
             } else {
               this.getInfoAndLogin()
             }
-            // this.message_scoket()
           }
         })
       }
@@ -45,7 +56,6 @@ App({
   getInfoAndLogin() {
     wx.getUserInfo({
       success: res => {
-        // console.log(res)
         // 可以将 res 发送给后台解码出 unionId
         this.globalData.userInfo = res.userInfo
         wx.setStorageSync('userinfo', res.userInfo)
@@ -60,7 +70,6 @@ App({
           wx.setStorageSync('session3rd', res.data.session3rd)
           if (this.path == 'pages/center/card/card') return false;
           this.getInfo()
-          console.log(1111111111)
         })
         if (this.userInfoReadyCallback) {
           this.userInfoReadyCallback(res)
@@ -73,20 +82,12 @@ App({
       this.message_scoket(res.data.id)
       wx.setStorageSync('userID', res.data.id)
       wx.setStorageSync('appInfo', res.data)
-      // if (getCurrentPages()[1] || getCurrentPages()[0]) {
-      //   var path = getCurrentPages()[1].route
-      // }
+
       var path = getCurrentPages()[0].route
-      console.log(path)
-      console.log(this.myFn)
       if (path == 'pages/center/card/card') {
         this.myFn.ajax('post', { uid: res.data.id }, this.api.user.getCard, res => {
-          // this.setData({ cardInfo: res.data })
           wx.setStorageSync('cardInfo', res.data)
           wx.reLaunch({ url: '/pages/center/card/card' })
-          // setTimeout(res => {
-          //   wx.reLaunch({ url: '/pages/center/card/card' })
-          // }, 500)
         })
       }
     })

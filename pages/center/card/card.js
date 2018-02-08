@@ -3,128 +3,142 @@ const app = getApp()
 const myFn = app.myFn
 const api = app.api
 Page({
-  data: {
-    url: 'http://service.qinhantangtop.com/Uploads/icon/icon_',
-    headImg: '',
-    userInfo: '',
-    animation: '',
-    bool: false,
-    popupVisible: false,
-    cardInfo: {},
-    id: '',
-    DIY: false,
-    lock: false
-  },
-  onLoad: function (options) {
-    if (wx.getStorageSync('appInfo')) {
-      this.setData({ userInfo: wx.getStorageSync('appInfo') })
-    }
-    myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.wxQRcode, res => {
-      this.setData({ headImg: res.data.acode })
-    })
-    if (options.id) {
-      this.setData({ id: options.id })
-      if (wx.getStorageSync('userID')) {
-        this.setData({ DIY: true })
-      }
-      myFn.ajax('post', { uid: options.id }, api.user.getCard, res => {
-        this.setData({ cardInfo: res.data })
-        wx.setStorageSync('cardInfo', res.data)
-      })
-    }
-    // var id = wx.getStorageSync('userID') || 3
-    // myFn.ajax('post', { uid: id }, api.user.getCard, res => {
-    //   this.setData({ cardInfo: res.data })
-    //   wx.setStorageSync('cardInfo', res.data)
-    // })
-    var animation = wx.createAnimation({
-      transformOrigin: "50% 50%",
-      duration: 1000,
-      timingFunction: "ease",
-      delay: 0
-    })
-    this.animation = animation;
+    data: {
+        id: '',
+        url: 'http://service.qinhantangtop.com/Uploads/icon/icon_',
+        headImg: '',
+        userInfo: '',
+        animation: '',
+        bool: false,
+        popupVisible: false,
+        cardInfo: {},
+        myCardInfo: {},
+        // true为他人名片
+        DIY: false,
+        lock: false
+    },
+    onLoad: function (options) {
+        
+        var TimeCallBack = setInterval ( res => {
+            if (wx.getStorageSync('userID') || !!options.id) {
 
-    animation.rotate(315).step();
+                // if (wx.getStorageSync('userID') || options.id==undefined) {
+                clearInterval(TimeCallBack);
+                // 获取用户信息
+                if (wx.getStorageSync('appInfo')) {
+                    this.data.userInfo = wx.getStorageSync('appInfo');
+                    this.setData({ userInfo: this.data.userInfo })
+                }
 
-    this.setData({
-      animationData: animation.export()
-    })
+                // 获取二维码
+                // myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.wxQRcode, res => {
+                //     this.setData({ headImg: res.data.acode })
+                // })
 
-    // 获取分享链接的参数
-    console.log(options)
-  },
-  onShow() {
-    this.setData({ lock: false, cardInfo: wx.getStorageSync('cardInfo') })
-    var timer = setInterval(res => {
-      if (!this.data.lock) {
-        if (!wx.getStorageSync('userID')) return false;
-        this.setData({ lock: true })
-        clearInterval(timer)
-        var id = this.data.id || wx.getStorageSync('userID')
-        if (wx.getStorageSync('cardInfo')) {
-          this.setData({ cardInfo: wx.getStorageSync('cardInfo') })
-        } else {
-          myFn.ajax('post', { uid: id }, api.user.getCard, res => {
-            this.setData({ cardInfo: res.data })
-            wx.setStorageSync('cardInfo', res.data)
-          })
+                // 获取个人名片信息,如果有id代表转发获取他人名片信息
+                if (options.id) {
+                    this.data.id = options.id;
+                    this.setData({ DIY: true })
+                } else {
+                    this.data.id = wx.getStorageSync('userID');
+                }
+                myFn.ajax('post', { uid: this.data.id }, api.user.getCard, res => {
+                    if (res.data == '') {
+                        wx.navigateTo({
+                            url: '/pages/center/card/edit/edit'
+                        })
+                    }
+                    this.setData({ cardInfo: res.data })
+                    wx.setStorageSync('cardInfo', res.data)
+                })
+            }
+        }, 300)
+
+        // 旋转动画设置
+        var animation = wx.createAnimation({
+            transformOrigin: "50% 50%",
+            duration: 1000,
+            timingFunction: "ease",
+            delay: 0
+        })
+        this.animation = animation;
+        animation.rotate(315).step();
+        this.setData({
+            animationData: animation.export()
+        })
+    },
+    // 加我微信弹出框
+    popup() {
+        this.setData({ popupVisible: !this.data.popupVisible })
+    },
+    // 预览图片
+    previewImage() {
+        var arr = []
+        arr[0] = this.data.cardInfo.qrcode[0] || this.data.headImg
+        wx.previewImage({
+            current: this.data.cardInfo.qrcode[0] || this.data.headImg, // 当前显示图片的http链接
+            urls: arr // 需要预览的图片http链接列表
+        })
+    },
+    // 意见拨号
+    callPhone() {
+        wx.makePhoneCall({
+            phoneNumber: this.data.userInfo.name || this.data.cardInfo.mobile
+        })
+    },
+    routeTo(e) {
+        var self = this
+        var path = e.target.dataset.set || e.currentTarget.dataset.set
+
+        // console.log(wx.getStorageSync('islogin'))
+        // if (wx.getStorageSync('userID') != '') {
+        //     myFn.ajax('post', { uid: wx.getStorageSync('userID') }, api.user.getCard, res => {
+        //         this.setData({ myCardInfo: res.data })
+        //         wx.setStorageSync('myCardInfo', res.data)
+        //     })
+        // }
+
+
+        if (path == 'edit' && wx.getStorageSync('islogin')=='') {
+            wx.navigateTo({
+                url: '/pages/register/register?type=goCard'
+            })
+            return false;
         }
-      }
-    }, 200)
-    setTimeout(res => {
-      clearInterval(timer)
-    }, 5000)
-  },
-  popup() {
-    this.setData({ popupVisible: !this.data.popupVisible })
-  },
-  previewImage() {
-    var arr = []
-    arr[0] = this.data.cardInfo.qrcode[0] || this.data.headImg
-    wx.previewImage({
-      current: this.data.cardInfo.qrcode[0] || this.data.headImg, // 当前显示图片的http链接
-      urls: arr // 需要预览的图片http链接列表
-    })
-  },
-  callPhone() {
-    wx.makePhoneCall({
-      phoneNumber: this.data.userInfo.name || this.data.cardInfo.mobile
-    })
-  },
-  routeTo(e) {
-    var self = this
-    var path = e.target.dataset.set || e.currentTarget.dataset.set
-    var url = path + '/' + path
-    console.log(wx.getStorageSync('userID'))
-    if (path == 'edit' && !wx.getStorageSync('userID')) {
-      app.getInfo()
-      return false;
-    }
-    if (!self.data.bool) {
-      wx.navigateTo({
-        url: url,
-        success: function () {
-          self.data.bool = true
-          setTimeout(() => {
-            self.data.bool = false
-          }, 1000)
+
+        myFn.ajax('post', { uid: wx.getStorageSync('userID') }, api.user.getCard, res => {
+            if (res.data != '' && this.data.id != wx.getStorageSync('userID')) {
+                wx.navigateTo({
+                    url: '/pages/center/card/card'
+                })
+                
+            } else {
+                var url = path + '/' + path
+                if (!self.data.bool) {
+                    wx.navigateTo({
+                        url: url,
+                        success: function () {
+                            self.data.bool = true
+                            setTimeout(() => {
+                                self.data.bool = false
+                            }, 1000)
+                        }
+                    })
+                }
+            }
+        })
+    },
+    // 分享
+    onShareAppMessage() {
+        return {
+            title: '得米得利',
+            path: '/pages/center/card/card?id=' + this.data.id,
+            success: function (res) {
+                // 转发成功
+            },
+            fail: function (res) {
+                // 转发失败
+            }
         }
-      })
     }
-  },
-  // 分享
-  onShareAppMessage() {
-    var id = this.data.userInfo.id || this.data.cardInfo.uid
-    return {
-      title: '得米得利',
-      path: '/pages/center/card/card?id=' + id,
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
-    }
-  }
 })

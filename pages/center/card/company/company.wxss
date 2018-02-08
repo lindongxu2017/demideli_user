@@ -10,10 +10,10 @@ view {
 }
 .cell-title {
   padding: 20rpx 30rpx;
-  font-size: 32rpx;
+  font-size: 34rpx;
 }
 .cell-value {
   padding: 0 30rpx 0 60rpx;
-  font-size: 28rpx;
+  font-size: 30rpx;
   line-height: 1.5;
 }

@@ -18,21 +18,29 @@ const statusCode = (res, sucFn) => {
       break;
     // 未注册
     case 99997:
-      console.log(res.data.data.session3rd)
-      wx.setStorageSync('session3rd', res.data.data.session3rd)
-    //   myFn.popup(false, '用户未注册', (res) => {
-      wx.redirectTo({
-          url: '/pages/register/register'
-      })
-    //   })
-      wx.setStorageSync('is_register', 0)
-      wx.setStorageSync('appInfo', wx.getStorageSync('userinfo'))
-      break;
+        wx.setStorageSync('session3rd', res.data.data.session3rd)
+        console.log(getCurrentPages()[0].data.id)
+        if (getCurrentPages()[0].route != 'pages/center/card/card') {
+            wx.redirectTo({
+                url: '/pages/register/register'
+            })
+            
+        }
+
+        if (getCurrentPages()[0].data.id == '') {
+            wx.navigateTo({
+                url: '/pages/register/register?type=goCard'
+            })
+        }
+        wx.setStorageSync('is_register', 0)
+        wx.setStorageSync('appInfo', wx.getStorageSync('userinfo'))
+        break; 
     case 99999:
       console.log(res.data)
       break;
     case 10000:
       myFn.popup(false, res.data.msg)
+      wx.hideLoading();
       break;
     default:
       myFn.popup(false, res.data.msg)

@@ -24,20 +24,21 @@ Page({
         url = path + '/' + path + '?type=1'
       }
     }
+
     if(path.split('-')[0] == 'order') {
       url = 'service/service?type=' + path.split('-')[1]
       console.log(url)
     }
     if (!self.data.bool) {
-      wx.navigateTo({
-        url: url,
-        success: function () {
-          self.data.bool = true
-          setTimeout(() => {
-            self.data.bool = false
-          }, 1000)
-        }
-      })
+        wx.navigateTo({
+            url: url,
+            success: function () {
+                self.data.bool = true
+                setTimeout(() => {
+                    self.data.bool = false
+                }, 1000)
+            }
+        })
     }
   },
   get_company_list () {

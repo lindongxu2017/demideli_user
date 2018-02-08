@@ -15,11 +15,16 @@ Page({
     protocol: false,
     protocol_type: '',
     codeTitle: '获取验证码',
-    is_read: false
+    is_read: false,
+    nextGo:''
   },
   /**
    * 自定义函数
    */
+  onLoad (options) {
+      console.log(options.type);
+      this.data.nextGo = options.type
+  },
   agree: function (e) {
     this.setData({ protocol: !this.data.protocol })
   },
@@ -78,70 +83,34 @@ Page({
       myFn.popup(false, '请确认服务协议', null)
       return false
     }
+    
+    wx.showLoading()
+    setTimeout(res=>{
+        wx.hideLoading();
+    },5000)
     var data = {
-      mobile: this.data.phone,
-      code: this.data.code,
-      session3rd: wx.getStorageSync('session3rd')
+        mobile: this.data.phone,
+        code: this.data.code,
+        session3rd: wx.getStorageSync('session3rd')
     }
-    // console.log(api.admin.register)
     myFn.ajax('post', data, api.admin.register, res => {
-      wx.navigateTo({ url: '/pages/center/center' })
-      wx.setStorageSync('is_register', 1)
+        wx.setStorageSync('islogin', 'true')
+        wx.setStorageSync('is_register', 1)
+            myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, api.user.info, res => {
+                wx.setStorageSync('userID', res.data.id)
+                wx.setStorageSync('appInfo', res.data)
+                data.session3rd = (wx.getStorageSync('session3rd'));
+
+                    if (this.data.nextGo == 'goCard') {
+                        wx.redirectTo({ url: '/pages/center/card/edit/edit' })
+                    } else {
+                        wx.redirectTo({ url: '/pages/index/index' })
+                    } 
+
+            })
     })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    // this.getProtocol()
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    
 
   }
 })

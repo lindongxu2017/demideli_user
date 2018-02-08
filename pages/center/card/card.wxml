@@ -1,19 +1,18 @@
 <!--pages/center/card/card.wxml-->
- <view class='card'>
-  <!-- <image class='headimg' src='{{userInfo.photo}}'></image>
-  <view class='name'>{{userInfo.uname}}</view>
-   <image class='QRcode' src='{{headImg}}'></image> 
-  <view class='tip'>扫描二维码进入小程序</view>  -->
-  <view class='edit' data-set="edit" bindtap='routeTo'>{{DIY ? '我也要制作' : '编辑名片'}}</view>
+<view class='card'>
+    <button class='share' open-type="share">分享名片</button>
+    <view class='edit' data-set="edit" bindtap='routeTo'>{{DIY ? '我也要制作' : '编辑名片'}}</view>
     <view class='headImg-box'>
-      <image class='headimg header' src='{{cardInfo.headimgurl || userInfo.photo}}'></image>
+      <image class='headimg header' src='{{cardInfo.headimgurl.length == 1? cardInfo.headimgurl : userInfo.photo}}'></image>
     </view>
-    <view class='name'>{{cardInfo.uname || userInfo.name}}</view>
-    <view class='tell'><image mode="widthFix" src="{{url + '47.png'}}"></image>{{cardInfo.name || userInfo.mobile}}</view> 
+    <view class='name'>{{cardInfo.name || userInfo.uname}}</view>
+    <view class='tell'><image mode="widthFix" src="{{url + '47.png'}}"></image>{{cardInfo.mobile || userInfo.mobile}}</view> 
     <!-- <view class='name'>{{userInfo.uname}}</view>
     <view class='name'>{{userInfo.uname}}</view> -->
     <view class="content" animation="{{animationData}}">
-        <view class="center"></view>
+        <view class="center">
+            <image class="centerCode" bindtap="popup" src='{{cardInfo.qrcode[0] || headImg}}'></image>
+        </view>
         <view class="gr" data-set='info' bindtap='routeTo'>
             <view class="rotate">
                 <image class='headimg' src="{{url + '40.png'}}"></image>
@@ -45,7 +44,7 @@
       <view class='QRcode'>
         <image mode='widthFix' bindtap='previewImage' class='code' src='{{cardInfo.qrcode[0] || headImg}}'></image>
         <!-- <image mode='widthFix' bindtap='previewImage' class='pointer' src="{{url + '44.png'}}"></image> -->
-        <text>长按识别二维码</text>
+        <text>点击二维码保存到相册</text>
       </view>
       <view class='close' bindtap="popup"><image mode='widthFix' src="{{url + '46.png'}}"></image></view>
     </view>

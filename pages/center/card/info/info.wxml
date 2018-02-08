@@ -14,7 +14,22 @@
     <view class='cell-value'>{{cardInfo.industry_name}}</view>
   </view>
   <view class='cell'>
-    <view class='cell-title'>行业描述：</view>
-    <view class='cell-value'>{{cardInfo.industry_intro}}</view>
+    <view class='cell-title'>星座：</view>
+    <view class='cell-value'>{{cardInfo.constellation}}</view>
+  </view>
+  
+  <view class='cell'>
+    <view class='cell-title'>血型：</view>
+    <view class='cell-value'>{{cardInfo.bloodtype}}</view>
+  </view>  
+
+  <view class='cell'>
+    <view class='cell-title'>爱好：</view>
+    <view class='cell-value'>{{cardInfo.hobby}}</view>
+  </view>
+
+  <view class='cell'>
+    <view class='cell-title'>自我评价：</view>
+    <view class='cell-value'>{{cardInfo.selfevaluation}}</view>
   </view>
 </view>

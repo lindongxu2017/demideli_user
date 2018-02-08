@@ -71,6 +71,15 @@ image.headimg {
     right: 0;
     bottom: 0;
 }
+.content .center .centerCode {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform:rotate(45deg);
+}
 .content image {
     width: 80rpx;
     height: 80rpx;
@@ -198,6 +207,16 @@ image.headimg {
   padding: 0 20rpx;
   border-radius: 40rpx;
   color: #2B90F0;
+}
+.share {
+    position: absolute;
+    right:30rpx;
+    top: 30rpx;
+    font-size: 24rpx;
+    line-height: 54rpx;
+    padding: 0 20rpx;
+    border-radius: 40rpx;
+    color: #2B90F0;
 }
 /* .name {
   font-size: 36rpx;

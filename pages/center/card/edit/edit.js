@@ -19,33 +19,38 @@ Page({
     companyAddress: '',
     cooperationImgArr: [],
     cooperationPathArr: [],
+    constellation: '',
+    bloodtype: '',
+    hobby: '',
+    selfevaluation: '',
     recommend: '',
     type: '',
     id: ''
   },
   onLoad: function (options) {
-    this.setData({
-      id: wx.getStorageSync('userID'),
-      session3rd: wx.getStorageSync('session3rd'),
-      name: wx.getStorageSync('cardInfo').name || '',
-      phone: wx.getStorageSync('cardInfo').mobile || '',
-      tname: wx.getStorageSync('cardInfo').industry_name || '',
-      desc: wx.getStorageSync('cardInfo').industry_intro || '',
-      imgArr: wx.getStorageSync('cardInfo').qrcode || [],
-      pathArr: wx.getStorageSync('cardInfo').qrcode || [],
-      headImgArr: wx.getStorageSync('cardInfo').headimgurl || [],
-      headPathArr: wx.getStorageSync('cardInfo').headimgurl || [],
-      session3rd: wx.getStorageSync('session3rd'),
-      companyName: wx.getStorageSync('cardInfo').company_name,
-      companyDesc: wx.getStorageSync('cardInfo').company_intro,
-      companyAddress: wx.getStorageSync('cardInfo').company_address,
-      cooperationImgArr: wx.getStorageSync('cardInfo').customer_file || [],
-      cooperationPathArr: wx.getStorageSync('cardInfo').customer_file || [],
-      recommend: wx.getStorageSync('cardInfo').recomme_intro
-    })
-  },
-  onShow(options) {
-
+      myFn.ajax('post', { uid: wx.getStorageSync('userID') }, api.user.getCard, res => {
+          this.setData({
+                id: wx.getStorageSync('userID'),
+                name: res.data.name || '',
+                phone: res.data.mobile || '',
+                tname: res.data.industry_name || '',
+                imgArr: res.data.qrcode || [],
+                pathArr: res.data.qrcode || [],
+                headImgArr: res.data.headimgurl || [],
+                headPathArr: res.data.headimgurl || [],
+                companyName: res.data.company_name,
+                companyDesc: res.data.company_intro,
+                companyAddress: res.data.company_address,
+                cooperationImgArr: res.data.customer_file || [],
+                cooperationPathArr: res.data.customer_file || [],
+                recommend: res.data.recomme_intro,
+                constellation: res.data.constellation,
+                bloodtype: res.data.bloodtype,
+                hobby: res.data.hobby,
+                selfevaluation: res.data.selfevaluation
+          })
+          console.log(res)
+      })
   },
   inputValue(e) {
     var key = e.target.dataset.key || e.currentTarget.dataset.key
@@ -157,34 +162,38 @@ Page({
       this.setData({ imgArr, pathArr })
     }
   },
-  submit() {
-    var data = {
-      session3rd: this.data.session3rd,
-      name: this.data.name,
-      mobile: this.data.phone,
-      industry_name: this.data.tname,
-      industry_intro: this.data.desc,
-      company_name: this.data.companyName,
-      company_intro: this.data.companyDesc,
-      company_address: this.data.companyAddress,
-      recomme_intro: this.data.recommend
+    submit() {
+        var data = {
+            session3rd: wx.getStorageSync('session3rd'),
+            name: this.data.name || '',
+            mobile: this.data.phone || '',
+            industry_name: this.data.tname || '',
+            company_name: this.data.companyName || '',
+            company_intro: this.data.companyDesc || '',
+            company_address: this.data.companyAddress || '',
+            recomme_intro: this.data.recommend || '',
+            constellation: this.data.constellation || '',
+            bloodtype: this.data.bloodtype || '',
+            hobby: this.data.hobby || '',
+            selfevaluation: this.data.selfevaluation || ''
+        }
+
+        data.qrcode = this.data.pathArr[0] || []
+        data.headimgurl = this.data.headPathArr[0] || []
+        if (this.data.cooperationPathArr.length) {
+            data.customer_file = this.data.cooperationPathArr.join(',')
+        } else {
+            data.customer_file = []
+        }
+        myFn.ajax('post', data, api.user.setCard, res => {
+            // myFn.ajax('post', { uid: this.data.id }, api.user.getCard, res => {
+                wx.setStorageSync('cardInfo', res.data)
+                wx.navigateTo({
+                    url: '/pages/center/card/card'
+                })
+            // })
+        })
     }
-    if (this.data.pathArr[0]) {
-      data.qrcode = this.data.pathArr[0]
-    }
-    if (this.data.headPathArr[0]) {
-      data.headimgurl = this.data.headPathArr[0]
-    }
-    if (this.data.cooperationPathArr.length) {
-      data.customer_file = this.data.cooperationPathArr.join(',')
-    }
-    myFn.ajax('post', data, api.user.setCard, res => {
-      myFn.ajax('post', { uid: this.data.id }, api.user.getCard, res => {
-        wx.setStorageSync('cardInfo', res.data)
-        wx.navigateBack()
-      })
-    })
-  }
   // routeTo(e) {
   //   var self = this
   //   var path = e.target.dataset.set || e.currentTarget.dataset.set

@@ -12,19 +12,19 @@
   </view>
   <view class='type-wrapper'>
     <view class='type-item' data-set="order-1" bindtap='routeTo'>
-      <image src="{{url + '16.png'}}"></image>
+      <image mode='scaleToFill' src="{{url + '16.png'}}"></image>
       <view>洽谈中</view>
     </view>
     <view class='type-item' data-set="order-2" bindtap='routeTo'>
-      <image src="{{url + '12.png'}}"></image>
+      <image mode='scaleToFill' src="{{url + '12.png'}}"></image>
       <view>待付款</view>
     </view>
     <view class='type-item' data-set="order-4" bindtap='routeTo'>
-      <image src="{{url + '13.png'}}"></image>
+      <image mode='scaleToFill' src="{{url + '13.png'}}"></image>
       <view>待评价</view>
     </view>
     <view class='type-item' data-set="order-6" bindtap='routeTo'>
-      <image src="{{url + '15.png'}}"></image>
+      <image mode='scaleToFill' src="{{url + '15.png'}}"></image>
       <view>维权中</view>
     </view>
   </view>

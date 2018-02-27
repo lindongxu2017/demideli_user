@@ -16,9 +16,24 @@ Component({
 
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   attached: function () {
-    setTimeout(res => {
-      this.setData({ route_type: wx.getStorageSync('tab_path') || 1})
-    }, 50)
+    var path = getCurrentPages()[0].route;
+    switch (path) {
+      case 'pages/index/index': 
+        this.setData({ route_type: 1});
+        break;
+      case 'pages/order/order':
+        this.setData({ route_type: 2 });
+        break;
+      case 'pages/message/message':
+        this.setData({ route_type: 3 });
+        break;
+      case 'pages/center/center':
+        this.setData({ route_type: 4 });
+        break;
+    }
+    // setTimeout(res => {
+    //   this.setData({ route_type: wx.getStorageSync('tab_path') || 1})
+    // }, 50)
   },
   moved: function () { },
   detached: function () { },

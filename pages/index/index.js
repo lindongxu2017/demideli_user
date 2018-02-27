@@ -43,6 +43,7 @@ Page({
         }
         clearInterval(timer)
     }, 200)
+    // wx.hideShareMenu();
   },
   onShow() {
     

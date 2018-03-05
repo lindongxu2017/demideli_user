@@ -14,7 +14,7 @@
   </view>
   <view class='list-price'>
     <!--<view>￥{{detail.price_yh}}<text class='orange'>—</text>{{detail.price}}</view>-->
-    <view>￥{{detail.price}}</view>
+    <view>￥{{detail.price == 0 ? '价格面议' : detail.price}}</view>
     <view>成交 {{detail.shiyong}}单</view>
   </view>
 </view>

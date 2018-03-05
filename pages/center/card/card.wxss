@@ -81,8 +81,8 @@ image.headimg {
     transform:rotate(45deg);
 }
 .content image {
-    width: 80rpx;
-    height: 80rpx;
+    width: 110rpx;
+    height: 110rpx;
 }
 .content view {
     background: transparent;

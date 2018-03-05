@@ -5,6 +5,7 @@ const api = app.api
 Page({
     data: {
         id: '',
+        options_id: '',
         url: 'http://service.qinhantangtop.com/Uploads/icon/icon_',
         headImg: '',
         userInfo: '',
@@ -18,22 +19,15 @@ Page({
         lock: false
     },
     onLoad: function (options) {
-        
         var TimeCallBack = setInterval ( res => {
-            if (wx.getStorageSync('userID') || !!options.id) {
+            if (!!options.id || wx.getStorageSync('userID')) {
 
-                // if (wx.getStorageSync('userID') || options.id==undefined) {
                 clearInterval(TimeCallBack);
                 // 获取用户信息
                 if (wx.getStorageSync('appInfo')) {
                     this.data.userInfo = wx.getStorageSync('appInfo');
                     this.setData({ userInfo: this.data.userInfo })
                 }
-
-                // 获取二维码
-                // myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.wxQRcode, res => {
-                //     this.setData({ headImg: res.data.acode })
-                // })
 
                 // 获取个人名片信息,如果有id代表转发获取他人名片信息
                 if (options.id) {
@@ -98,6 +92,15 @@ Page({
         //     })
         // }
 
+        var pages = getCurrentPages()    //获取加载的页面
+        var currentPage = pages[pages.length - 1]
+        if (currentPage.options.id) {
+            console.log(currentPage.options.id)
+            myFn.ajax('post', { uid: currentPage.options.id }, api.user.getCard, res => {
+                this.setData({ cardInfo: res.data })
+                wx.setStorageSync('cardInfo', res.data)
+            })
+        }
 
         if (path == 'edit' && wx.getStorageSync('islogin')=='') {
             wx.navigateTo({
@@ -106,17 +109,18 @@ Page({
             return false;
         }
 
-        myFn.ajax('post', { uid: wx.getStorageSync('userID') }, api.user.getCard, res => {
-            if (res.data != '' && this.data.id != wx.getStorageSync('userID')) {
+        myFn.ajax('post', { uid: this.data.id }, api.user.getCard, res => {
+            if (res.data != '' && this.data.id != wx.getStorageSync('userID') && path == 'edit') {
                 wx.navigateTo({
                     url: '/pages/center/card/card'
                 })
                 
             } else {
+
                 var url = path + '/' + path
                 if (!self.data.bool) {
                     wx.navigateTo({
-                        url: url,
+                        url: url + '?id=' + this.data.id,
                         success: function () {
                             self.data.bool = true
                             setTimeout(() => {

@@ -34,9 +34,24 @@ Page({
         myFn.popup(false, '提交成功，请等待后台审核！', res => { wx.navigateBack() })
       })
     } else if (this.data.default_way == 2) {
-      // myFn.popup(false, '开发中...', res => { wx.navigateBack() })
       myFn.ajax('post', { order_id: this.data.id, session3rd: wx.getStorageSync('session3rd') }, api.pay.wxPay, res => {
-         console.log(res)
+        // console.log(res.data.jsApiParameters)
+        var response = JSON.parse(res.data.jsApiParameters)
+        console.log(response)
+        wx.requestPayment({
+          'timeStamp': response.timeStamp,
+          'nonceStr': response.nonceStr,
+          'package': response.package,
+          'signType': response.signType,
+          'paySign': response.paySign,
+          'success': function (res) {
+            wx.navigateBack()
+          },
+          'fail': function (res) {
+            console.log(res)
+            myFn.popup(false, '支付失败', res => { wx.navigateBack() })
+          }
+        })
       })
     }
   },

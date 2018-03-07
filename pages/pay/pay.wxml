@@ -26,13 +26,13 @@
 <view class='pay-way'>
   <view class='title'>选择付款方式：</view>
   <view class='way-list'>
-    <!--<view class='way-item {{default_way == 2 ? "active" : ""}}' data-way='2'  bindtap="changeWay">
+    <view class='way-item {{default_way == 2 ? "active" : ""}}' data-way='2'  bindtap="changeWay">
       <text class='wx-pay'>微信支付</text>
       <image src="{{url + '32.png'}}"></image>
       <view class='radio-circle'>
         <icon type='success_no_circle' color="#fff" size="18" data-way='2'  bindtap="changeWay"></icon>
       </view>
-    </view>-->
+    </view>
     <view class='way-item {{default_way == 1 ? "active" : ""}}'  data-way='1'  bindtap="changeWay">
       <text class='public-pay'>对公转账</text>
       <image src="{{url + '35.png'}}"></image>

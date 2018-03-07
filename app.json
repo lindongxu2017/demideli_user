@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pagess/index/index",
     "pages/index/index",
     "pages/index/details/details",
     "pages/index/list/list",
@@ -27,7 +28,6 @@
     "pages/center/card/cooperation/cooperation",
     "pages/center/card/info/info",
     "pages/center/card/recommend/recommend",
-    "pagess/index/index",
     "pagess/center/center",
     "pagess/message/message",
     "pagess/index/details/details",

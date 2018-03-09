@@ -168,6 +168,7 @@ page {
   margin-bottom: 14rpx;
   font-size: 28rpx;
   color: #7B8699;
+  vertical-align: text-top;
 }
 .order-list .content > view .desc {
   display: inline-block;
@@ -175,6 +176,7 @@ page {
   width: -moz-calc(100% - 90px);
   width: -webkit-calc(100% - 90px);
   margin-left: 15rpx;
+  vertical-align: text-top;
 }
 .order-list .date {
   padding: 30rpx 30rpx 20rpx;

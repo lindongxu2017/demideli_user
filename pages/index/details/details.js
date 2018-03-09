@@ -58,7 +58,8 @@ Page({
     })
   },
   bindPickerChange(e) {
-    var id = this.data.company_list[e.detail.value].id
+    // var id = this.data.company_list[e.detail.value].id
+    var id = '';
     this.order(id)
   },
   comment() {

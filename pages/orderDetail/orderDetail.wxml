@@ -6,10 +6,10 @@
     <text class='label'>姓名：</text><text style='margin-right: 60rpx'>{{detail.corporate_name}}</text>
     <text class='label'>电话：</text><text>{{detail.mobile}}</text>
   </view>
-  <view class='card'>
+  <!-- <view class='card'>
     <view>相关证件</view>
     <image wx:for="{{detail.license_img}}" wx:key="{{key}}" src="{{item}}"></image>
-  </view>
+  </view> -->
 </view>
 <view class='service-wrapper'>
   <view class='cell-title'>服务信息</view>

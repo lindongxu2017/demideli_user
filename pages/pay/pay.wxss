@@ -136,8 +136,9 @@ page {
 .btn {
   box-sizing: border-box;
   padding: 0 20%;
-  margin: 70rpx 0 70rpx;
+  margin: 70rpx 0 0;
   background: none;
+  padding-bottom: 50px;
 }
 .btn button {
   border-radius: 20rpx;

@@ -64,19 +64,19 @@
     <text wx:if='{{detail.is_collect==0}}'>收藏</text>
     <text wx:if='{{detail.is_collect==1}}'>取消收藏</text>
   </view>
-  <view class='order' wx:if="{{company_list.length >= 1}}">
+  <view class='order' bindtap='bindPickerChange'>  <!-- wx:if="{{company_list.length >= 1}}" -->
     <view class='total'>合计</view>
     <view>￥{{detail.price}}</view>
     <view class='after'>下单</view>
-    <view class="section">
+    <!-- <view class="section">
       <picker bindchange="bindPickerChange" mode="selector" range-key="company_name" value="{{index}}" range="{{company_list}}">
         <view class="picker"></view>
       </picker>
-    </view>
+    </view> -->
   </view>
-  <view class='order' wx:if="{{company_list.length == 0}}" bindtap='warm'>
+  <!-- <view class='order' wx:if="{{company_list.length == 0}}" bindtap='warm'>
     <view class='total'>合计</view>
     <view>￥{{detail.price}}</view>
     <view class='after'>下单</view>
-  </view>
+  </view> -->
 </view>

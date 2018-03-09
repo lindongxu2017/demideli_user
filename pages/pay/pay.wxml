@@ -60,6 +60,6 @@
     <input placeholder-style='color:#999' placeholder='可复制粘贴' value="{{value}}" bindinput='inputValue'></input>
   </view>
 </view>
-<view class='btn' bindtap='pay'>
-  <button>确认支付</button>
+<view class='btn'>
+  <button bindtap='pay'>确认支付</button>
 </view>

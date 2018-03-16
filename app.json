@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pagess/index/index",
     "pages/index/details/details",
     "pages/index/list/list",
     "pages/order/order",
@@ -27,10 +28,8 @@
     "pages/center/card/cooperation/cooperation",
     "pages/center/card/info/info",
     "pages/center/card/recommend/recommend",
-    "pagess/index/index",
     "pagess/center/center",
     "pagess/message/message",
-    "pagess/index/details/details",
     "pagess/order/order",
     "pagess/login/login",
     "pagess/orderDetail/orderDetail",

@@ -3,5 +3,6 @@
     <image mode="aspectFit" src="{{item.bz_1}}"></image>
     <text>{{item.name}}</text>
   </view>
+  <navigator url="../../pagess/index/index" style='font-size:32rpx;'>客服专员</navigator>
 </view>
 <footer></footer>

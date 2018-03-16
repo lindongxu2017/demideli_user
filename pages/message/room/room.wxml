@@ -31,7 +31,7 @@
 </scroll-view>
 <view class='product-wrapper' wx:if="{{serverid != '' && serverid != undefined && !is_close}}">
   <view>
-    <view class='product-content' data-pid="{{item.pid}}" bindtap='goDetail'>
+    <view class='product-content' data-pid="{{serverid}}" bindtap='goDetail'>
       <image src="{{details.photo_x}}"></image>
       <view class='text'>
         <view>{{details.name}}</view>

@@ -1,7 +1,7 @@
-// pages/order/order.js
+
 const app = getApp()
 const myFn = app.myFn
-const api = app.api
+const api = getApp().api
 // console.log(myFn)
 Page({
   /**
@@ -144,5 +144,8 @@ Page({
         clearInterval(timer)
       }
     }, 100)
+  },
+  onShow () {
+    console.log(api)
   }
 })

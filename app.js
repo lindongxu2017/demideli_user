@@ -1,6 +1,7 @@
 //app.js
 
 App({
+    a: 1,
     scoket: '',
     myFn: '',
     // api地址
@@ -10,28 +11,38 @@ App({
     path: '',
     bool: false,
     onShow: function (options) {
+        // 当前页面地址
+        this.path = options.path;
+        var main, api;
+        if (this.path.split('/')[0] == 'pagess') {
+          main = require('./utilss/main.js');
+          api = require('./utilss/api.js');
+          this.socket_type = 2
+
+          this.a = 2;
+
+        } else if (this.path.split('/')[0] == 'pages') {
+          main = require('./utils/main.js');
+          api = require('./utils/api.js');
+          this.socket_type = 1
+
+          this.a = 1;
+
+        }
+        this.myFn = main.myFn
+        this.api = api.api
+
+        console.log(this.api, 'app.js')
+
         if (options.path == 'pages/index/index' || options.path == 'pagess/index/index') {
             this.bool = true
             this.onLaunch(options)
         }
     },
     onLaunch: function (e) {
-        if (this.bool) return false;
-        // 当前页面地址
-        this.path = e.path;
-        var main, api;
-        if (e.path.split('/')[0] == 'pagess') {
-            main = require('./utilss/main.js');
-            api = require('./utilss/api.js');
-            this.socket_type = 2
-        } else if (e.path.split('/')[0] == 'pages') {
-            main = require('./utils/main.js');
-            api = require('./utils/api.js');
-            this.socket_type = 1
-        }
-        this.myFn = main.myFn
-        this.api = api.api
-
+        if (!this.bool) return false;
+        this.bool = false;
+        console.log()
         // 登录
         wx.login({
             success: res => {

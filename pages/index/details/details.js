@@ -111,5 +111,8 @@ Page({
     wx.navigateTo({
       url: '/pages/message/room/room?id=' + id + '&uid=' + uid
     })
+  },
+  onShareAppMessage: function () {
+
   }
 })

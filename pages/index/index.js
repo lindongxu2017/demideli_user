@@ -3,6 +3,7 @@
 const app = getApp()
 const myFn = app.myFn
 const api = app.api
+
 // console.log(myFn)
 Page({
   data: {
@@ -46,6 +47,8 @@ Page({
     // wx.hideShareMenu();
   },
   onShow() {
-    
+  },
+  onShareAppMessage: function () {
+
   }
 })

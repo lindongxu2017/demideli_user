@@ -10,7 +10,7 @@ Page({
    */
   data: {
     url: 'http://service.qinhantangtop.com/Uploads/icon/icon_',
-    default_way: 1,
+    default_way: 2,
     detail: {},
     value: '',
     id: ''

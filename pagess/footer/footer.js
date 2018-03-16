@@ -17,7 +17,7 @@ Component({
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   attached: function () {
     var path = getCurrentPages()[0].route;
-    console.log(path)
+    console.log(path, 3333)
     switch (path) {
       case 'pagess/index/index':
         this.setData({ route_type: 1 });

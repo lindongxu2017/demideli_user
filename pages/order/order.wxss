@@ -1,8 +1,6 @@
 /* pages/order/order.wxss */
 page {
   background-color: #F2F2F2;
-  width: 100%;
-  overflow: hidden;
 }
 .search {
   padding: 20rpx 30rpx;
@@ -102,15 +100,8 @@ page {
 }
 
 .tab-content {
-  position: fixed;
-  top: 162rpx;
-  width: 100%;
-  height: calc(100% - 280rpx);
-  height: -moz-calc(100% - 280rpx);
-  height: -webkit-calc(100% - 280rpx);
+  margin-top: 162rpx;
   background: none;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 .tab-content > view {
   background: none;

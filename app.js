@@ -1,64 +1,26 @@
 //app.js
-
+var main = require('./utils/main.js');
+var api = require('./utils/api.js');
 App({
-    a: 1,
     scoket: '',
     myFn: '',
     // api地址
     api: '',
     // 通信类型：1=用户，2=专员
-    socket_type: '',
+    socket_type: 1,
     path: '',
     bool: false,
-    onShow: function (options) {
-        // 当前页面地址
-        this.path = options.path;
-        var main, api;
-        if (this.path.split('/')[0] == 'pagess') {
-          main = require('./utilss/main.js');
-          api = require('./utilss/api.js');
-          this.socket_type = 2
-
-          this.a = 2;
-
-        } else if (this.path.split('/')[0] == 'pages') {
-          main = require('./utils/main.js');
-          api = require('./utils/api.js');
-          this.socket_type = 1
-
-          this.a = 1;
-
-        }
+    onLaunch: function (e) {
         this.myFn = main.myFn
         this.api = api.api
 
-        // console.log(this.api, 'app.js')
+        // var timer = setInterval(res => {
+        //   if (wx.getStorageSync('userID')) {
+        //     clearInterval(timer);
+        //     this.message_scoket(wx.getStorageSync('userID'))
+        //   }
+        // }, 50)
 
-        // if (options.path == 'pages/index/index' || options.path == 'pagess/index/index') {
-        //     this.bool = true
-        //     this.onLaunch(options)
-        // }
-
-        this.bool = true
-        this.onLaunch(options)
-
-        var timer = setInterval(res => {
-          if (wx.getStorageSync('userID')) {
-            clearInterval(timer);
-            this.message_scoket(wx.getStorageSync('userID'))
-          }
-        }, 50)
-    },
-    onLaunch: function (e) {
-        if (!this.bool) return false;
-        this.bool = false;
-        // console.log()
-        // 登录
-        // var main = require('./utilss/main.js');
-        // var api = require('./utilss/api.js');
-        // this.myFn = main.myFn
-        // this.api = api.api
-        // this.socket_type = 1
         wx.login({
             success: res => {
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -93,16 +55,6 @@ App({
                         }
                     }
                 })
-
-                // wx.getSetting({
-                //     success: res => {
-                //         if (res.authSetting['scope.userInfo']) {
-                //             // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                //             this.getInfoAndLogin()
-                //         }
-                //         this.getInfoAndLogin()
-                //     }
-                // })
             }
         })
     },
@@ -113,14 +65,15 @@ App({
       this.myFn.ajax('post', { session3rd: session3rd }, this.api.user.info, res => {
             wx.setStorageSync('userID', res.data.id)
             wx.setStorageSync('appInfo', res.data)
+            this.message_scoket(res.data.id)
         })
     },
     globalData: {
         userInfo: null
     },
     message_scoket(id) {
-      var user_id = id || wx.getStorageSync('userID')
-      var self = this;
+      var user_id = id
+      var self = this
       wx.connectSocket({
         url: 'wss://service.qinhantangtop.com/wss',
         header: {

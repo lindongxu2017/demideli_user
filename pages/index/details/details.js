@@ -37,7 +37,7 @@ Page({
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd'), pid: this.data.id, company_id: id }, api.order.creat, res => {
       // console.log('下单成功')
       myFn.popup(false, '恭喜您下单成功！', (res) => {
-        wx.reLaunch({
+        wx.switchTab({
           url: '../../order/order'
         })
       })

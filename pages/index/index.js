@@ -28,11 +28,12 @@ Page({
     this.getList(this.data.activeID)
   },
   onLoad: function (options) {
+    console.log(api)
     // setTimeout(res => {
     //   wx.clearStorageSync()
     // }, 3000)
-    myFn = getApp().myFn
-    api = getApp().api
+    // myFn = getApp().myFn
+    // api = getApp().api
     myFn.ajax('get', {}, api.home.typeList, res => {
       this.setData({ showType: res.data, activeID: res.data[0].id })
       this.getList(this.data.activeID)

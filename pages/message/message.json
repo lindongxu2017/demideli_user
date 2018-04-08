@@ -1,6 +1,1 @@
-{
-  "navigationBarTitleText": "消息列表",
-  "usingComponents": {
-    "footer": "/pages/footer/footer"
-  }
-}
+{}

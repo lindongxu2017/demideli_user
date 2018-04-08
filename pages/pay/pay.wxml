@@ -28,7 +28,7 @@
   <view class='way-list'>
     <view class='way-item {{default_way == 2 ? "active" : ""}}' data-way='2'  bindtap="changeWay">
       <text class='wx-pay'>微信支付</text>
-      <image src="{{url + '32.png'}}"></image>
+      <image src="{{'http://service.qinhantangtop.com/Uploads/icon/32.png'}}"></image>
       <view class='radio-circle'>
         <icon type='success_no_circle' color="#fff" size="18" data-way='2'  bindtap="changeWay"></icon>
       </view>

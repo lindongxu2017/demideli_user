@@ -11,4 +11,3 @@
         <view class='item-after'>{{item.max_send_time}}</view>
     </view>
 </view>
-<footer></footer>

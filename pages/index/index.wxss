@@ -116,7 +116,7 @@ page {
 }
 
 .service-list {
-  padding: 20rpx 0 150rpx;
+  padding-top: 20rpx;
 }
 
 .serviceItem {

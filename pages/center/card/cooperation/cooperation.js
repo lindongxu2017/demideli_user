@@ -1,11 +1,16 @@
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 Page({
   data: {
     cardInfo: {}
   },
   onLoad: function (options) {
+    myFn = getApp().myFn
+    api = getApp().api
     this.setData({ cardInfo: wx.getStorageSync('cardInfo') })
+  },
+  onShow () {
+    
   }
 })

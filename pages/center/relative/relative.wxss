@@ -41,6 +41,7 @@
 }
 .info > view:first-child {
   margin-bottom: 10rpx;
+  min-height: 40rpx;
 }
 .info > view:last-child {
   font-size: 28rpx;

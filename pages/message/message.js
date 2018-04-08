@@ -1,5 +1,5 @@
 // pages/message/message.js
-const app = getApp()
+var app = getApp()
 Page({
   data: {
     url: '',
@@ -8,6 +8,7 @@ Page({
     mess_user_list: []
   },
   onShow() {
+    var app = getApp();
     app.success_scoket(res => {
       switch (res.type) {
         case 'get_single_user_list':

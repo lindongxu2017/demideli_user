@@ -59,11 +59,12 @@ page {
 }
 
 .order-list .content > view .title {
-  width: 75px;
+  width: 80px;
   display: inline-block;
   margin-bottom: 14rpx;
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: #7b8699;
+  vertical-align: text-top;
 }
 
 .order-list .content > view .desc {
@@ -72,6 +73,7 @@ page {
   width: -moz-calc(100% - 90px);
   width: -webkit-calc(100% - 90px);
   margin-left: 15rpx;
+  vertical-align: text-top;
 }
 
 .order-list .date {

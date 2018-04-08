@@ -1,7 +1,7 @@
 // pages/center/center.js
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 // console.log(myFn)
 Page({
   data: {
@@ -50,6 +50,8 @@ Page({
     })
   },
   onLoad: function (options) {
+    myFn = getApp().myFn
+    api = getApp().api
     wx.setStorageSync('tab_path', 4)
     var timer = setInterval( res => {
       if (!wx.getStorageSync('appInfo')) return false;
@@ -57,5 +59,8 @@ Page({
       this.get_company_list()
       clearInterval(timer)
     }, 200)
+  },
+  onShow () {
+    
   }
 })

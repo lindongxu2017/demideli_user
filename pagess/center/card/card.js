@@ -1,7 +1,7 @@
 // pages/center/card/card.js
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 Page({
 
   /**
@@ -12,8 +12,13 @@ Page({
     userInfo: ''
   },
   onLoad: function (options) {
+    myFn = getApp().myFn
+    api = getApp().api
     myFn.ajax('post', { session3rd: wx.getStorageSync('session3rd') }, api.user.wxQRcode, res => {
       this.setData({ headImg: res.data.acode, userInfo: wx.getStorageSync('appInfo') })
     })
+  },
+  onShow () {
+    
   }
 })

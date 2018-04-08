@@ -1,7 +1,7 @@
 // pages/message/room/room.js
-const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var app = getApp()
+var myFn = app.myFn
+var api = app.api
 Page({
   data: {
     userInfo: {},
@@ -96,7 +96,13 @@ Page({
     // console.log(11)
     this.setData({ is_close: true })
   },
+  onShow () {
+    
+  },
   onLoad: function (options) {
+    app = getApp()
+    myFn = getApp().myFn
+    api = getApp().api
     // console.log(options)
     this.setData({
       uid: options.uid,

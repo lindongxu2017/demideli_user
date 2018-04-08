@@ -1,7 +1,6 @@
-
 const app = getApp()
-const myFn = app.myFn
-const api = getApp().api
+var myFn = getApp().myFn
+var api = getApp().api
 // console.log(myFn)
 Page({
   /**
@@ -133,19 +132,17 @@ Page({
     }
   },
   onLoad () {
-    var timer = setInterval(res => {
-      if (!this.data.IO && wx.getStorageSync('session3rd')) {
-        this.getlist()
-        this.setData({
-          search_log2: wx.getStorageSync('search_log2') || [],
-          cancel_btn: false
-        })
-        this.data.IO = true
-        clearInterval(timer)
-      }
-    }, 100)
+    
   },
   onShow () {
-    console.log(api)
+    myFn = getApp().myFn
+    api = getApp().api
+    setTimeout(() => {
+      this.getlist()
+      this.setData({
+        search_log2: wx.getStorageSync('search_log2') || [],
+        cancel_btn: false
+      })
+    }, 50)
   }
 })

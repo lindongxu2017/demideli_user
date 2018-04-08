@@ -32,18 +32,33 @@ App({
         this.myFn = main.myFn
         this.api = api.api
 
-        console.log(this.api, 'app.js')
+        // console.log(this.api, 'app.js')
 
-        if (options.path == 'pages/index/index' || options.path == 'pagess/index/index') {
-            this.bool = true
-            this.onLaunch(options)
-        }
+        // if (options.path == 'pages/index/index' || options.path == 'pagess/index/index') {
+        //     this.bool = true
+        //     this.onLaunch(options)
+        // }
+
+        this.bool = true
+        this.onLaunch(options)
+
+        var timer = setInterval(res => {
+          if (wx.getStorageSync('userID')) {
+            clearInterval(timer);
+            this.message_scoket(wx.getStorageSync('userID'))
+          }
+        }, 50)
     },
     onLaunch: function (e) {
         if (!this.bool) return false;
         this.bool = false;
-        console.log()
+        // console.log()
         // 登录
+        // var main = require('./utilss/main.js');
+        // var api = require('./utilss/api.js');
+        // this.myFn = main.myFn
+        // this.api = api.api
+        // this.socket_type = 1
         wx.login({
             success: res => {
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -66,13 +81,12 @@ App({
                             iv: res.iv
                         }
 
-                        // if (e.path != 'pages/center/card/card') {
-                            this.myFn.ajax('post', data, this.api.admin.login, res => {
-                                wx.setStorageSync('session3rd', res.data.session3rd)
-                                wx.setStorageSync('islogin', true)
-                                this.getInfo()
-                            })
-                        // }
+                        this.myFn.ajax('post', data, this.api.admin.login, res => {
+                            wx.setStorageSync('session3rd', res.data.session3rd)
+                            wx.setStorageSync('islogin', true)
+                            console.log(res)
+                            this.getInfo(res.data.session3rd)
+                        })
                         
                         if (this.userInfoReadyCallback) {
                             this.userInfoReadyCallback(res)
@@ -92,52 +106,54 @@ App({
             }
         })
     },
-    getInfo() {
-        this.myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, this.api.user.info, res => {
-            this.message_scoket(res.data.id)
+    onHide () {
+      wx.closeSocket();
+    },
+    getInfo(session3rd) {
+      this.myFn.ajax('post', { session3rd: session3rd }, this.api.user.info, res => {
             wx.setStorageSync('userID', res.data.id)
             wx.setStorageSync('appInfo', res.data)
         })
     },
-        globalData: {
-            userInfo: null
+    globalData: {
+        userInfo: null
+    },
+    message_scoket(id) {
+      var user_id = id || wx.getStorageSync('userID')
+      var self = this;
+      wx.connectSocket({
+        url: 'wss://service.qinhantangtop.com/wss',
+        header: {
+            'content-type': 'application/json'
         },
-        message_scoket(id) {
-            var user_id = id || wx.getStorageSync('userID')
-            var self = this;
-            wx.connectSocket({
-                url: 'wss://service.qinhantangtop.com/wss',
-                header: {
-                    'content-type': 'application/json'
-                },
-            fail(res) {
-                console.log(res)
-            },
-            success(res) {
-                // Todo
-            }
-        })
-        wx.onSocketOpen(function (res) {
-            self.send_scoket({
-                type: 'auth',
-                user_id: user_id,
-                user_type: self.socket_type
-            })
-            setInterval(res => {
-                self.send_scoket({})
-            }, 5000)
-        })
-        wx.onSocketClose(function (res) {
-            console.log('WebSocket 已关闭！', new Date())
-            wx.closeSocket({
-                success() {
-                    self.message_scoket()
-                }
-            })
-        })
-        wx.onSocketError(function (res) {
-            console.log('WebSocket连接打开失败，请检查！')
-        })
+        fail(res) {
+            console.log(res)
+        },
+        success(res) {
+            // Todo
+        }
+      })
+      wx.onSocketOpen(function (res) {
+          self.send_scoket({
+              type: 'auth',
+              user_id: user_id,
+              user_type: self.socket_type
+          })
+          setInterval(res => {
+              self.send_scoket({})
+          }, 5000)
+      })
+      wx.onSocketClose(function (res) {
+          console.log('WebSocket 已关闭！', new Date())
+          wx.closeSocket({
+              success() {
+                  self.message_scoket()
+              }
+          })
+      })
+      wx.onSocketError(function (res) {
+          console.log('WebSocket连接打开失败，请检查！')
+      })
     },
     success_scoket(fn) {
         wx.onSocketMessage(res => {

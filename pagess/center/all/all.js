@@ -1,6 +1,6 @@
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 // console.log(myFn)
 Page({
   data: {
@@ -28,8 +28,13 @@ Page({
     })
   },
   onLoad(options) {
+    myFn = getApp().myFn
+    api = getApp().api
     this.setData({ index: options.index })
     this.getCurrent()
     this.getTotal()
+  },
+  onShow () {
+    
   }
 })

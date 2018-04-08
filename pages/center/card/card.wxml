@@ -5,13 +5,13 @@
     <view class='headImg-box'>
       <image class='headimg header' src='{{cardInfo.headimgurl.length == 1? cardInfo.headimgurl : userInfo.photo}}'></image>
     </view>
-    <view class='name'>{{cardInfo.name || userInfo.uname}}</view>
+    <view class='name'>{{cardInfo.name || cardInfo.uname}}</view>
     <view class='tell'><image mode="widthFix" src="{{url + '47.png'}}"></image>{{cardInfo.mobile || userInfo.mobile}}</view> 
     <!-- <view class='name'>{{userInfo.uname}}</view>
     <view class='name'>{{userInfo.uname}}</view> -->
     <view class="content" animation="{{animationData}}">
         <view class="center">
-            <image class="centerCode" bindtap="popup" src='{{cardInfo.qrcode[0] || headImg}}'></image>
+            <image class="centerCode" bindtap='previewImage2' src='{{wxMiniProgramCard || headImg}}'></image>
         </view>
         <view class="gr" data-set='info' bindtap='routeTo'>
             <view class="rotate">
@@ -22,7 +22,7 @@
         <view class="jj" data-set='company' bindtap='routeTo'>
             <view class="rotate">
                 <image class='headimg' src="{{url + '43.png'}}"></image>
-                <view>公司简介</view>    
+                <view>公司简介</view>
             </view>
         </view>
         <view class="wd" data-set='recommend' bindtap='routeTo'>

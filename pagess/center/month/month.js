@@ -1,6 +1,6 @@
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 // console.log(myFn)
 Page({
   data: {
@@ -9,8 +9,13 @@ Page({
     total: {}
   },
   onLoad(options) {
+    myFn = getApp().myFn
+    api = getApp().api
     this.getCurrent()
     this.getTotal()
+  },
+  onShow () {
+    
   },
   getCurrent() {
     myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, api.user.monthYj, res => {

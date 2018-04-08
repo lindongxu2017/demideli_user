@@ -43,7 +43,8 @@ const api = {
     offline: '/api/order/payByOther'
   },
   system: {
-    info: '/api/index/getProgram'
+    info: '/api/index/getProgram',
+    notice: '/api/index/notice'
   }
 }
 

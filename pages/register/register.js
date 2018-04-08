@@ -1,7 +1,7 @@
 // pages/register/register.js
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 const WxParse = require('../../wxParse/wxParse.js');
 // console.log(myFn)
 Page({
@@ -22,8 +22,13 @@ Page({
    * 自定义函数
    */
   onLoad (options) {
-      console.log(options.type);
-      this.data.nextGo = options.type
+    myFn = getApp().myFn
+    api = getApp().api
+    console.log(options.type);
+    this.data.nextGo = options.type
+  },
+  onShow () {
+    
   },
   agree: function (e) {
     this.setData({ protocol: !this.data.protocol })
@@ -93,6 +98,7 @@ Page({
         code: this.data.code,
         session3rd: wx.getStorageSync('session3rd')
     }
+    
     myFn.ajax('post', data, api.admin.register, res => {
         wx.setStorageSync('islogin', 'true')
         wx.setStorageSync('is_register', 1)
@@ -101,11 +107,22 @@ Page({
                 wx.setStorageSync('appInfo', res.data)
                 data.session3rd = (wx.getStorageSync('session3rd'));
 
-                    if (this.data.nextGo == 'goCard') {
-                        wx.redirectTo({ url: '/pages/center/card/edit/edit' })
-                    } else {
-                        wx.redirectTo({ url: '/pages/index/index' })
-                    } 
+                // 成为下级
+                if (wx.getStorageSync('setDownID')) {
+                  myFn.ajax('post', {
+                    session3rd: wx.getStorageSync('session3rd'),
+                    uid: wx.getStorageSync('setDownID'),
+                    type: 2
+                  }, api.user.setDown, res => {
+                    // todo
+                  })
+                }
+
+                if (this.data.nextGo == 'goCard') {
+                    wx.redirectTo({ url: '/pages/center/card/edit/edit' })
+                } else {
+                    wx.redirectTo({ url: '/pages/index/index' })
+                }
 
             })
     })

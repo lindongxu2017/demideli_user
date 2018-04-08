@@ -1,7 +1,7 @@
 // pages/center/auth/auth.js
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 const WxParse = require('../../../wxParse/wxParse.js');
 // console.log(myFn)
 Page({
@@ -176,6 +176,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    myFn = getApp().myFn
+    api = getApp().api
     var title = ''
     this.setData({ type: wx.getStorageSync('is_auth') })
     this.setData({ type: options.type })
@@ -194,7 +196,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

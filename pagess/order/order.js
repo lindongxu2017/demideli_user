@@ -1,7 +1,7 @@
 // pages/order/order.js
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 // console.log(myFn)
 Page({
   /**
@@ -136,10 +136,15 @@ Page({
     })
   },
   onLoad: function () {
+    myFn = getApp().myFn
+    api = getApp().api
     this.getlist()
     this.setData({
       search_log1: wx.getStorageSync('search_log1') || [],
       cancel_btn: false
     })
+  },
+  onShow () {
+    
   }
 })

@@ -1,7 +1,7 @@
 // pages/index/list/list.js
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 Page({
 
   /**
@@ -32,6 +32,8 @@ Page({
   },
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
+    myFn = getApp().myFn
+    api = getApp().api
     this.getList(options.id)
     console.log(options.id)
   },
@@ -47,7 +49,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

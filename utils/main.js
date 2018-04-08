@@ -18,13 +18,12 @@ const statusCode = (res, sucFn) => {
       break;
     // 未注册
     case 99997:
-        wx.setStorageSync('session3rd', res.data.data.session3rd)
-        console.log(getCurrentPages()[0].data.id)
+        // wx.setStorageSync('session3rd', res.data.data.session3rd)
+        console.log(getCurrentPages()[0])
         if (getCurrentPages()[0].route != 'pages/center/card/card') {
-            wx.redirectTo({
+            wx.navigateTo({
                 url: '/pages/register/register'
             })
-            
         }
 
         if (getCurrentPages()[0].data.id == '') {
@@ -32,9 +31,13 @@ const statusCode = (res, sucFn) => {
                 url: '/pages/register/register?type=goCard'
             })
         }
+
         wx.setStorageSync('is_register', 0)
         wx.setStorageSync('appInfo', wx.getStorageSync('userinfo'))
-        break; 
+
+        console.log(res.data)
+
+        break;
     case 99999:
       console.log(res.data)
       break;

@@ -84,11 +84,11 @@ textarea.form-control {
 }
 .icon_del {
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: -30rpx;
+  right: -30rpx;
   width: 0;
   height: 0;
-  border: 15px solid;
+  border: 30rpx solid;
   border-color: transparent transparent red;
   background: none;
   transform: rotate(45deg)
@@ -96,10 +96,10 @@ textarea.form-control {
 .icon_del:before {
   content: '-';
   position: absolute;
-  top: 0;
-  left: -7px;
-  width: 15px;
-  height: 15px;
+  top: -6rpx;
+  left: -20rpx;
+  width: 30rpx;
+  height: 30rpx;
   color: #fff;
   transform: rotate(-45deg)
 }

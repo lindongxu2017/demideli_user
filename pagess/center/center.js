@@ -1,7 +1,7 @@
 // pages/center/center.js
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 // console.log(myFn)
 Page({
 
@@ -21,6 +21,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    myFn = getApp().myFn
+    api = getApp().api
     var timer = setInterval(res => {
       if (!this.data.IO && wx.getStorageSync('session3rd')) {
         this.getInfo()
@@ -54,7 +56,7 @@ Page({
 
   onReady: function () { },
   onShow: function () {
-
+    
   },
   getInfo() {
     myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, api.user.info, res => {

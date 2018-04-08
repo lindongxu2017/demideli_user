@@ -1,7 +1,7 @@
 // pages/orderDetail/orderDetail.js
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 // console.log(myFn)
 Page({
 
@@ -22,11 +22,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
+    myFn = getApp().myFn
+    api = getApp().api
     console.log(e)
     this.setData({ status: e.status })
     this.getDetail(e.id)
   },
   onShow: function () {
-
+    
   }
 })

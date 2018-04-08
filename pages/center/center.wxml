@@ -5,9 +5,9 @@
       <image src="{{userinfo.photo || userinfo.avatarUrl}}"></image>
     </view>
     <view class='info'>
-      <text class='name {{company_list.length > 0? "auth" : ""}}'>{{userinfo.uname || userinfo.nickName}}</text>
+      <text class='name auth'>{{userinfo.uname || userinfo.nickName}}</text>
       <text class='identify'>身份：普通用户</text>
-      <button data-set="auth" bindtap='routeTo' wx:if="{{userinfo.is_auth != 1}}">企业认证</button>
+      <!-- <button data-set="auth" bindtap='routeTo' wx:if="{{userinfo.is_auth != 1}}">企业认证</button> -->
     </view>
   </view>
   <view class='type-wrapper'>

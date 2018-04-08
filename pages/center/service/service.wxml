@@ -8,7 +8,8 @@
       <view>状态：
         <text wx:if="{{item.status == 0}}">已失效</text>
         <text wx:if="{{item.status == 5}}">洽谈中</text>
-        <text wx:if="{{item.status == 10}}" style='color: #E02C2C'>待付款</text>
+        <text wx:if="{{item.status == 10 && item.pay_sn == ''}}" style='color: #E02C2C'>待付款</text>
+          <text wx:if="{{item.status == 10 && item.pay_sn != ''}}" style='color: #E02C2C'>审核中</text>
         <text wx:if="{{item.status == 30}}">服务中</text>
         <text wx:if="{{item.status == 50}}" style="color: #4CBFFA">已完成</text>
       </view>
@@ -37,7 +38,7 @@
           <text>下单时间：</text>{{item.addtime}}</view>
       </view>
       <view style='padding-top:30rpx'>
-        <view class='rihgt' style='color: #E02C2C' data-id="{{item.id}}" catchtap='goPay'>付款 ></view>
+        <view wx:if="{{item.pay_sn == ''}}" class='rihgt' style='color: #E02C2C' data-id="{{item.id}}" catchtap='goPay'>付款 ></view>
         <!--<view class='rihgt' style='color: #4CBFFA'>评价 ></view>-->
       </view>
     </view>

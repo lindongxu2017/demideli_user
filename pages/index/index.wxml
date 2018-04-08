@@ -1,8 +1,37 @@
 <view class='index'>
-  <view wx:for="{{showType}}" wx:key="{{key}}" data-id='{{item.id}}' bindtap='typeSearch'>
+  <!-- <view wx:for="{{showType}}" wx:key="{{key}}" data-id='{{item.id}}' bindtap='typeSearch'>
     <image mode="aspectFit" src="{{item.bz_1}}"></image>
     <text>{{item.name}}</text>
+  </view> -->
+  <!-- <navigator url="../../pagess/index/index" style='font-size:32rpx;'>客服专员</navigator> -->
+  <view class='notice'>
+    <image src="{{url + 'noice.png'}}" mode="widthFix"/>
+    <view class='notice-text' id="notice-text">
+      <view id="notice" class='notice-item {{init ? "init" : ""}}' animation="{{animationData}}">{{notice[0].title}}</view>
+    </view>
   </view>
-  <navigator url="../../pagess/index/index" style='font-size:32rpx;'>客服专员</navigator>
+  <swiper>
+    <block>
+      <swiper-item wx:for="{{homeBanner}}" wx:key="key"><image src="{{item}}" class="slide-image"/></swiper-item>
+    </block>
+  </swiper>
+  <view class='type-wrapper border-b'>
+    <view wx:for="{{showType}}" class='type-item {{activeID ==item.id ? "active": ""}}' wx:key="key">
+      <image src="{{item.bz_1}}" data-id='{{item.id}}' bindtap='typeSearch' mode="widthFix"></image>
+      <view>{{item.name}}</view>
+    </view>
+  </view>
+  <view class='service-list'>
+    <view class="serviceItem" wx:for="{{list}}" data-id='{{item.id}}' wx:key="key" bindtap='go_details'>
+      <image src="{{item.photo_x || url}}"></image>
+      <view class='title'>{{item.name}}</view>
+      <view class='desc'>{{item.intro}}</view>
+      <view class='flex'>
+        <view>￥{{item.price == '0.00' ? '价格面议' : item.price}}</view>
+        <view>成交 {{item.shiyong}}单</view>
+      </view>
+    </view>
+  </view>
+
 </view>
 <footer></footer>

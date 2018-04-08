@@ -1,7 +1,7 @@
 // pages/order/todo/todo.js
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 // console.log(myFn)
 Page({
   data: {
@@ -39,6 +39,8 @@ Page({
     }
   },
   onLoad: function (options) {
+    myFn = getApp().myFn
+    api = getApp().api
     var title = '';
     switch (parseInt(options.type)) {
       case 1: title = '订单维权'; break;
@@ -52,6 +54,6 @@ Page({
     })
   },
   onShow: function () {
-
+    
   }
 })

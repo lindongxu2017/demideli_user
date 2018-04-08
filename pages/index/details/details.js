@@ -1,7 +1,7 @@
 // pages/service_details/service_details.js
 const app = getApp()
-const myFn = app.myFn
-const api = app.api
+var myFn = app.myFn
+var api = app.api
 const WxParse = require('../../../wxParse/wxParse.js');
 // console.log(myFn)
 Page({
@@ -78,6 +78,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
+    myFn = getApp().myFn
+    api = getApp().api
     this.setData({ id: e.id })
     this.setData({ oid: e.oid })
     if (e.type == 2) { this.setData({ cover: true }) }
@@ -104,6 +106,9 @@ Page({
     })
     // 获取公司列表
     this.getCompanyList()
+  },
+  onShow () {
+    
   },
   contact_server(e) {
     var uid = e.currentTarget.dataset.uid;

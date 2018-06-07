@@ -135,6 +135,11 @@ Page({
           phoneNumber: this.data.cardInfo.mobile || this.data.userInfo.name
         })
     },
+    gohomepage () {
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    },
     routeTo(e) {
         var self = this
         var path = e.target.dataset.set || e.currentTarget.dataset.set

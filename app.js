@@ -14,21 +14,34 @@ App({
         this.myFn = main.myFn
         this.api = api.api
 
-        // var timer = setInterval(res => {
-        //   if (wx.getStorageSync('userID')) {
-        //     clearInterval(timer);
-        //     this.message_scoket(wx.getStorageSync('userID'))
-        //   }
-        // }, 50)
+        wx.getSetting({
+          success(res) {
+            if (!res.authSetting['scope.record']) {
+              wx.authorize({
+                scope: 'scope.record',
+                success() {
+                  // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+                  wx.startRecord()
+                }
+              })
+            }
+          }
+        })
 
+        
+        
+      
         wx.login({
             success: res => {
+                // console.log(11111111111111)
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
                 wx.setStorageSync('mini_code', res.code)
 
                 // 获取用户信息
                 wx.getUserInfo({
                     success: res => {
+                      // console.log(wx.getStorageSync('mini_code'))
+                      // console.log(22222222222)
                         // 可以将 res 发送给后台解码出 unionId
                         console.log(res)
                         // 获取用户信息
@@ -46,7 +59,6 @@ App({
                         this.myFn.ajax('post', data, this.api.admin.login, res => {
                             wx.setStorageSync('session3rd', res.data.session3rd)
                             wx.setStorageSync('islogin', true)
-                            console.log(res)
                             this.getInfo(res.data.session3rd)
                         })
                         
@@ -58,6 +70,14 @@ App({
             }
         })
     },
+    onShow () {
+      var timer = setInterval(res => {
+        if (wx.getStorageSync('userID')) {
+          clearInterval(timer);
+          this.message_scoket(wx.getStorageSync('userID'))
+        }
+      }, 50)
+    },
     onHide () {
       wx.closeSocket();
     },
@@ -65,7 +85,7 @@ App({
       this.myFn.ajax('post', { session3rd: session3rd }, this.api.user.info, res => {
             wx.setStorageSync('userID', res.data.id)
             wx.setStorageSync('appInfo', res.data)
-            this.message_scoket(res.data.id)
+            // this.message_scoket(res.data.id)
         })
     },
     globalData: {

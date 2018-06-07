@@ -89,10 +89,6 @@ Page({
       return false
     }
     
-    wx.showLoading()
-    setTimeout(res=>{
-        wx.hideLoading();
-    },5000)
     var data = {
         mobile: this.data.phone,
         code: this.data.code,
@@ -102,32 +98,29 @@ Page({
     myFn.ajax('post', data, api.admin.register, res => {
         wx.setStorageSync('islogin', 'true')
         wx.setStorageSync('is_register', 1)
-            myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, api.user.info, res => {
-                wx.setStorageSync('userID', res.data.id)
-                wx.setStorageSync('appInfo', res.data)
-                data.session3rd = (wx.getStorageSync('session3rd'));
+        myFn.ajax('post', { 'session3rd': wx.getStorageSync('session3rd') }, api.user.info, res => {
+            wx.setStorageSync('userID', res.data.id)
+            wx.setStorageSync('appInfo', res.data)
+            data.session3rd = (wx.getStorageSync('session3rd'));
 
-                // 成为下级
-                if (wx.getStorageSync('setDownID')) {
-                  myFn.ajax('post', {
-                    session3rd: wx.getStorageSync('session3rd'),
-                    uid: wx.getStorageSync('setDownID'),
-                    type: 2
-                  }, api.user.setDown, res => {
-                    // todo
-                  })
-                }
+            // 成为下级
+            if (wx.getStorageSync('setDownID')) {
+              myFn.ajax('post', {
+                session3rd: wx.getStorageSync('session3rd'),
+                uid: wx.getStorageSync('setDownID'),
+                type: 2
+              }, api.user.setDown, res => {
+                // todo
+              })
+            }
 
-                if (this.data.nextGo == 'goCard') {
-                    wx.redirectTo({ url: '/pages/center/card/edit/edit' })
-                } else {
-                    wx.redirectTo({ url: '/pages/index/index' })
-                }
+            if (this.data.nextGo == 'goCard') {
+                wx.redirectTo({ url: '/pages/center/card/edit/edit' })
+            } else {
+                wx.redirectTo({ url: '/pages/index/index' })
+            }
 
-            })
+        })
     })
-
-    
-
   }
 })

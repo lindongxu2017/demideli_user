@@ -40,8 +40,7 @@ view {
   bottom: 0;
 }
 swiper {
-  /*height: 100vw;*/
-  height: 360rpx;
+  height: 50vw;
   position: relative;
   z-index: 0;
 }

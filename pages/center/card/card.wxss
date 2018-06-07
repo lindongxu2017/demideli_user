@@ -227,6 +227,16 @@ image.headimg {
   height: 130rpx;
   display: inline-block;
 }
+.goHomePage {
+  position: absolute;
+  right:30rpx;
+  top: 100rpx;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  padding: 0 20rpx;
+  border-radius: 40rpx;
+  color: #2B90F0;
+}
 /* .name {
   font-size: 36rpx;
   color: #788397;

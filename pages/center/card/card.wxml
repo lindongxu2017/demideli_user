@@ -1,6 +1,7 @@
 <!--pages/center/card/card.wxml-->
 <view class='card'>
     <button class='share' open-type="share">分享名片</button>
+    <button class='goHomePage' bindtap='gohomepage'>进入首页</button>
     <view class='edit' data-set="edit" bindtap='routeTo'>{{DIY ? '我要制作' : '编辑名片'}}</view>
     <view class='headImg-box'>
       <image class='headimg header' src='{{cardInfo.headimgurl.length == 1? cardInfo.headimgurl : userInfo.photo}}'></image>

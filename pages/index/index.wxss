@@ -52,11 +52,11 @@ page {
 
 .notice {
   background-color: #3F51B5;
-  padding: 30rpx;
+  padding: 12rpx 30rpx;
   font-size: 0;
 }
 .notice image {
-  width: 40rpx;
+  width: 26rpx;
   vertical-align: middle;
 }
 .notice-text {
@@ -72,7 +72,8 @@ page {
   position: relative
 }
 .notice .notice-item {
-  font-size: 28rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
   color: #BFC9FF;
   vertical-align: middle;
   white-space: nowrap;
